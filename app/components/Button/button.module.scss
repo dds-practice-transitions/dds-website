@@ -1,0 +1,28 @@
+@import "../../theme/utils";
+
+.root {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  width: min-content;
+  height: make-rem(40);
+  border-radius: 50%;
+  white-space: nowrap;
+
+  &.sm {
+  }
+  &.md {
+    height: make-rem(40);
+    font-size: make-rem(16);
+    padding: 0 make-rem(20);
+  }
+
+  &.lg {
+  }
+
+  &.primary {
+    background: make-color("primary");
+  }
+}

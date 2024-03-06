@@ -1,7 +1,31 @@
 @import "../../theme/utils";
 
 .root {
+  height: make-rem(64);
+
   & > div {
+    height: make-rem(64);
     max-width: make-rem(1024);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: make-rem(32);
+    align-items: center;
+    text-align: center;
+
+    & > div {
+      &:first-child {
+        justify-self: start;
+      }
+
+      &:last-child {
+        justify-self: end;
+      }
+    }
   }
+}
+
+.img {
+  height: make-rem(64 / 3);
+  width: auto;
 }
