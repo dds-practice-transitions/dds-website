@@ -64,14 +64,14 @@ export function Layout({ children }: { children: ReactNode }) {
                   <strong>Phone:</strong>
                 </dt>
                 <dd>
-                  <a href="tel:+16107420188">+1 (610) 742-0188</a>
+                  <a href="tel:+14088238884">+1 (408) 823-8884</a>
                 </dd>
                 <dt>
                   <strong>Email Us:</strong>
                 </dt>
                 <dd>
-                  <a href="mailto:cameron@ddsbrokerage.com">
-                    cameron@ddsbrokerage.com
+                  <a href="mailto:info@ddsbrokerage.com">
+                    info@ddsbrokerage.com
                   </a>
                 </dd>
               </dl>
