@@ -4,6 +4,7 @@ import styles from "./page-header.module.css";
 import { Navbar } from "../Navbar";
 import { Link } from "@remix-run/react";
 import { Button } from "../Button/Button";
+import { NavbarLink } from "../NavbarLink";
 
 export const PageHeader = forwardRef<
   HTMLElement,
@@ -18,7 +19,7 @@ export const PageHeader = forwardRef<
           </Link>
         </div>
         <Navbar>
-          <Link to="/about">about</Link>
+          <NavbarLink to="/about">about</NavbarLink>
         </Navbar>
         <div>
           <Button>Get in touch</Button>

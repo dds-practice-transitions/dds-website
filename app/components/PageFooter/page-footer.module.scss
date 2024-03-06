@@ -1,7 +1,7 @@
 @import "../../theme/utils";
 
 .footer {
-  height: 400px;
+  min-height: make-rem(400);
   background: #233334;
   width: 100%;
 }

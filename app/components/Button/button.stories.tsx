@@ -15,3 +15,10 @@ export const Primary: Story = {
     children: "Primary button",
   },
 };
+
+export const Secondary: Story = {
+  args: {
+    ddVariant: "secondary",
+    children: "Secondary button",
+  },
+};
