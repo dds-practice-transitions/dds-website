@@ -19,11 +19,9 @@ export const PageHeader = forwardRef<
           </Link>
         </div>
         <Navbar>
-          <NavbarLink to="/about">about</NavbarLink>
+          <NavbarLink to="/contact-us">about</NavbarLink>
         </Navbar>
-        <div>
-          <Button>Get in touch</Button>
-        </div>
+        <div>{/* <Button>Get in touch</Button> */}</div>
       </div>
     </header>
   );

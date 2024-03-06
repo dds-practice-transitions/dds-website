@@ -13,7 +13,6 @@ import {
 
 import "./theme/theme.css";
 import { PageFooter, PageFooterColumn, PageHeader } from "./components";
-import { Newsletter } from "./routes/resource.newsletter";
 import { ReactNode } from "react";
 
 export const links: LinksFunction = () => [
@@ -78,10 +77,10 @@ export function Layout({ children }: { children: ReactNode }) {
               </dl>
             </p>
           </PageFooterColumn>
-          <PageFooterColumn title="Test"></PageFooterColumn>
+          {/* <PageFooterColumn title="Test"></PageFooterColumn>
           <PageFooterColumn title="subscribe">
             <Newsletter />
-          </PageFooterColumn>
+          </PageFooterColumn> */}
         </PageFooter>
       </body>
     </html>
