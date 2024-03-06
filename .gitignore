@@ -17,3 +17,11 @@ node_modules
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# App
+app/index.css
+app/index.css.map
+
+*.css.map
+*.module.css
+*.css

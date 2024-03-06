@@ -1,41 +1,40 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
+import { UnderConstruction } from "~/components";
+import { Footer } from "~/components/Footer";
+import { Navbar } from "~/components/Navbar";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Home | DDS Practice Transitions" },
+    {
+      name: "description",
+      content: "Your practice, our expertise, transparent results",
+    },
   ];
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <header>
+        <Navbar />
+      </header>
+      <main
+        style={{
+          height: "90vh",
+        }}
+      >
+        <UnderConstruction>
+          <p>
+            <strong>Exciting Changes Underway!</strong>
+          </p>
+          <p>
+            Stay Tuned for Our Revamped Website – Your Ultimate Resource for
+            Dental Practice Transitions
+          </p>
+        </UnderConstruction>
+      </main>
+      <Footer />
     </div>
   );
 }
