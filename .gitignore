@@ -8,3 +8,22 @@ node_modules
 /public/build
 .dev.vars
 .wrangler
+
+# Yarn Berry
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# App
+app/index.css
+app/index.css.map
+
+*.css.map
+*.module.css
+*.css
+
+.env

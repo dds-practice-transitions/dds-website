@@ -1,0 +1,20 @@
+@import "./vars";
+
+@mixin define-color() {
+  @each $color-token, $color-hex in $color {
+    $red: red($color-hex);
+    $green: green($color-hex);
+    $blue: blue($color-hex);
+
+    --color-#{$color-token}: #{$red, $green, $blue};
+  }
+}
+
+@function make-color($c, $opacity: 1) {
+  $mapped-color: map-get(
+    $map: $color,
+    $key: $c,
+  );
+
+  @return rgba(var(--color-#{$c}), $opacity);
+}

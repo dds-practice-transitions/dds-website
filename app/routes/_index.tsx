@@ -1,41 +1,36 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
+import { UnderConstruction } from "~/components";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Home | DDS Practice Transitions" },
+    {
+      name: "description",
+      content: "Your practice, our expertise, transparent results",
+    },
   ];
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <UnderConstruction>
+        <img
+          src="/logo-stacked-color.png"
+          alt="dds-practice-transitions-logo"
+        />
+        <h1
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <strong>Coming soon!</strong>
+        </h1>
+        <p>
+          We're in the process of building out our web presence. Check in
+          periodically to see our progress!
+        </p>
+      </UnderConstruction>
     </div>
   );
 }
