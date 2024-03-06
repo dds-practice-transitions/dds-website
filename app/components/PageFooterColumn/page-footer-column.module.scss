@@ -1,0 +1,10 @@
+@import "../../theme/utils";
+
+.root {
+  flex: 1;
+}
+.title {
+  font-size: make-rem(14);
+  text-transform: uppercase;
+  color: white;
+}

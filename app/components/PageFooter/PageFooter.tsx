@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
 
-import styles from "./footer.module.css";
+import styles from "./page-footer.module.css";
 
-export const Footer = forwardRef<HTMLElement, JSX.IntrinsicElements["nav"]>(
-  function Footer({ children, className, ...restProps }, ref) {
+export const PageFooter = forwardRef<HTMLElement, JSX.IntrinsicElements["nav"]>(
+  function PageFooter({ children, className, ...restProps }, ref) {
     return (
       <footer
         {...restProps}

@@ -7,15 +7,20 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  isRouteErrorResponse,
+  useRouteError,
 } from "@remix-run/react";
 
 import "./theme/theme.css";
+import { PageFooter, PageFooterColumn, PageHeader } from "./components";
+import { Newsletter } from "./routes/resource.newsletter";
+import { ReactNode } from "react";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
-export default function App() {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -25,11 +30,54 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
+        <PageHeader />
+        <main>
+          {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
+          {children}
+        </main>
         <Scripts />
+        <ScrollRestoration />
         <LiveReload />
+        <PageFooter>
+          <PageFooterColumn title="Test">stuff</PageFooterColumn>
+          <PageFooterColumn title="Test">stuff</PageFooterColumn>
+          <PageFooterColumn title="Test">hello</PageFooterColumn>
+          <PageFooterColumn title="Test">
+            <Newsletter />
+          </PageFooterColumn>
+        </PageFooter>
       </body>
     </html>
+  );
+}
+
+export default function App() {
+  return <Outlet />;
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <p>{error.data}</p>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <h1>Error!</h1>
+      <p>
+        {
+          // @ts-expect-error framework provides this
+          error?.message ?? "Unknown error"
+        }
+      </p>
+    </>
   );
 }
