@@ -1,10 +1,14 @@
 @import "../../theme/utils";
 
 .root {
-  height: make-rem(64);
+  height: make-rem(80);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background-color: make-color(paper, 0.8);
 
   & > div {
-    height: make-rem(64);
+    height: make-rem(80);
     max-width: make-rem(1024);
     margin: 0 auto;
     display: grid;
@@ -26,6 +30,6 @@
 }
 
 .img {
-  height: make-rem(64 / 3);
+  height: make-rem(24);
   width: auto;
 }

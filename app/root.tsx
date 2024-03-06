@@ -39,10 +39,10 @@ export function Layout({ children }: { children: ReactNode }) {
         <ScrollRestoration />
         <LiveReload />
         <PageFooter>
-          <PageFooterColumn title="Test">stuff</PageFooterColumn>
-          <PageFooterColumn title="Test">stuff</PageFooterColumn>
-          <PageFooterColumn title="Test">hello</PageFooterColumn>
-          <PageFooterColumn title="Test">
+          <PageFooterColumn title="our mission">our</PageFooterColumn>
+          <PageFooterColumn title="contact us"></PageFooterColumn>
+          <PageFooterColumn title="Test"></PageFooterColumn>
+          <PageFooterColumn title="subscribe">
             <Newsletter />
           </PageFooterColumn>
         </PageFooter>

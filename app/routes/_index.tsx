@@ -15,12 +15,21 @@ export default function Index() {
   return (
     <div>
       <UnderConstruction>
+        <img
+          src="/logo-stacked-color.png"
+          alt="dds-practice-transitions-logo"
+        />
+        <h1
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <strong>We're Building!</strong>
+        </h1>
         <p>
-          <strong>Exciting Changes Underway!</strong>
-        </p>
-        <p>
-          Stay Tuned for Our Revamped Website &ndash; Your Ultimate Resource for
-          Dental Practice Transitions
+          We're in the process of building out our web presence. Check in
+          periodically to see our progress! If you're really curious, sign up
+          below to be the first to know when we go live!
         </p>
       </UnderConstruction>
     </div>

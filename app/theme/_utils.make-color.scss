@@ -1,15 +1,20 @@
 @import "./vars";
 
-@function hex-to-rgba($hex, $alpha: 1) {
-  $red: str-slice($hex, 1, 2);
-  $green: str-slice($hex, 3, 4);
-  $blue: str-slice($hex, 5, 6);
+@mixin define-color() {
+  @each $color-token, $color-hex in $color {
+    $red: red($color-hex);
+    $green: green($color-hex);
+    $blue: blue($color-hex);
 
-  @return rgba(hex($red), hex($green), hex($blue), $alpha);
+    --color-#{$color-token}: #{$red, $green, $blue};
+  }
 }
 
-@function make-color($color, $opacity: 1) {
-  $colorRgb: hex-to-rgba($color, $opacity);
+@function make-color($c, $opacity: 1) {
+  $mapped-color: map-get(
+    $map: $color,
+    $key: $c,
+  );
 
-  @return var(--color-#{$colorRgb}, $opacity);
+  @return rgba(var(--color-#{$c}), $opacity);
 }

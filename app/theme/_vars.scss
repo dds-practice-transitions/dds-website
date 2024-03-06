@@ -1,5 +1,8 @@
-$font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
+$font-family: Poppins, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
   Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 $font-size: 16;
 
-$color-primary: #40696c;
+$color: (
+  paper: #ffffff,
+  primary: #40696c,
+);
