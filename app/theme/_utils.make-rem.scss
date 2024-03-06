@@ -1,0 +1,6 @@
+@use "sass:math";
+@import "./vars";
+
+@function make-rem($px-value) {
+  @return #{math.div($px-value, $font-size)}rem;
+}

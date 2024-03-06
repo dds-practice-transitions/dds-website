@@ -1,3 +1,7 @@
+@import "../../theme/utils";
+
 .navbar {
   height: 4rem;
+  max-width: make-rem(1024);
+  margin: 0 auto;
 }

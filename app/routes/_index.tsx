@@ -2,6 +2,7 @@ import type { MetaFunction } from "@remix-run/cloudflare";
 import { UnderConstruction } from "~/components";
 import { Footer } from "~/components/Footer";
 import { Navbar } from "~/components/Navbar";
+import { Newsletter } from "./resource.newsletter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,7 +35,9 @@ export default function Index() {
           </p>
         </UnderConstruction>
       </main>
-      <Footer />
+      <Footer>
+        <Newsletter />
+      </Footer>
     </div>
   );
 }

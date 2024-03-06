@@ -1,0 +1,15 @@
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px,
+);
+
+// Define a mixin for responsive styles
+@mixin responsive($size) {
+  $breakpoint: map-get($breakpoints, $size);
+
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
