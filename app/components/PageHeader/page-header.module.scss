@@ -8,6 +8,7 @@
   background-color: make-color(paper, 0.8);
   border-bottom: 1px solid make-color(grey-1, 0.5);
   z-index: 10;
+  padding: 0 make-rem(32);
 
   & > div {
     height: make-rem(80);

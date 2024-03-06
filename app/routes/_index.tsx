@@ -24,12 +24,11 @@ export default function Index() {
             textAlign: "center",
           }}
         >
-          <strong>We're Building!</strong>
+          <strong>Coming soon!</strong>
         </h1>
         <p>
           We're in the process of building out our web presence. Check in
-          periodically to see our progress! If you're really curious, sign up
-          below to be the first to know when we go live!
+          periodically to see our progress!
         </p>
       </UnderConstruction>
     </div>

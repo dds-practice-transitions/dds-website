@@ -3,7 +3,6 @@ import { clsx } from "clsx";
 import styles from "./page-header.module.css";
 import { Navbar } from "../Navbar";
 import { Link } from "@remix-run/react";
-import { Button } from "../Button/Button";
 import { NavbarLink } from "../NavbarLink";
 
 export const PageHeader = forwardRef<
@@ -19,7 +18,7 @@ export const PageHeader = forwardRef<
           </Link>
         </div>
         <Navbar>
-          <NavbarLink to="/contact-us">about</NavbarLink>
+          {/* <NavbarLink to="/contact-us">contact us</NavbarLink> */}
         </Navbar>
         <div>{/* <Button>Get in touch</Button> */}</div>
       </div>
