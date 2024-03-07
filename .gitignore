@@ -26,4 +26,5 @@ app/index.css.map
 *.module.css
 *.css
 
+
 .env
