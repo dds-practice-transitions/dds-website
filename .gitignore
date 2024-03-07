@@ -22,9 +22,12 @@ node_modules
 app/index.css
 app/index.css.map
 
-*.css.map
-*.module.css
-*.css
+app/**/*.css.map
+app/**/*.module.css
+app/**/*.css
+theme/**/*.css.map
+theme/**/*.module.css
+theme/**/*.css
 
 
 .env

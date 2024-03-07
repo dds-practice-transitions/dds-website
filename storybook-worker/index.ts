@@ -1,8 +1,10 @@
 import { getAssetFromKV } from "@cloudflare/kv-asset-handler";
+// @ts-expect-error bad types
 import manifestJSON from "__STATIC_CONTENT_MANIFEST";
 const assetManifest = JSON.parse(manifestJSON);
 
 export default {
+  // @ts-expect-error bad types
   async fetch(request, env, ctx) {
     try {
       // Add logic to decide whether to serve an asset or run your original Worker code
