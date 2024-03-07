@@ -28,3 +28,4 @@ app/index.css.map
 
 
 .env
+storybook-static/
