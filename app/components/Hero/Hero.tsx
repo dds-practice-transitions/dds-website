@@ -9,7 +9,7 @@ export type HeroLayoutProps =
   | { ddLayout: "dual-pane"; ddPaneImage: string; ddPaneImageAlt: string }
   | { ddLayout: "img-grid"; ddImages: { src: string; alt: string }[] };
 export type HeroBaseProps = {
-  ddHeight: number;
+  ddHeight: string | number;
   ddBackground: string;
   ddBackgroundAlt: string;
   ddTitle: string;

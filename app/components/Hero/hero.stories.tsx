@@ -11,7 +11,7 @@ export default meta;
 type Story = StoryObj<HeroProps>;
 
 const baseProps: HeroBaseProps = {
-  ddHeight: 1000,
+  ddHeight: "100vh",
   ddBackground: "/bg-wave-1.webp",
   ddBackgroundAlt: "gradient-1",
   ddTitle: "Your practice. Our Expertise. Full Transparency.",
