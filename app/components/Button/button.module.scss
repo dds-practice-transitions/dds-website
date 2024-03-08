@@ -46,12 +46,13 @@
 }
 
 .paper {
-  background: make-color(paper);
   color: make-color(dark);
   font-weight: 500;
+  background: make-color(paper);
   border: make-rem(1) solid make-color(dark);
 
   &:hover {
-    background: make-color(dark, 0.05);
+    background: make-color(dark);
+    color: make-color(paper);
   }
 }
