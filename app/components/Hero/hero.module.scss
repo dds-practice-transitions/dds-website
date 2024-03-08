@@ -29,7 +29,7 @@
   max-width: make-rem(1200);
   position: relative;
   margin: 0 auto;
-  height: 100%;
+  height: max-content;
 }
 
 .bg {
@@ -57,10 +57,17 @@
   }
   &-dual-pane,
   &-img-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-    gap: make-rem(64);
+    @include make-responsive(zero, tablet) {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include make-responsive(tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      display: grid;
+      gap: make-rem(64);
+    }
   }
 }
 
@@ -71,6 +78,7 @@
 .pane {
   &-primary {
     align-self: center;
+    padding: make-rem(64) 0;
   }
   &-alt {
     background-color: make-color(paper);
