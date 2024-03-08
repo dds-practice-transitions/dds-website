@@ -1,5 +1,7 @@
 import type { Preview } from "@storybook/react";
 
+import "./storybook-override.scss";
+
 import "../app/theme/theme.css";
 import "../app/components/Button/button.module.css";
 
