@@ -5,6 +5,7 @@
   height: 50vh;
   position: relative;
   overflow: hidden;
+  padding: make-rem(64) make-rem(32);
 
   * {
     z-index: 1;
@@ -14,13 +15,14 @@
     position: relative;
     margin: 0;
     font-size: make-rem(40);
-    line-height: 1.4;
+    line-height: 1.2;
   }
 
   p {
-    margin-top: make-rem(12);
+    margin-top: make-rem(16);
+    line-height: 1.4;
+    font-weight: 400;
   }
-  padding: make-rem(64) make-rem(32);
 }
 
 .container {
@@ -40,8 +42,12 @@
 
   img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    object-fit: cover;
     object-position: bottom;
   }
 }
@@ -49,11 +55,17 @@
 .layout {
   &-full-screen {
   }
-  &-dual-pane {
+  &-dual-pane,
+  &-img-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    display: grid;
     gap: make-rem(64);
   }
+}
+
+.cta {
+  margin-top: make-rem(32);
 }
 
 .pane {

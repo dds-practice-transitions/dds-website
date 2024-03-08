@@ -22,3 +22,10 @@ export const Secondary: Story = {
     children: "Secondary button",
   },
 };
+
+export const Paper: Story = {
+  args: {
+    ddVariant: "paper",
+    children: "paper button",
+  },
+};

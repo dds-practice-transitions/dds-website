@@ -28,7 +28,7 @@
 .primary {
   background: make-color(primary);
   color: make-color(paper);
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     background: make-color(primary, 0.9);
@@ -38,9 +38,20 @@
 .secondary {
   background: make-color(paper);
   color: make-color(primary);
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     background: make-color(primary, 0.2);
+  }
+}
+
+.paper {
+  background: make-color(paper);
+  color: make-color(dark);
+  font-weight: 500;
+  border: make-rem(1) solid make-color(dark);
+
+  &:hover {
+    background: make-color(dark, 0.05);
   }
 }

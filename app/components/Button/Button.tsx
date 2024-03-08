@@ -12,7 +12,7 @@ export type ButtonProps = JSX.IntrinsicElements["button"] & {
    * The color of the button
    * @default primary
    */
-  ddVariant?: "primary" | "secondary";
+  ddVariant?: "primary" | "secondary" | "paper";
 };
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
