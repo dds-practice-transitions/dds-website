@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { useDynamicNode } from ".";
+import { createPortal } from "react-dom";
 
 export const usePortal = () => {
   const { getDynamicNode, destroyNode } = useDynamicNode();
@@ -19,5 +20,11 @@ export const usePortal = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  return { isOpen, togglePortal, portalRoot: getDynamicNode() };
+  const Portal: FC<{ children: ReactNode }> = ({ children }) => {
+    if (!isOpen) return null;
+    const portalRoot = getDynamicNode();
+    return createPortal(children, portalRoot);
+  };
+
+  return { togglePortal, Portal };
 };
