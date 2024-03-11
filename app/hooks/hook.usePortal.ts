@@ -1,4 +1,11 @@
-import { FC, ReactNode, useEffect, useState } from "react";
+import {
+  ReactNode,
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useDynamicNode } from ".";
 import { createPortal } from "react-dom";
 
@@ -10,21 +17,32 @@ export const usePortal = () => {
     return () => {
       destroyNode();
     };
-  }, []);
+  }, [destroyNode]);
 
   useEffect(() => {
     if (!isOpen) destroyNode();
-  }, [isOpen]);
+  }, [destroyNode, isOpen]);
 
   const togglePortal = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const Portal: FC<{ children: ReactNode }> = ({ children }) => {
+  const closePortal = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const openPortal = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const Portal = memo(function Portal({ children }: { children: ReactNode }) {
     if (!isOpen) return null;
     const portalRoot = getDynamicNode();
     return createPortal(children, portalRoot);
-  };
+  });
 
-  return { togglePortal, Portal };
+  return useMemo(
+    () => ({ togglePortal, closePortal, openPortal, Portal }),
+    [Portal, closePortal, openPortal]
+  );
 };
