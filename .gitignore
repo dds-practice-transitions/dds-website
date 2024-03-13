@@ -207,3 +207,5 @@ dist
 
 .dev.vars
 .wrangler/
+
+*storybook.log

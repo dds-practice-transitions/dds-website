@@ -1,9 +1,15 @@
-export { PageFooter } from "./PageFooter";
-export { PageFooterColumn } from "./PageFooterColumn";
-export { PageHeader } from "./PageHeader";
-export { PageContainer } from "./PageContainer";
+// inputs
+export { Button } from "./inputs/Button";
 
-export { Navbar } from "./Navbar";
-export { NavbarLink } from "./NavbarLink";
+// dialogs
+export { Modal } from "./dialogs/Modal";
+export { Drawer } from "./dialogs/Drawer";
 
-export { UnderConstruction } from "./UnderConstruction";
+// page
+export { PageFooter } from "./page/PageFooter";
+export { PageFooterColumn } from "./page/PageFooterColumn";
+export { PageHeader } from "./page/PageHeader";
+export { PageContainer } from "./page/PageContainer";
+export { Navbar } from "./page/Navbar";
+export { NavbarLink } from "./page/NavbarLink";
+export { UnderConstruction } from "./page/UnderConstruction";
