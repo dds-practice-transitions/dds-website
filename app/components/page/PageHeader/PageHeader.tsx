@@ -1,9 +1,8 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
 import styles from "./page-header.module.css";
-import { Navbar } from "../Navbar";
+import { Navbar } from "../../navbar";
 import { Link } from "@remix-run/react";
-import { NavbarLink } from "../NavbarLink";
 
 export const PageHeader = forwardRef<
   HTMLElement,

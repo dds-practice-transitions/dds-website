@@ -1,0 +1,35 @@
+@import "../../theme/utils";
+
+.navbar {
+  max-width: make-rem(1024);
+  margin: 0 auto;
+  height: make-rem(64);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: make-rem(24);
+}
+
+.navbar-link {
+  font-size: make-rem(18);
+  color: make-color(grey-4);
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: make-rem(12);
+
+  &:hover {
+    color: make-color(grey-8);
+    cursor: pointer;
+  }
+
+  &:active {
+    color: make-color(grey-8);
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: make-rem(6);
+}

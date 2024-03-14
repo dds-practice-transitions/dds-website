@@ -2308,6 +2308,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@icon-park/react@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "@icon-park/react@npm:1.4.2"
+  peerDependencies:
+    react: ">=16.9"
+    react-dom: ">=16.9"
+  checksum: 10c0/58d4afa11cbc50d15c365c63f92866e6f59032eb2a23928926f85fe0184c07e967c1185e689b67707c6fa682939de82bf9f96f4fd47f119eaf4b13861c1222ef
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -6487,6 +6497,7 @@ __metadata:
     "@chromatic-com/storybook": "npm:^1.2.18"
     "@cloudflare/kv-asset-handler": "npm:^0.3.1"
     "@cloudflare/workers-types": "npm:^4.20240222.0"
+    "@icon-park/react": "npm:^1.4.2"
     "@remix-run/cloudflare": "npm:2.8.0"
     "@remix-run/cloudflare-pages": "npm:2.8.0"
     "@remix-run/css-bundle": "npm:2.8.0"
