@@ -9,13 +9,26 @@ const meta: Meta = {
 
 export default meta;
 
-export const Basic = () => {
+export const RightToLeft = () => {
   const { drawerRef, openDrawer } = useDrawer();
 
   return (
     <>
       <Button onClick={openDrawer}>Toggle Portal</Button>
       <Drawer ref={drawerRef}>This is some drawer content!</Drawer>
+    </>
+  );
+};
+
+export const LeftToRight = () => {
+  const { drawerRef, openDrawer } = useDrawer();
+
+  return (
+    <>
+      <Button onClick={openDrawer}>Toggle Portal</Button>
+      <Drawer ref={drawerRef} ddSize="lg">
+        This is some drawer content!
+      </Drawer>
     </>
   );
 };

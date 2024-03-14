@@ -36,12 +36,22 @@
 }
 
 .secondary {
-  background: make-color(paper);
-  color: make-color(primary);
+  background: make-color(secondary);
+  color: make-color(paper);
   font-weight: 500;
 
   &:hover {
-    background: make-color(primary, 0.2);
+    background: make-color(secondary, 0.9);
+  }
+}
+
+.tertiary {
+  background: make-color(tertiary);
+  color: make-color(paper);
+  font-weight: 500;
+
+  &:hover {
+    background: make-color(tertiary, 0.9);
   }
 }
 

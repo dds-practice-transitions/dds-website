@@ -16,7 +16,7 @@ export type DialogDefaultState = Record<string, unknown>;
 export type DialogRef<T extends DialogDefaultState = DialogDefaultState> = {
   handleOpen: (
     e: React.MouseEvent<HTMLButtonElement> | undefined,
-    initialData?: T
+    initialData?: T,
   ) => void;
   handleClose: () => void;
 };
@@ -29,6 +29,7 @@ export type UseDialogOptions = {
   /**
    * Option to determine if the dialog should be closed
    * by clicking on the ::backdrop element
+   * @default true
    */
   closeOnBackdropClick?: boolean;
   /**
@@ -41,7 +42,7 @@ export type UseDialogOptions = {
 export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
   params: UseDialogOptions & {
     ref: MutableRefObject<DialogRef<T>> | Ref<DialogRef<T>>;
-  }
+  },
 ) => {
   const iDialogRef = useRef<HTMLDialogElement | null>(null);
   const [dialogState, setDialogState] = useState<T>();
@@ -59,6 +60,7 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
 
     // get the animations on the entire dialog and wait until they complete
     const animations = dialogNode.getAnimations({ subtree: true });
+    console.log(animations);
     await Promise.allSettled(animations.map((animation) => animation.finished));
 
     // close the dialog
@@ -87,7 +89,7 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
 
       // Reconcile some params
       const type = params.type ?? "default";
-      const enableBackdropClose = params.closeOnBackdropClick ?? false;
+      const enableBackdropClose = params.closeOnBackdropClick ?? true;
 
       // Add the type to the dialogs className
       dialogNode.classList.add(type);
@@ -114,7 +116,7 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
           // prevent the close event from firing.
           e.preventDefault();
           closeDialog();
-        }
+        },
       );
 
       // short circuit
@@ -128,10 +130,10 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
           if (nodeName === "DIALOG") {
             closeDialog();
           }
-        }
+        },
       );
     },
-    [closeDialog, params.closeOnBackdropClick, params.type]
+    [closeDialog, params.closeOnBackdropClick, params.type],
   );
 
   /**
@@ -152,6 +154,6 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
       dialogState,
       Portal,
     }),
-    [Portal, dialogRef, dialogState]
+    [Portal, dialogRef, dialogState],
   );
 };

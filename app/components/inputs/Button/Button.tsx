@@ -12,12 +12,12 @@ export type ButtonProps = JSX.IntrinsicElements["button"] & {
    * The color of the button
    * @default primary
    */
-  ddVariant?: "primary" | "secondary" | "paper";
+  ddVariant?: "primary" | "secondary" | "tertiary" | "paper";
 };
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
     { children, className, ddSize = "md", ddVariant = "primary", ...restProps },
-    ref
+    ref,
   ) {
     return (
       <button
@@ -26,12 +26,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles.root,
           className,
           styles[ddSize],
-          styles[ddVariant]
+          styles[ddVariant],
         )}
         ref={ref}
       >
         {children}
       </button>
     );
-  }
+  },
 );

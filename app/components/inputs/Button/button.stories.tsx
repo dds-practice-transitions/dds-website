@@ -23,6 +23,13 @@ export const Secondary: Story = {
   },
 };
 
+export const Tertiary: Story = {
+  args: {
+    ddVariant: "tertiary",
+    children: "Tertiary button",
+  },
+};
+
 export const Paper: Story = {
   args: {
     ddVariant: "paper",

@@ -12,7 +12,7 @@ export const useDynamicNode = () => {
     if (!dynamicNodeRef.current) {
       dynamicNodeRef.current = document.createElement("div");
       dynamicNodeRef.current.setAttribute("id", window.crypto.randomUUID());
-      dynamicNodeRef.current.style.position = "relative";
+      dynamicNodeRef.current.style.position = "absolute";
       document.body.appendChild(dynamicNodeRef.current);
       return dynamicNodeRef.current;
     }
@@ -24,6 +24,6 @@ export const useDynamicNode = () => {
       getDynamicNode,
       destroyNode,
     }),
-    []
+    [destroyNode, getDynamicNode],
   );
 };

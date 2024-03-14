@@ -115,8 +115,11 @@
 }
 
 .sm {
-  --drawer-width: #{make-rem(200)};
+  --drawer-width: 20%;
 }
 .md {
-  --drawer-width: #{make-rem(400)};
+  --drawer-width: 40%;
+}
+.lg {
+  --drawer-width: 60%;
 }
