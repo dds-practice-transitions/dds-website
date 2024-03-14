@@ -15,18 +15,21 @@ export default meta;
 
 export const Basic = () => {
   return (
-    <PageHeader>
-      <PageHeaderColumn>
-        <PageHeaderLogo src="/logo.jpg" alt="dds-logo" />
-      </PageHeaderColumn>
-      <PageHeaderColumn>
-        <NavbarStory />
-      </PageHeaderColumn>
-      <PageHeaderColumn>
-        <Button ddSize="sm" ddVariant="primary">
-          Get in touch
-        </Button>
-      </PageHeaderColumn>
-    </PageHeader>
+    <>
+      <PageHeader>
+        <PageHeaderColumn>
+          <PageHeaderLogo src="/logo.jpg" alt="dds-logo" />
+        </PageHeaderColumn>
+        <PageHeaderColumn>
+          <NavbarStory />
+        </PageHeaderColumn>
+        <PageHeaderColumn>
+          <Button ddSize="sm" ddVariant="primary">
+            Get in touch
+          </Button>
+        </PageHeaderColumn>
+      </PageHeader>
+      <div style={{ height: 1_000 }} />
+    </>
   );
 };
