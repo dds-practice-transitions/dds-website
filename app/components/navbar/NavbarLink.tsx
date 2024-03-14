@@ -7,24 +7,31 @@ import { Icon } from "../display/Icon";
 
 export type NavbarLinkProps = JSX.IntrinsicElements["a"] & {
   ddLabel: string;
+  ddActive?: boolean;
 };
 export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
-  function NavbarLink({ children, className, ddLabel, ...restProps }, ref) {
+  function NavbarLink(
+    { children, className, ddLabel, ddActive = false, ...restProps },
+    ref,
+  ) {
     const isMenu = typeof children !== "undefined";
     return (
-      <a
-        {...restProps}
-        className={clsx(styles["navbar-link"], className, {
-          menu: isMenu,
-        })}
-        ref={ref}
-      >
-        <div className={styles["content"]}>
-          <span>{ddLabel}</span>
-          {isMenu && <Icon DDIcon={Down} />}
-        </div>
-        {children}
-      </a>
+      <li className={clsx(styles["navbar-item"])}>
+        <a
+          {...restProps}
+          className={clsx(styles["navbar-link"], className, {
+            menu: isMenu,
+            [styles["active"]]: ddActive,
+          })}
+          ref={ref}
+        >
+          <div className={styles["content"]}>
+            <span>{ddLabel}</span>
+            {isMenu && <Icon DDIcon={Down} />}
+          </div>
+          {children}
+        </a>
+      </li>
     );
   },
 );

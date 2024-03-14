@@ -12,7 +12,7 @@ export default meta;
 export const Basic = () => {
   return (
     <Navbar>
-      <NavbarLink ddLabel="about us" />
+      <NavbarLink ddLabel="about" />
       <NavbarLink ddLabel="services">
         <div></div>
         {/* <NavbarMenu>
@@ -21,7 +21,7 @@ export const Basic = () => {
           </NavbarMenuList>
         </NavbarMenu> */}
       </NavbarLink>
-      <NavbarLink ddLabel="our company">
+      <NavbarLink ddLabel="our company" ddActive>
         <div></div>
         {/* <NavbarMenu>
           <NavbarMenuList>
