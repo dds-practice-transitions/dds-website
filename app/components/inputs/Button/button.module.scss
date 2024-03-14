@@ -8,13 +8,16 @@
 
   width: min-content;
   height: make-rem(40);
-  border-radius: make-rem(16);
+  border-radius: make-rem(12);
   white-space: nowrap;
   cursor: pointer;
   font-family: var(--font-family);
 }
 
 .sm {
+  height: make-rem(32);
+  font-size: make-rem(12);
+  padding: 0 make-rem(16);
 }
 .md {
   height: make-rem(40);
