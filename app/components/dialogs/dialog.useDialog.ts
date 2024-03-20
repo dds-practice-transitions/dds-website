@@ -21,6 +21,8 @@ export type DialogRef<T extends DialogDefaultState = DialogDefaultState> = {
   handleClose: () => void;
 };
 
+export type DialogState<T extends DialogDefaultState = DialogDefaultState> = T;
+
 export type UseDialogOptions = {
   /**
    * The type of dialog that should be rendered
@@ -45,7 +47,7 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
   },
 ) => {
   const iDialogRef = useRef<HTMLDialogElement | null>(null);
-  const [dialogState, setDialogState] = useState<T>();
+  const [dialogState, setDialogState] = useState<DialogState<T>>();
   const { Portal, openPortal, closePortal } = usePortal();
   const dialogEventClickRef = useRef<void | null>(null);
   const dialogEventCancelRef = useRef<void | null>(null);
@@ -126,6 +128,7 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
         "click",
         ({ target }) => {
           const { nodeName } = target as HTMLDialogElement;
+          console.log(nodeName);
           if (nodeName === "DIALOG") {
             closeDialog();
           }
@@ -140,8 +143,8 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
    * the dialog
    */
   useImperativeHandle(params.ref, () => ({
-    handleOpen(_, initState) {
-      if (initState) setDialogState(initState);
+    handleOpen(_, initState = {} as T) {
+      setDialogState(initState);
       openPortal();
     },
     handleClose: closeDialog,
