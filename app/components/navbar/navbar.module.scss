@@ -6,7 +6,6 @@
 
     max-width: make-rem(1024);
     margin: 0 auto;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,17 +39,24 @@
     text-align: center;
     border-bottom: make-rem(1) solid make-color(grey-1, 0.5);
   }
+  @include make-responsive(tablet) {
+    height: make-rem(40);
+    display: flex;
+    align-items: center;
+  }
 }
 
 .navbar-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+
   @include make-responsive(zero, tablet) {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
   }
   @include make-responsive(tablet) {
+    height: inherit;
     font-size: make-rem(18);
     color: make-color(grey-5);
     text-decoration: none;

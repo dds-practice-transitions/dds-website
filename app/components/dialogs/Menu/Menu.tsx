@@ -31,7 +31,7 @@ export const Menu = forwardRef(function Menu<T extends DialogDefaultState>(
 ) {
   const { Portal, dialogRef, dialogState } = useDialog<MenuState<T>>({
     ref,
-    type: "modal",
+    type: "default",
     ...restProps,
   });
   const [popperEl, setPopperEl] = useState<HTMLDialogElement | null>(null);
