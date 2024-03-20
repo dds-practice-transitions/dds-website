@@ -5,6 +5,7 @@ import { Menu, useMenu } from "../dialogs/Menu";
 import { MenuList } from "../dialogs/Menu/MenuList";
 import { MenuListItem } from "../dialogs/Menu/MenuListItem";
 import { MouseEventHandler, useCallback } from "react";
+import { NavbarMenuLink } from "./NavbarMenuLink";
 
 const meta: Meta = {
   title: "Page / Navbar",
@@ -42,12 +43,16 @@ export const Basic = () => {
       <NavbarLink ddLabel="about" />
       <NavbarLink ddLabel="services" onMouseEnter={openMenuServices}>
         <Menu ref={menuServices.menuRef}>
-          <MenuList onMouseLeave={menuServices.closeMenu}>
+          <MenuList>
+            {/* <MenuList onMouseLeave={menuServices.closeMenu}> */}
             <MenuListItem>
-              <button>test 1</button>
-              <button>test 2</button>
-              <button>test 3</button>
-              <button>test 4</button>
+              <NavbarMenuLink className="active">Web Design</NavbarMenuLink>
+            </MenuListItem>
+            <MenuListItem>
+              <NavbarMenuLink>Web Development</NavbarMenuLink>
+            </MenuListItem>
+            <MenuListItem>
+              <NavbarMenuLink>Conversion Optimization</NavbarMenuLink>
             </MenuListItem>
           </MenuList>
         </Menu>

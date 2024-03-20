@@ -57,12 +57,11 @@
   }
   @include make-responsive(tablet) {
     height: inherit;
-    font-size: make-rem(18);
+    font-size: make-rem(14);
     color: make-color(grey-5);
     text-decoration: none;
     font-weight: 500;
     text-transform: capitalize;
-    font-size: make-rem(12);
 
     &:hover {
       color: make-color(primary);
@@ -95,4 +94,30 @@
   @include make-responsive(tablet) {
     display: none;
   }
+}
+
+.navbar-menu-link {
+  @include make-responsive(tablet) {
+    height: make-rem(38);
+    min-width: make-rem(180);
+    padding: 0 make-rem(16);
+    display: flex;
+    align-items: center;
+    border-radius: make-rem(8);
+    margin: make-rem(6) 0;
+    cursor: pointer;
+    border: 1px solid make-color("paper");
+    font-size: make-rem(14);
+  }
+
+  &:focus {
+    border: 1px solid make-color("primary");
+  }
+
+  &:hover {
+    background: make-color(primary, 0.1);
+  }
+}
+.navbar-menu-link-active {
+  background: make-color(primary, 0.2);
 }
