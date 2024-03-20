@@ -15,7 +15,7 @@ export type DrawerProps = Pick<
   "onClose" | "closeOnBackdropClick"
 > & {
   children: ReactNode;
-  ddOrientation?: "left-to-right";
+  ddOrientation?: "left-to-right" | "right-to-left";
   ddSize?: "sm" | "md" | "lg";
 };
 

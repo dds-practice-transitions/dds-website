@@ -15,7 +15,9 @@ export const RightToLeft = () => {
   return (
     <>
       <Button onClick={openDrawer}>Toggle Portal</Button>
-      <Drawer ref={drawerRef}>This is some drawer content!</Drawer>
+      <Drawer ref={drawerRef} ddOrientation="right-to-left">
+        This is some drawer content!
+      </Drawer>
     </>
   );
 };
@@ -26,7 +28,7 @@ export const LeftToRight = () => {
   return (
     <>
       <Button onClick={openDrawer}>Toggle Portal</Button>
-      <Drawer ref={drawerRef} ddSize="lg">
+      <Drawer ref={drawerRef} ddSize="lg" ddOrientation="left-to-right">
         This is some drawer content!
       </Drawer>
     </>

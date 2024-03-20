@@ -56,18 +56,17 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
 
     const onClose = params?.onClose ?? (() => void 0);
     // add the class close to the dialog to add any closing animations
-    dialogNode.classList.add("close");
+    dialogNode.dataset["close"] = "true";
 
     // get the animations on the entire dialog and wait until they complete
     const animations = dialogNode.getAnimations({ subtree: true });
-    console.log(animations);
     await Promise.allSettled(animations.map((animation) => animation.finished));
 
     // close the dialog
     dialogNode.close();
 
     // Run any custom onClose function
-    if (onClose) onClose();
+    onClose();
 
     dialogEventClickRef.current = null;
     dialogEventCancelRef.current = null;
