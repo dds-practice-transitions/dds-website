@@ -128,7 +128,6 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
         "click",
         ({ target }) => {
           const { nodeName } = target as HTMLDialogElement;
-          console.log(nodeName);
           if (nodeName === "DIALOG") {
             closeDialog();
           }

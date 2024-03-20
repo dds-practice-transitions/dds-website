@@ -4,7 +4,6 @@ import {
   RefCallback,
   forwardRef,
   useCallback,
-  useMemo,
   useState,
 } from "react";
 import { usePopper } from "react-popper";
@@ -12,6 +11,9 @@ import { usePopper } from "react-popper";
 import { DialogProvider } from "../Dialog.context";
 import { DialogDefaultState, DialogRef, useDialog } from "../dialog.useDialog";
 import { Options } from "@popperjs/core";
+
+import clsx from "clsx";
+import menuStyles from "./menu.module.css";
 
 export type MenuProps = { children: ReactNode };
 
@@ -48,27 +50,18 @@ export const Menu = forwardRef(function Menu<T extends DialogDefaultState>(
     [dialogRef],
   );
 
-  return useMemo(
-    () => (
-      <Portal>
-        <DialogProvider initialState={dialogState}>
-          <dialog
-            ref={combinedRef}
-            style={styles.popper}
-            {...attributes.popper}
-          >
-            {children}
-          </dialog>
-        </DialogProvider>
-      </Portal>
-    ),
-    [
-      Portal,
-      attributes.popper,
-      children,
-      combinedRef,
-      dialogState,
-      styles.popper,
-    ],
+  return (
+    <Portal>
+      <DialogProvider initialState={dialogState}>
+        <dialog
+          ref={combinedRef}
+          className={clsx(menuStyles["menu"])}
+          style={styles.popper}
+          {...attributes.popper}
+        >
+          {children}
+        </dialog>
+      </DialogProvider>
+    </Portal>
   );
 });

@@ -2,6 +2,8 @@ import type { Meta } from "@storybook/react";
 import { Button } from "../../inputs/Button";
 import { Menu } from "./Menu";
 import { useMenu } from "./menu.useMenu";
+import { MenuList } from "./MenuList";
+import { MenuListItem } from "./MenuListItem";
 
 const meta: Meta = {
   title: "Dialogs / Menu",
@@ -21,11 +23,13 @@ export const Hover = () => {
     <>
       <Button onMouseEnter={openMenu}>Hover to open menu</Button>
       <Menu ref={menuRef}>
-        <ul onMouseLeave={closeMenu}>
-          <li>Test content 1</li>
-          <li>Test content 2</li>
-          <li>Test content 3</li>
-        </ul>
+        <MenuList onMouseLeave={closeMenu}>
+          <MenuListItem>
+            <button>Test content 1</button>
+          </MenuListItem>
+          <MenuListItem>Test content 2</MenuListItem>
+          <MenuListItem>Test content 3</MenuListItem>
+        </MenuList>
       </Menu>
     </>
   );

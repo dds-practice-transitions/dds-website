@@ -1,0 +1,29 @@
+@import "../../../theme/utils";
+
+.menu {
+  background: make-color(paper);
+  border: 1px solid make-color(grey-2);
+  box-shadow: 0px 4px 5px rgba(25, 33, 61, 0.05);
+  border-radius: make-rem(8);
+
+  &::backdrop {
+    background: transparent;
+  }
+
+  & > * {
+    padding: make-rem(6);
+  }
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.list-item {
+  & > button {
+    @include make-reset-button();
+    width: 100%;
+  }
+}

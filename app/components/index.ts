@@ -2,8 +2,9 @@
 export { Button } from "./inputs/Button";
 
 // dialogs
-export { Modal } from "./dialogs/Modal";
-export { Drawer } from "./dialogs/Drawer";
+export * from "./dialogs/Modal";
+export * from "./dialogs/Drawer";
+export * from "./dialogs/Menu";
 
 // page
 export { PageFooter } from "./page/PageFooter";
