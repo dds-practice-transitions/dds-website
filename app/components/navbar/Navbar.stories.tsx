@@ -6,6 +6,7 @@ import { MenuList } from "../dialogs/Menu/MenuList";
 import { MenuListItem } from "../dialogs/Menu/MenuListItem";
 import { MouseEventHandler, useCallback } from "react";
 import { NavbarMenuLink } from "./NavbarMenuLink";
+import { Button } from "../inputs/Button";
 
 const meta: Meta = {
   title: "Page / Navbar",
@@ -43,8 +44,7 @@ export const Basic = () => {
       <NavbarLink ddLabel="about" />
       <NavbarLink ddLabel="services" onMouseEnter={openMenuServices}>
         <Menu ref={menuServices.menuRef}>
-          <MenuList>
-            {/* <MenuList onMouseLeave={menuServices.closeMenu}> */}
+          <MenuList onMouseLeave={menuServices.closeMenu}>
             <MenuListItem>
               <NavbarMenuLink className="active">Web Design</NavbarMenuLink>
             </MenuListItem>
@@ -62,9 +62,9 @@ export const Basic = () => {
           <MenuList onMouseLeave={menuCompany.closeMenu}>
             <MenuListItem>
               <button>test 1</button>
+            </MenuListItem>
+            <MenuListItem>
               <button>test 2</button>
-              <button>test 3</button>
-              <button>test 4</button>
             </MenuListItem>
           </MenuList>
         </Menu>

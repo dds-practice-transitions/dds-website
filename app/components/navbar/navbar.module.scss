@@ -57,11 +57,16 @@
   }
   @include make-responsive(tablet) {
     height: inherit;
-    font-size: make-rem(14);
+    font-size: make-rem(16);
     color: make-color(grey-5);
     text-decoration: none;
     font-weight: 500;
     text-transform: capitalize;
+    border: make-rem(1) solid make-color(paper);
+
+    &:focus {
+      border: make-rem(1) solid make-color(primary);
+    }
 
     &:hover {
       color: make-color(primary);

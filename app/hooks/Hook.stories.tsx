@@ -1,8 +1,12 @@
 import type { Meta } from "@storybook/react";
 import { usePortal } from "./hook.usePortal";
+import { breakpointMap, useBreakpoint } from "./hook.useBreakpoint";
 
 const meta: Meta = {
-  title: "Hooks",
+  title: "Utils / Hooks",
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<typeof meta>;
 
 export default meta;
@@ -17,6 +21,122 @@ export const UsePortal = () => {
         {/* This content can be dynamically imported */}
         <div>Portal Content</div>
       </Portal>
+    </div>
+  );
+};
+
+export const UseBreakpoint = () => {
+  const shouldRender = useBreakpoint("mobile");
+  const shouldRenderBetween = useBreakpoint({ from: "tablet", to: "desktop" });
+  console.log("shouldRenderBetween", shouldRenderBetween);
+  const shouldRenderMax = useBreakpoint("desktop");
+
+  return (
+    <div
+      style={{
+        maxWidth: "50ch",
+      }}
+    >
+      <div>
+        Current Width:{" "}
+        <code>
+          <strong>
+            {typeof window !== "undefined" && window.innerWidth}px
+          </strong>
+        </code>
+      </div>
+      <br />
+      The box should turn{" "}
+      <span
+        style={{
+          color: "blue",
+          fontWeight: "bold",
+        }}
+      >
+        BLUE
+      </span>{" "}
+      when the viewport:
+      <ul>
+        <li>
+          GREATER THAN:{" "}
+          <code>
+            <strong>{breakpointMap["mobile"]}px</strong>
+          </code>
+        </li>
+      </ul>
+      <br />
+      <div
+        style={{
+          height: "2rem",
+          width: "100%",
+          background: shouldRender ? "blue" : "#ccc",
+        }}
+      />
+      <br />
+      <br />
+      <div>
+        The box should turn{" "}
+        <span
+          style={{
+            color: "green",
+            fontWeight: "bold",
+          }}
+        >
+          GREEN
+        </span>{" "}
+        when the viewport:
+        <ul>
+          <li>
+            GREATER THAN:&nbsp;
+            <code>
+              <strong>{breakpointMap["tablet"]}px</strong>
+            </code>
+          </li>
+          <li>
+            LESS THAN OR EQUAL TO:&nbsp;
+            <code>
+              <strong>{breakpointMap["desktop"] - 1}px</strong>
+            </code>
+          </li>
+        </ul>
+        <div
+          style={{
+            height: "2rem",
+            width: "100%",
+            background: shouldRenderBetween ? "green" : "#ccc",
+          }}
+        />
+      </div>
+      <br />
+      <br />
+      <div>
+        The box should turn{" "}
+        <span
+          style={{
+            color: "red",
+            fontWeight: "bold",
+          }}
+        >
+          RED
+        </span>{" "}
+        when the viewport:
+        <ul>
+          <li>
+            GREATER THAN:{" "}
+            <code>
+              <strong>{breakpointMap["desktop"]}px</strong>
+            </code>
+          </li>
+        </ul>
+      </div>
+      <br />
+      <div
+        style={{
+          height: "2rem",
+          width: "100%",
+          background: shouldRenderMax ? "red" : "#ccc",
+        }}
+      />
     </div>
   );
 };

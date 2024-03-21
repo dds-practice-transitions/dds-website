@@ -1,9 +1,19 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import {
+  ReactElement,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import { NavbarLauncher } from "./NavbarLauncher";
+import { NavbarLinkProps } from "./NavbarLink";
 
-export type NavbarProps = JSX.IntrinsicElements["nav"];
+export type NavbarProps = Omit<JSX.IntrinsicElements["nav"], "children"> & {
+  children: ReactElement<NavbarLinkProps>[] | ReactElement<NavbarLinkProps>;
+};
 export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar(
   { children, className, ...restProps },
   ref,

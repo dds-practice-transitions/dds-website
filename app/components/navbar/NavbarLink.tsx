@@ -19,6 +19,8 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
       <li className={clsx(styles["navbar-item"])}>
         <a
           {...restProps}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
           className={clsx(styles["navbar-link"], className, {
             menu: isMenu,
             [styles["active"]]: ddActive,
