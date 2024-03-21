@@ -39,7 +39,7 @@ export const Basic = () => {
               </NavbarDropdownLink>
             </NavbarDropdownItem>
             <NavbarDropdownItem>
-              <NavbarDropdownLink href="/test-2">Stuff</NavbarDropdownLink>
+              <NavbarDropdownLink href="/test-">Stuff</NavbarDropdownLink>
             </NavbarDropdownItem>
           </NavbarDropdown>
         </NavbarLink>
