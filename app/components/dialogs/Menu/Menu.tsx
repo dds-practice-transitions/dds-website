@@ -17,7 +17,10 @@ import menuStyles from "./menu.module.css";
 
 export type MenuProps = { children: ReactNode };
 
-export type MenuOptions = Omit<Partial<Options>, "modifiers">;
+export type MenuOptionMode = "manual" | "focus";
+export type MenuOptions = Omit<Partial<Options>, "modifiers"> & {
+  mode?: MenuOptionMode;
+};
 
 export type MenuState<T extends DialogDefaultState> = T & {
   referenceElement: HTMLElement | undefined;

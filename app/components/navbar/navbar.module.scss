@@ -51,6 +51,7 @@
   align-items: center;
   justify-content: center;
   text-transform: capitalize;
+  text-decoration: none;
 
   @include make-responsive(zero, tablet) {
     height: 100%;
@@ -102,6 +103,9 @@
 }
 
 .navbar-menu-link {
+  text-decoration: none;
+  color: make-color(dark);
+
   @include make-responsive(tablet) {
     height: make-rem(38);
     min-width: make-rem(180);
@@ -113,10 +117,6 @@
     cursor: pointer;
     border: 1px solid make-color("paper");
     font-size: make-rem(14);
-  }
-
-  &:focus {
-    border: 1px solid make-color("primary");
   }
 
   &:hover {

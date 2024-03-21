@@ -1,12 +1,11 @@
 import type { Meta } from "@storybook/react";
 import { Navbar } from "./Navbar";
 import { NavbarLink } from "./NavbarLink";
-import { Menu, useMenu } from "../dialogs/Menu";
-import { MenuList } from "../dialogs/Menu/MenuList";
-import { MenuListItem } from "../dialogs/Menu/MenuListItem";
-import { MouseEventHandler, useCallback } from "react";
-import { NavbarMenuLink } from "./NavbarMenuLink";
-import { Button } from "../inputs/Button";
+import { useMenu } from "../dialogs/Menu";
+import { NavbarDropdownLink } from "./NavbarDropdownLink";
+import { NavbarDropdown } from "./NavbarDropdown";
+import { NavbarDropdownItem } from "./NavbarDropdownItem";
+import { NavbarItem } from "./NavbarItem";
 
 const meta: Meta = {
   title: "Page / Navbar",
@@ -16,60 +15,54 @@ const meta: Meta = {
 export default meta;
 
 export const Basic = () => {
-  const menuServices = useMenu({
+  const sMenu = useMenu({
     placement: "bottom-start",
-  });
-  const menuCompany = useMenu({
-    placement: "bottom-start",
+    mode: "focus",
   });
 
-  const openMenuServices = useCallback<MouseEventHandler<HTMLAnchorElement>>(
-    (e) => {
-      menuCompany.closeMenu();
-      menuServices.openMenu(e);
-    },
-    [menuCompany, menuServices],
-  );
-
-  const openMenuCompany = useCallback<MouseEventHandler<HTMLAnchorElement>>(
-    (e) => {
-      menuServices.closeMenu();
-      menuCompany.openMenu(e);
-    },
-    [menuCompany, menuServices],
-  );
+  const cMenu = useMenu({
+    placement: "bottom-start",
+    mode: "focus",
+  });
 
   return (
     <Navbar>
-      <NavbarLink ddLabel="about" />
-      <NavbarLink ddLabel="services" onMouseEnter={openMenuServices}>
-        <Menu ref={menuServices.menuRef}>
-          <MenuList onMouseLeave={menuServices.closeMenu}>
-            <MenuListItem>
-              <NavbarMenuLink className="active">Web Design</NavbarMenuLink>
-            </MenuListItem>
-            <MenuListItem>
-              <NavbarMenuLink>Web Development</NavbarMenuLink>
-            </MenuListItem>
-            <MenuListItem>
-              <NavbarMenuLink>Conversion Optimization</NavbarMenuLink>
-            </MenuListItem>
-          </MenuList>
-        </Menu>
-      </NavbarLink>
-      <NavbarLink ddLabel="our company" ddActive onMouseEnter={openMenuCompany}>
-        <Menu ref={menuCompany.menuRef}>
-          <MenuList onMouseLeave={menuCompany.closeMenu}>
-            <MenuListItem>
-              <button>test 1</button>
-            </MenuListItem>
-            <MenuListItem>
-              <button>test 2</button>
-            </MenuListItem>
-          </MenuList>
-        </Menu>
-      </NavbarLink>
-      <NavbarLink ddLabel="contact us" />
+      <NavbarItem>
+        <NavbarLink ddLabel="about" />
+      </NavbarItem>
+      <NavbarItem>
+        <NavbarLink ddLabel="services" {...sMenu.openProps}>
+          <NavbarDropdown {...sMenu}>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink className="active" href="/test-1">
+                Web Design
+              </NavbarDropdownLink>
+            </NavbarDropdownItem>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-2">Stuff</NavbarDropdownLink>
+            </NavbarDropdownItem>
+          </NavbarDropdown>
+        </NavbarLink>
+      </NavbarItem>
+      <NavbarItem>
+        <NavbarLink ddLabel="our company" {...cMenu.openProps}>
+          <NavbarDropdown {...cMenu}>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-1">
+                most disappear
+              </NavbarDropdownLink>
+            </NavbarDropdownItem>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-2">
+                summer tongue
+              </NavbarDropdownLink>
+            </NavbarDropdownItem>
+          </NavbarDropdown>
+        </NavbarLink>
+      </NavbarItem>
+      <NavbarItem>
+        <NavbarLink ddLabel="contact us" />
+      </NavbarItem>
     </Navbar>
   );
 };

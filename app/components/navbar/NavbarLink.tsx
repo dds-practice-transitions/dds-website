@@ -16,24 +16,22 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
   ) {
     const isMenu = typeof children !== "undefined";
     return (
-      <li className={clsx(styles["navbar-item"])}>
-        <a
-          {...restProps}
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-          tabIndex={0}
-          className={clsx(styles["navbar-link"], className, {
-            menu: isMenu,
-            [styles["active"]]: ddActive,
-          })}
-          ref={ref}
-        >
-          <div className={styles["content"]}>
-            <span>{ddLabel}</span>
-            {isMenu && <Icon DDIcon={Down} />}
-          </div>
-          {children}
-        </a>
-      </li>
+      <a
+        {...restProps}
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={0}
+        className={clsx(styles["navbar-link"], className, {
+          menu: isMenu,
+          [styles["active"]]: ddActive,
+        })}
+        ref={ref}
+      >
+        <div className={styles["content"]}>
+          <span>{ddLabel}</span>
+          {isMenu && <Icon DDIcon={Down} />}
+        </div>
+        {children}
+      </a>
     );
   },
 );

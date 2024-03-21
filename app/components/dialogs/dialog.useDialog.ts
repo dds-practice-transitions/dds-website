@@ -15,10 +15,14 @@ export type DialogDefaultState = Record<string, unknown>;
 
 export type DialogRef<T extends DialogDefaultState = DialogDefaultState> = {
   handleOpen: (
-    e: React.MouseEvent<HTMLButtonElement> | undefined,
+    e:
+      | React.MouseEvent<HTMLElement>
+      | React.FocusEvent<HTMLElement>
+      | undefined,
     initialData?: T,
   ) => void;
   handleClose: () => void;
+  nodeRef: MutableRefObject<HTMLDialogElement | null>;
 };
 
 export type DialogState<T extends DialogDefaultState = DialogDefaultState> = T;
@@ -141,13 +145,16 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
    * Override the ref and add 2 functions to open and close
    * the dialog
    */
-  useImperativeHandle(params.ref, () => ({
-    handleOpen(_, initState = {} as T) {
-      setDialogState(initState);
-      openPortal();
-    },
-    handleClose: closeDialog,
-  }));
+  useImperativeHandle(params.ref, () => {
+    return {
+      handleOpen(_, initState = {} as T) {
+        setDialogState(initState);
+        openPortal();
+      },
+      handleClose: closeDialog,
+      nodeRef: iDialogRef,
+    };
+  });
 
   return useMemo(
     () => ({
