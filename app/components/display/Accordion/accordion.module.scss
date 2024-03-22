@@ -1,0 +1,59 @@
+@import "../../../theme/utils";
+
+.root {
+  padding: make-rem(20) make-rem(24);
+  gap: make-rem(8);
+  border: make-rem(1) solid make-color(grey-1);
+  border-radius: make-rem(8);
+  width: 100%;
+  max-width: make-rem(600);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: make-color(primary);
+
+    summary {
+      color: make-color(primary);
+    }
+  }
+
+  &:global() {
+    &[open] {
+      p {
+        max-height: make-rem(1000);
+        overflow: hidden;
+      }
+    }
+  }
+
+  summary {
+    display: flex;
+    font-weight: 600;
+    gap: make-rem(8);
+    cursor: pointer;
+
+    & > div {
+      flex: 1;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  p {
+    transition: max-height 0.5s ease-in-out;
+    margin: 0;
+    margin-top: make-rem(16);
+    max-height: 0;
+  }
+}
+
+.list {
+  margin-top: make-rem(32);
+  list-style-type: none;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: make-rem(16);
+}
