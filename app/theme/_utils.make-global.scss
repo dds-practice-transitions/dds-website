@@ -1,0 +1,13 @@
+@import "./vars";
+
+@mixin make-global($class-name, $is-nested: false) {
+  @if ($is-nested) {
+    :global(.#{$class-name}) {
+      @content;
+    }
+  } @else {
+    &:global(.#{$class-name}) {
+      @content;
+    }
+  }
+}
