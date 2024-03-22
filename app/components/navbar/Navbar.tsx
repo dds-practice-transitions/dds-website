@@ -18,7 +18,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar(
   { children, className, ...restProps },
   ref,
 ) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const bodyRef = useRef<HTMLElement | null>(null);
 
   const toggle = useCallback(() => {

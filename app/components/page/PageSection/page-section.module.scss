@@ -8,6 +8,13 @@
   margin: 0;
   font-weight: 700;
 
+  // Up to tablet
+  @include make-responsive(zero, tablet) {
+    font-size: make-rem(24);
+    line-height: make-rem(32);
+    text-align: center;
+  }
+
   // Tablet and up
   @include make-responsive(tablet) {
     font-size: make-rem(30);
@@ -19,11 +26,26 @@
   margin: 0;
   font-weight: 400;
 
+  // Up to tablet
+  @include make-responsive(zero, tablet) {
+    font-size: make-rem(16);
+    line-height: make-rem(24);
+    margin-top: make-rem(8);
+    text-align: center;
+  }
+
   // Tablet and up
   @include make-responsive(tablet) {
     font-size: make-rem(16);
     line-height: make-rem(24);
     margin-top: make-rem(16);
+  }
+
+  @include make-global(primary) {
+    color: make-color(dark);
+  }
+  @include make-global(secondary) {
+    color: make-color(grey-4);
   }
 }
 
@@ -87,6 +109,24 @@
           border-radius: make-rem(8) make-rem(8) 0 0;
           object-fit: cover;
         }
+      }
+    }
+  }
+}
+
+.page-section-faq {
+  // Variant - Default
+  @include make-global(default) {
+    & > * {
+      @include make-responsive(zero, tablet) {
+        padding: make-rem(50) make-rem(32);
+      }
+      // Tablet and up
+      @include make-responsive(tablet) {
+        max-width: make-rem(420);
+        margin: 0 auto;
+        text-align: center;
+        padding: make-rem(64) 0;
       }
     }
   }

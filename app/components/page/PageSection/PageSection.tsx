@@ -4,7 +4,7 @@ import styles from "./page-section.module.css";
 
 export const PageSection = forwardRef<
   HTMLElement,
-  JSX.IntrinsicElements["section"] & { ddType: "cta" }
+  JSX.IntrinsicElements["section"] & { ddType: string }
 >(function PageSection({ children, ddType, className, ...restProps }, ref) {
   return (
     <section
