@@ -35,14 +35,21 @@ export const usePortal = () => {
     setIsOpen(true);
   }, []);
 
-  const Portal = memo(function Portal({ children }: { children: ReactNode }) {
+  const Portal = memo(function Portal({
+    children,
+    disabled = false,
+  }: {
+    children: ReactNode;
+    disabled?: boolean;
+  }) {
     if (!isOpen) return null;
+    if (disabled) return children; // doesn't render a portal if the portal is disabled
     const portalRoot = getDynamicNode();
     return createPortal(children, portalRoot);
   });
 
   return useMemo(
     () => ({ togglePortal, closePortal, openPortal, Portal }),
-    [Portal, closePortal, openPortal]
+    [Portal, closePortal, openPortal],
   );
 };

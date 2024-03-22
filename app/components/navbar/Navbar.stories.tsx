@@ -19,11 +19,13 @@ export const Basic = () => {
   const sMenu = useMenu({
     placement: "bottom-start",
     mode: "focus",
+    strategy: "fixed",
   });
 
   const cMenu = useMenu({
     placement: "bottom-start",
     mode: "focus",
+    strategy: "fixed",
   });
 
   return (

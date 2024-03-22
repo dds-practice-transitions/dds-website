@@ -54,7 +54,7 @@ export const Menu = forwardRef(function Menu<T extends DialogDefaultState>(
   );
 
   return (
-    <Portal>
+    <Portal disabled={dialogState?.menuOptions?.strategy === "fixed"}>
       <DialogProvider initialState={dialogState}>
         <dialog
           ref={combinedRef}
