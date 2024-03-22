@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/react";
 import { usePortal } from "./hook.usePortal";
 import { breakpointMap, useBreakpoint } from "./hook.useBreakpoint";
+import { useToggle } from "./hook.useToggle";
 
 const meta: Meta = {
   title: "Utils / Hooks",
@@ -23,6 +24,12 @@ export const UsePortal = () => {
       </Portal>
     </div>
   );
+};
+
+export const UseToggle = () => {
+  const [isOpen, toggle] = useToggle();
+
+  return <button onClick={toggle}>Click to {isOpen ? "close" : "open"}</button>;
 };
 
 export const UseBreakpoint = () => {
