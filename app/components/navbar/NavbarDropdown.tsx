@@ -33,7 +33,11 @@ export const NavbarDropdown = forwardRef<HTMLUListElement, NavbarDropdown>(
     }
 
     return (
-      <ul {...restProps} className={clsx(styles.root, className)} ref={ref}>
+      <ul
+        {...restProps}
+        className={clsx(styles["navbar-dropdown"], className)}
+        ref={ref}
+      >
         {children}
       </ul>
     );

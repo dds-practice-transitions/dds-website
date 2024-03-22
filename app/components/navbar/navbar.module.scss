@@ -33,8 +33,8 @@
 
 .navbar-item {
   @include make-responsive(zero, tablet) {
-    // START HERE
-    height: make-rem(64);
+    min-height: make-rem(64);
+    align-items: center;
     width: 100%;
     text-align: center;
     border-bottom: make-rem(1) solid make-color(grey-1, 0.5);
@@ -52,18 +52,44 @@
   justify-content: center;
   text-transform: capitalize;
   text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  font-size: make-rem(16);
+  color: make-color(grey-5);
+  font-family: var(--font-family);
+  padding: 0;
 
+  @include make-global(content, nested) {
+    display: flex;
+    align-items: center;
+    gap: make-rem(6);
+  }
+
+  // Up to tablet
   @include make-responsive(zero, tablet) {
     height: 100%;
+    min-height: inherit;
+
+    @include make-global(active) {
+      background: make-color(primary);
+      color: make-color(paper);
+    }
+
+    @include make-global(open) {
+      background: make-color(primary);
+      color: make-color(paper);
+    }
   }
+
+  // tablet and up
   @include make-responsive(tablet) {
     height: inherit;
-    font-size: make-rem(16);
-    color: make-color(grey-5);
     text-decoration: none;
     font-weight: 500;
     text-transform: capitalize;
     border: make-rem(1) solid make-color(paper);
+    white-space: nowrap;
 
     &:focus {
       border: make-rem(1) solid make-color(primary);
@@ -80,19 +106,6 @@
   }
 }
 
-.active {
-  @include make-responsive(zero, tablet) {
-    background: make-color(primary);
-    color: make-color(paper);
-  }
-}
-
-.content {
-  display: flex;
-  align-items: center;
-  gap: make-rem(6);
-}
-
 .launcher {
   cursor: pointer;
 
@@ -102,10 +115,26 @@
   }
 }
 
-.navbar-menu-link {
+.navbar-dropdown {
+  padding: 0 make-rem(16);
+}
+
+.navbar-dropdown-link {
   text-decoration: none;
   color: make-color(dark);
 
+  // Responsive: Up to tablet
+  @include make-responsive(zero, tablet) {
+    display: block;
+    height: make-rem(52);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: make-rem(8);
+    margin: make-rem(16) 0;
+  }
+
+  // Responsive: Tablet and up
   @include make-responsive(tablet) {
     height: make-rem(38);
     min-width: make-rem(180);
@@ -119,10 +148,12 @@
     font-size: make-rem(14);
   }
 
+  &:focus,
   &:hover {
     background: make-color(primary, 0.1);
   }
-}
-.navbar-menu-link-active {
-  background: make-color(primary, 0.2);
+
+  @include make-global(active) {
+    background: make-color(primary, 0.2);
+  }
 }

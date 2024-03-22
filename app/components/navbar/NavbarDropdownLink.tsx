@@ -11,8 +11,8 @@ export const NavbarDropdownLink = forwardRef<
       {...restProps}
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
-      className={clsx(styles["navbar-menu-link"], {
-        [styles["navbar-menu-link-active"]]: className?.includes("active"),
+      className={clsx(styles["navbar-dropdown-link"], {
+        active: className?.includes("active"),
       })}
       ref={ref}
     >

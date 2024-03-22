@@ -9,6 +9,7 @@ import { NavbarItem } from "./NavbarItem";
 
 const meta: Meta = {
   title: "Page / Navbar",
+  // @ts-expect-error type mismatch
   component: Navbar,
 } satisfies Meta<typeof meta>;
 
@@ -31,15 +32,35 @@ export const Basic = () => {
         <NavbarLink ddLabel="about" />
       </NavbarItem>
       <NavbarItem>
-        <NavbarLink ddLabel="services" {...sMenu.openProps}>
+        <NavbarLink ddLabel="services" {...sMenu.openProps} ddActive>
           <NavbarDropdown {...sMenu}>
             <NavbarDropdownItem>
               <NavbarDropdownLink className="active" href="/test-1">
-                Web Design
+                fourth dug
               </NavbarDropdownLink>
             </NavbarDropdownItem>
             <NavbarDropdownItem>
               <NavbarDropdownLink href="/test-">Stuff</NavbarDropdownLink>
+            </NavbarDropdownItem>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-1">
+                exactly anything
+              </NavbarDropdownLink>
+            </NavbarDropdownItem>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-1">
+                solve solve
+              </NavbarDropdownLink>
+            </NavbarDropdownItem>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-1">
+                place protection
+              </NavbarDropdownLink>
+            </NavbarDropdownItem>
+            <NavbarDropdownItem>
+              <NavbarDropdownLink href="/test-1">
+                mother flight
+              </NavbarDropdownLink>
             </NavbarDropdownItem>
           </NavbarDropdown>
         </NavbarLink>
