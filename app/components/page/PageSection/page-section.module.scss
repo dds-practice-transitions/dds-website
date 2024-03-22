@@ -123,7 +123,7 @@
       }
       // Tablet and up
       @include make-responsive(tablet) {
-        max-width: make-rem(420);
+        width: make-rem(600);
         margin: 0 auto;
         text-align: center;
         padding: make-rem(64) 0;

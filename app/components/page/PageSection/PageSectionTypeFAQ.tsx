@@ -2,10 +2,12 @@ import { forwardRef } from "react";
 
 import { PageSectionTypeFAQDefault } from "./PageSectionTypeFAQDefault";
 import { exhaustiveMatchGuard } from "../../../utils";
+import { AccordionProps } from "../../display/Accordion";
 
 export type PageSectionTypeFAQPropsShared = {
   ddTitle: string;
   ddSubtitle?: string;
+  ddItems: (Pick<AccordionProps, "ddTitle"> & { ddContent: string })[];
 };
 export type PageSectionTypeFAQPropsVariantDefault =
   PageSectionTypeFAQPropsShared & {

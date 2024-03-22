@@ -17,7 +17,7 @@ export const Accordion = forwardRef<HTMLDetailsElement, AccordionProps>(
       >
         <summary>
           <div>{ddTitle}</div>
-          <Icon DDIcon={Plus} ddSize={16} />
+          <Icon DDIcon={Plus} ddSize={16} className="icon" />
         </summary>
         <p>{children}</p>
       </details>

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@icon-park/react": "^1.4.2",
+    "@ngneat/falso": "^7.2.0",
     "@popperjs/core": "^2.11.8",
     "@remix-run/cloudflare": "2.8.1",
     "@remix-run/cloudflare-pages": "2.8.1",
