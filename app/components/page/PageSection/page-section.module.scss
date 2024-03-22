@@ -118,10 +118,11 @@
   // Variant - Default
   @include make-global(default) {
     & > * {
+      // Responsive - up to tablet
       @include make-responsive(zero, tablet) {
         padding: make-rem(50) make-rem(32);
       }
-      // Tablet and up
+      // Responsive - tablet and up
       @include make-responsive(tablet) {
         width: make-rem(600);
         margin: 0 auto;
