@@ -34,7 +34,7 @@
     min-height: make-rem(172);
     grid-template-columns: make-rem(142) 1fr;
 
-    & > div {
+    & > figcaption {
       padding: make-rem(24);
 
       h3 {
@@ -63,7 +63,7 @@
     max-height: make-rem(240);
     grid-template-columns: make-rem(220) 1fr;
 
-    & > div {
+    & > figcaption {
       padding: make-rem(40) make-rem(32);
 
       h3 {

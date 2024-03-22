@@ -28,12 +28,12 @@ export const AvatarCard = forwardRef<HTMLElement, AvatarCardProps>(
     return (
       <figure {...restProps} className={clsx(styles.card, className)} ref={ref}>
         <img alt={ddImgAlt} src={ddImgSrc} />
-        <div>
+        <figcaption>
           <h3>{ddFullName}</h3>
           <h4>{ddTitle}</h4>
           <p>{ddDescription}</p>
           <div>{children}</div>
-        </div>
+        </figcaption>
       </figure>
     );
   },

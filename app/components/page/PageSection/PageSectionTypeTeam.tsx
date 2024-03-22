@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 
 import { PageSectionTypeTeamDefault } from "./PageSectionTypeTeamDefault";
 import { exhaustiveMatchGuard } from "../../../utils";
-import { AvatarCardPropsCustom } from "~/components/display/Avatar/AvatarCard";
+import { AvatarCardPropsCustom } from "../../display/Avatar";
 
 export type PageSectionTypeTeamPropsShared = {
   ddTitle: string;

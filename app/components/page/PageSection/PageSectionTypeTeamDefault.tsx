@@ -5,6 +5,7 @@ import { PageSectionSubtitle } from "./PageSectionSubtitle";
 import { PageSection } from "./PageSection";
 
 import { PageSectionTypeTeamPropsVariantDefault } from "./PageSectionTypeTeam";
+import { AvatarCard } from "../../display/Avatar";
 
 export type PageSectionTypeTeamDefaultProps = Omit<
   JSX.IntrinsicElements["section"],
@@ -33,6 +34,13 @@ export const PageSectionTypeTeamDefault = forwardRef<
             {ddSubtitle}
           </PageSectionSubtitle>
         )}
+        <ul className="members">
+          {ddMembers.map((member, i) => (
+            <li key={`member-${i}`}>
+              <AvatarCard {...member} />
+            </li>
+          ))}
+        </ul>
       </div>
     </PageSection>
   );
