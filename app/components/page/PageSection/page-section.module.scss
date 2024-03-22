@@ -1,0 +1,93 @@
+@import "../../../theme/utils";
+
+.page-section {
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+
+  // Tablet and up
+  @include make-responsive(tablet) {
+    font-size: make-rem(30);
+    line-height: make-rem(36);
+  }
+}
+
+.sub-title {
+  margin: 0;
+  font-weight: 400;
+
+  // Tablet and up
+  @include make-responsive(tablet) {
+    font-size: make-rem(16);
+    line-height: make-rem(24);
+    margin-top: make-rem(16);
+  }
+}
+
+.actions {
+  margin-top: make-rem(32);
+}
+
+.page-section-cta {
+  @include make-global(primary) {
+    background: make-color(primary);
+    color: make-color(paper);
+  }
+
+  @include make-global(secondary) {
+    background: make-color(secondary);
+    color: make-color(paper);
+  }
+
+  // Variant - Default
+  @include make-global(default) {
+    & > * {
+      // Tablet and up
+      @include make-responsive(tablet) {
+        max-width: make-rem(420);
+        margin: 0 auto;
+        text-align: center;
+        padding: make-rem(64) 0;
+      }
+    }
+  }
+
+  // Variant - Split Image
+  @include make-global(split-image) {
+    & > * {
+      position: relative;
+      max-width: make-rem(1024);
+      width: 100%;
+      // Tablet and up
+      @include make-responsive(tablet) {
+        margin: 0 auto;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: make-rem(72);
+        min-width: make-rem(400);
+        padding: make-rem(100) 0;
+
+        & > div {
+          padding: 0 make-rem(72);
+        }
+
+        img {
+          position: absolute;
+          right: make-rem(72);
+          bottom: make-rem(-4);
+          height: calc(100% + #{make-rem(76)});
+          width: make-rem(380);
+          background: white;
+          border: none;
+          box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+          border-radius: make-rem(8) make-rem(8) 0 0;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
