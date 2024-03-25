@@ -1,5 +1,112 @@
 @import "../../../theme/utils";
 
+.avatar {
+  @include make-global(has-details) {
+    display: flex;
+    align-items: center;
+    gap: make-rem(8);
+  }
+
+  img {
+    background-color: make-color(grey-2);
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  figcaption {
+  }
+
+  @include make-global(sm) {
+    img {
+      height: make-rem(32);
+      width: make-rem(32);
+    }
+
+    figcaption {
+      h3 {
+        font-size: make-rem(14);
+        line-height: make-rem(18);
+        font-weight: 500;
+      }
+      h4 {
+        font-size: make-rem(12);
+        line-height: make-rem(16);
+        font-weight: 400;
+        color: make-color(grey-4);
+      }
+    }
+  }
+
+  @include make-global(md) {
+    img {
+      height: make-rem(48);
+      width: make-rem(48);
+    }
+
+    figcaption {
+      h3 {
+        font-size: make-rem(16);
+        line-height: make-rem(22);
+        font-weight: 500;
+      }
+      h4 {
+        font-size: make-rem(14);
+        line-height: make-rem(20);
+        font-weight: 400;
+        color: make-color(grey-4);
+      }
+    }
+  }
+
+  @include make-global(lg) {
+    img {
+      height: make-rem(64);
+      width: make-rem(64);
+    }
+
+    figcaption {
+      h3 {
+        font-size: make-rem(18);
+        line-height: make-rem(24);
+        font-weight: 500;
+      }
+      h4 {
+        font-size: make-rem(16);
+        line-height: make-rem(22);
+        font-weight: 400;
+        color: make-color(grey-4);
+      }
+    }
+  }
+
+  @include make-global("top") {
+    img {
+      object-position: top;
+    }
+  }
+
+  @include make-global("center") {
+    img {
+      object-position: center;
+    }
+  }
+
+  @include make-global("bottom") {
+    img {
+      object-position: bottom;
+    }
+  }
+}
+
+.details {
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+}
+
 .card {
   padding: 0;
   margin: 0;

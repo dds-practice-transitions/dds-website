@@ -2,6 +2,12 @@ import type { Meta } from "@storybook/react";
 import { usePortal } from "./hook.usePortal";
 import { breakpointMap, useBreakpoint } from "./hook.useBreakpoint";
 import { useToggle } from "./hook.useToggle";
+import { useCarousel } from "./hook.useCarousel";
+import { randFullName, randIceHockeyTeam, randJobTitle } from "@ngneat/falso";
+import { useRef } from "react";
+import { Button } from "../components/inputs/Button";
+import { Icon } from "../components/display/Icon";
+import { ArrowLeft, ArrowRight } from "@icon-park/react";
 
 const meta: Meta = {
   title: "Utils / Hooks",
@@ -30,6 +36,50 @@ export const UseToggle = () => {
   const [isOpen, toggle] = useToggle();
 
   return <button onClick={toggle}>Click to {isOpen ? "close" : "open"}</button>;
+};
+
+export const UseCarousel = () => {
+  const itemsRef = useRef(
+    [...new Array(5)].map(() => ({
+      name: randFullName(),
+      job: randJobTitle(),
+      favIceHockeyTeam: randIceHockeyTeam(),
+    })),
+  );
+  const { currentItem, next, prev } = useCarousel(itemsRef.current);
+
+  console.log(currentItem);
+
+  return (
+    <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          gap: "1rem",
+          width: "min-content",
+          margin: "0 auto",
+        }}
+      >
+        <Button onClick={prev}>
+          <Icon DDIcon={ArrowLeft} />
+        </Button>
+        <Button onClick={next}>
+          <Icon DDIcon={ArrowRight} />
+        </Button>
+      </div>
+      <pre
+        style={{
+          padding: " 1rem",
+          fontSize: "1rem",
+          background: "#ccc",
+          borderRadius: ".5rem",
+        }}
+      >
+        {JSON.stringify(currentItem, null, 2)}
+      </pre>
+    </div>
+  );
 };
 
 export const UseBreakpoint = () => {
