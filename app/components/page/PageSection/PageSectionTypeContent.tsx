@@ -4,6 +4,7 @@ import { exhaustiveMatchGuard } from "../../../utils";
 import { PageSectionPropsCustom } from "./PageSection";
 import { PageSectionTypeContentCardRight } from "./PageSectionTypeContentCardRight";
 import { PageSectionTypeContentCardLeft } from "./PageSectionTypeContentCardLeft";
+import { PageSectionTypeContentColumns } from "./PageSectionTypeContentColumns";
 
 export type PageSectionTypeContentPropsNative =
   JSX.IntrinsicElements["section"];
@@ -24,34 +25,28 @@ export type PageSectionTypeContentPropsVariantCardLeft =
     ddImageSrc: string;
     ddImageAlt: string;
   };
-type ContentCard = {
+export type ContentColumn = {
   ddTitle: string;
   ddSubtitle: string;
-  ddImg: string;
-  ddImgAlt: string;
+  ddImageSrc: string;
+  ddImageAlt: string;
 };
-export type PageSectionTypeContentPropsVariantCardSideBySide =
+export type PageSectionTypeContentPropsVariantColumns =
   PageSectionTypeContentPropsShared & {
-    ddVariant: "card-side-by-side";
+    ddVariant: "columns";
     ddTitle: string;
     ddSubtitle?: string;
-    ddCards: [ContentCard, ContentCard];
+    ddColumns: ContentColumn[];
   };
-export type PageSectionTypeContentPropsVariantCardGrid =
-  PageSectionTypeContentPropsShared & {
-    ddVariant: "card-grid";
-    ddTitle: string;
-    ddSubtitle?: string;
-    ddCards: [ContentCard, ContentCard, ContentCard];
-  };
+
 export type PageSectionTypeContentPropsVariantThumbnailGrid =
   PageSectionTypeContentPropsShared & {
     ddVariant: "thumbnail-grid";
     ddTitle: string;
     ddSubtitle?: string;
-    ddCards: ContentCard[];
+    ddCards: ContentColumn[];
   };
-type ContentCardPane = ContentCard & { ddContent: ReactNode };
+type ContentCardPane = ContentColumn & { ddContent: ReactNode };
 export type PageSectionTypeContentPropsVariantCardPanes =
   PageSectionTypeContentPropsShared & {
     ddVariant: "card-panes";
@@ -63,8 +58,7 @@ export type PageSectionTypeContentPropsVariantCardPanes =
 export type PageSectionTypeContentPropsVariant =
   | PageSectionTypeContentPropsVariantCardRight
   | PageSectionTypeContentPropsVariantCardLeft
-  | PageSectionTypeContentPropsVariantCardSideBySide
-  | PageSectionTypeContentPropsVariantCardGrid
+  | PageSectionTypeContentPropsVariantColumns
   | PageSectionTypeContentPropsVariantThumbnailGrid
   | PageSectionTypeContentPropsVariantCardPanes;
 
@@ -82,8 +76,8 @@ export const PageSectionTypeContent = forwardRef<
     case "card-left":
       return <PageSectionTypeContentCardLeft {...props} ref={ref} />;
 
-    case "card-grid":
-    case "card-side-by-side":
+    case "columns":
+      return <PageSectionTypeContentColumns {...props} ref={ref} />;
     case "card-panes":
     case "thumbnail-grid":
       return;
