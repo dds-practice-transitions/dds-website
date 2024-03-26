@@ -107,6 +107,18 @@
   p {
     margin: 0;
   }
+
+  h3 {
+    font-size: make-rem(18);
+    line-height: make-rem(26);
+    font-weight: 500;
+  }
+  h4 {
+    font-size: make-rem(16);
+    line-height: make-rem(22);
+    font-weight: 400;
+    color: make-color(grey-4);
+  }
 }
 
 .card {
