@@ -13,10 +13,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true /* Allow 'import x from y' when a module doesn't have a default export. */,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
     "types": ["@cloudflare/workers-types"],
 
     // Remix takes care of building everything in `remix build`.

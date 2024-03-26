@@ -2,11 +2,18 @@ import { forwardRef } from "react";
 
 import { PageSectionTypeTestimonialDefault } from "./PageSectionTypeTestimonialDefault";
 import { exhaustiveMatchGuard } from "../../../utils";
+import { AvatarPropsCustom } from "../../display/Avatar/Avatar";
 
+export type Testimonial = {
+  ddChannelImg: string;
+  ddChannelAlt: string;
+  ddUser: Omit<AvatarPropsCustom, "ddDescription" | "ddSize">;
+  ddQuote: string;
+};
 export type PageSectionTypeTestimonialPropsShared = {
   ddTitle: string;
   ddSubtitle?: string;
-  ddTestimonials: any[];
+  ddTestimonials: Testimonial[];
 };
 export type PageSectionTypeTestimonialPropsVariantDefault =
   PageSectionTypeTestimonialPropsShared & {

@@ -13,9 +13,6 @@
     border-radius: 50%;
   }
 
-  figcaption {
-  }
-
   @include make-global(sm) {
     gap: make-rem(4);
 
