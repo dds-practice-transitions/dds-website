@@ -1,0 +1,164 @@
+@import "../../../theme/utils";
+
+@mixin card() {
+  @include make-global(card, nested) {
+    border-radius: make-rem(8);
+    background: make-color(paper);
+    box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+    border: make-rem(1) solid make-color(grey-1);
+
+    * {
+      text-align: left;
+    }
+
+    @include make-responsive-mobile {
+      padding: make-rem(32);
+    }
+
+    @include make-responsive-tablet {
+      padding: make-rem(64) make-rem(52);
+    }
+
+    @content;
+  }
+}
+
+.root {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+// Variant: card-right
+.card-right {
+  position: relative;
+
+  // Responsive: up to tablet
+  @include make-responsive-mobile {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, min-content);
+
+    img {
+      height: make-rem(320);
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @include card {
+      position: relative;
+      bottom: make-rem(60);
+      width: calc(100% - #{make-rem(24 * 2)});
+      margin: 0 auto;
+    }
+  }
+
+  // Responsive: tablet and up
+  @include make-responsive-tablet {
+    position: relative;
+    padding: make-rem(80) make-rem(32);
+    max-width: make-rem(1024);
+    display: grid;
+    grid-template-columns: 82% auto;
+    grid-template-rows: 1fr;
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      height: make-rem(550);
+    }
+
+    @include card {
+      position: absolute;
+      right: make-rem(32);
+      width: make-rem(500);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// Variant: card-left
+.card-left {
+  position: relative;
+
+  @include make-responsive-mobile {
+    img {
+      height: 50vh;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @include card {
+      position: absolute;
+      top: make-rem(60);
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - #{make-rem(24 * 2)});
+      margin: 0 auto;
+    }
+  }
+
+  @include make-responsive-tablet {
+    position: relative;
+    padding: make-rem(80) make-rem(32);
+    max-width: make-rem(1024);
+    display: grid;
+    grid-template-columns: auto 82%;
+    grid-template-areas: "card img";
+    grid-template-rows: 1fr;
+
+    img {
+      grid-area: img;
+      max-width: 100%;
+      object-fit: cover;
+      height: make-rem(550);
+    }
+
+    @include card {
+      grid-area: card;
+      position: absolute;
+      left: make-rem(32);
+      width: make-rem(500);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// Variant: card-side-by-side
+.card-side-by-side {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+  }
+}
+
+// Variant: card-grid
+.card-grid {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+  }
+}
+
+// Variant: thumbnail-grid
+.thumbnail-grid {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+  }
+}
+
+// Variant: card-panes
+.card-panes {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+  }
+}
