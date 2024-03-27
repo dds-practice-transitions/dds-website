@@ -1,0 +1,305 @@
+@import "../../../theme/utils";
+
+.page-section {
+  width: 100%;
+
+  // Up to tablet
+  @include make-responsive(zero, tablet) {
+    padding: make-rem(52) make-rem(32);
+  }
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+
+  // Up to tablet
+  @include make-responsive(zero, tablet) {
+    font-size: make-rem(24);
+    line-height: make-rem(32);
+    text-align: center;
+  }
+
+  // Tablet and up
+  @include make-responsive(tablet) {
+    font-size: make-rem(30);
+    line-height: make-rem(36);
+  }
+}
+
+.sub-title {
+  margin: 0;
+  text-align: center;
+  font-weight: 300;
+
+  // Up to tablet
+  @include make-responsive(zero, tablet) {
+    font-size: make-rem(16);
+    line-height: make-rem(24);
+    margin-top: make-rem(8);
+    text-align: center;
+  }
+
+  // Tablet and up
+  @include make-responsive(tablet) {
+    font-size: make-rem(16);
+    line-height: make-rem(24);
+    margin-top: make-rem(16);
+  }
+
+  @include make-global(primary) {
+    color: make-color(dark);
+  }
+  @include make-global(secondary) {
+    color: make-color(grey-4);
+  }
+}
+
+.actions {
+  margin-top: make-rem(32);
+}
+
+.page-section-cta {
+  @include make-global(primary) {
+    background: make-color(primary);
+    color: make-color(paper) !important;
+  }
+
+  @include make-global(secondary) {
+    background: make-color(secondary);
+    h2,
+    h3 {
+      color: make-color(paper) !important;
+    }
+  }
+
+  // Variant - Default
+  @include make-global(default) {
+    & > * {
+      // Tablet and up
+      @include make-responsive(tablet) {
+        max-width: make-rem(420);
+        margin: 0 auto;
+        text-align: center;
+        padding: make-rem(64) 0;
+      }
+    }
+  }
+
+  // Variant - Split Image
+  @include make-global(split-image) {
+    & > * {
+      position: relative;
+      max-width: make-rem(1024);
+      width: 100%;
+      // Tablet and up
+      @include make-responsive(tablet) {
+        margin: 0 auto;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: make-rem(72);
+        min-width: make-rem(400);
+        padding: make-rem(100) 0;
+
+        & > div {
+          padding: 0 make-rem(72);
+        }
+
+        img {
+          position: absolute;
+          right: make-rem(72);
+          bottom: make-rem(-4);
+          height: calc(100% + #{make-rem(76)});
+          width: make-rem(380);
+          background: white;
+          border: none;
+          box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+          border-radius: make-rem(8) make-rem(8) 0 0;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.page-section-faq {
+  // Variant - Default
+  @include make-global(default) {
+    & > * {
+      // Responsive - tablet and up
+      @include make-responsive(tablet) {
+        width: make-rem(600);
+        margin: 0 auto;
+        text-align: center;
+        padding: make-rem(64) 0;
+      }
+    }
+  }
+}
+
+.page-section-team {
+  // Variant - Default
+  @include make-global(default) {
+    & > div {
+      & > h2,
+      & > h3 {
+        text-align: center;
+      }
+    }
+
+    @include make-responsive(tablet, desktop) {
+      width: 100%;
+      padding: make-rem(64) make-rem(32);
+    }
+
+    @include make-responsive(desktop) {
+      padding: make-rem(64) make-rem(32);
+    }
+
+    @include make-global(members, nested) {
+      @include make-reset-ul();
+
+      // Responsive - up to tablet
+      @include make-responsive(zero, desktop) {
+        margin-top: make-rem(32);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: make-rem(16);
+      }
+
+      // Responsive - desktop
+      @include make-responsive(desktop) {
+        max-width: make-rem(1280);
+        margin: 0 auto;
+        margin-top: make-rem(40);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: make-rem(16);
+      }
+    }
+  }
+}
+
+.page-section-testimonial {
+  @include make-responsive(tablet) {
+    width: 100%;
+    padding: make-rem(80) make-rem(32);
+    max-width: make-rem(1024);
+    margin: 0 auto;
+  }
+
+  @include make-global(content, nested) {
+    margin-top: make-rem(48);
+
+    @include make-responsive(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: make-rem(80);
+    }
+  }
+
+  // dirs
+  @include make-global(dirs, nested) {
+    display: flex;
+    gap: make-rem(16);
+    align-items: center;
+    justify-content: center;
+
+    @include make-responsive(zero, tablet) {
+      margin-top: make-rem(32);
+    }
+  }
+
+  // .quicks
+  @include make-global(quicks, nested) {
+    @include make-reset-ul();
+  }
+
+  // .testimonial
+  @include make-global(testimonial, nested) {
+    @include make-responsive(zero, tablet) {
+      margin-top: make-rem(48);
+      flex-direction: column;
+      padding: make-rem(24);
+      background: make-color(paper);
+      box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+      border: 1px solid make-color(grey-1);
+      border-radius: make-rem(8);
+      justify-content: center;
+      display: flex;
+      align-items: center;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+
+    @include make-responsive(tablet) {
+      display: grid;
+      grid-template-columns: make-rem(300) 1fr;
+      grid-template-rows: make-rem(340);
+      align-items: center;
+      border: 1px solid make-color(grey-1);
+      padding: make-rem(24) make-rem(24) 0 make-rem(24);
+      gap: make-rem(24);
+      border-radius: make-rem(8);
+    }
+
+    @include make-global(desktop-avatar, nested) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: make-rem(8);
+      border-top-right-radius: make-rem(8);
+      height: 100%;
+    }
+
+    // .channel
+    @include make-global(channel, nested) {
+      max-height: make-rem(24);
+      width: auto;
+      text-align: center;
+    }
+
+    blockquote {
+      margin: 0;
+      margin-top: make-rem(24);
+      font-style: italic;
+      color: make-color(grey-4);
+
+      @include make-responsive(zero, tablet) {
+        border-radius: make-rem(8);
+        background: make-color(secondary, 0.05);
+        font-size: make-rem(14);
+        line-height: make-rem(22);
+        margin-top: make-rem(32);
+        padding: make-rem(72) make-rem(24) make-rem(24) make-rem(24);
+        position: relative;
+        text-align: center;
+
+        @include make-global(i, nested) {
+          position: absolute;
+          left: 50%;
+          margin-left: -#{make-rem(24)};
+          top: make-rem(18);
+          color: make-color(grey-3);
+        }
+      }
+    }
+
+    // .avatar-details
+    @include make-global(avatar-details, nested) {
+      margin-top: make-rem(32);
+    }
+  }
+}
+
+.page-section-content {
+  max-width: make-rem(1024);
+}

@@ -1,0 +1,84 @@
+@import "../../../theme/utils";
+
+.root {
+  backdrop-filter: blur(10px);
+  background-color: make-color(paper, 0.8);
+  border-bottom: 1px solid make-color(grey-1, 0.5);
+  z-index: 10;
+  position: relative;
+}
+
+.primary {
+  position: sticky;
+  top: 0;
+  min-height: make-rem(80);
+  max-width: make-rem(1024);
+  padding: 0 make-rem(32);
+  margin: 0 auto;
+  align-items: center;
+
+  @include make-responsive(zero, tablet) {
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  @include make-responsive(tablet) {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: make-rem(32);
+    text-align: center;
+
+    & > div {
+      &:first-child {
+        justify-self: start;
+      }
+
+      &:last-child {
+        justify-self: end;
+      }
+    }
+  }
+}
+
+.secondary {
+  padding: 0 make-rem(32);
+  height: make-rem(48);
+  background: make-color(secondary);
+  font-size: make-rem(12);
+  color: make-color(paper);
+  font-weight: 400;
+  display: flex;
+
+  @include make-responsive(zero, tablet) {
+    justify-content: space-between;
+  }
+
+  @include make-responsive(tablet) {
+    gap: make-rem(16);
+    align-items: center;
+  }
+
+  & > * {
+    display: flex;
+    align-items: center;
+    gap: make-rem(4);
+    text-decoration: none;
+    color: inherit;
+
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+.img {
+  height: make-rem(20);
+  width: auto;
+}

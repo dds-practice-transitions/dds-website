@@ -1,0 +1,94 @@
+@import "../../../theme/utils";
+
+.root {
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+  padding: make-rem(64) make-rem(32);
+
+  * {
+    z-index: 1;
+  }
+
+  h1 {
+    position: relative;
+    margin: 0;
+    font-size: make-rem(40);
+    line-height: 1.2;
+  }
+
+  p {
+    margin-top: make-rem(16);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
+
+.container {
+  max-width: make-rem(1200);
+  position: relative;
+  margin: 0 auto;
+  height: max-content;
+}
+
+.bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    object-fit: cover;
+    object-position: bottom;
+  }
+}
+
+.layout {
+  &-full-screen {
+  }
+  &-dual-pane,
+  &-img-grid {
+    @include make-responsive(zero, tablet) {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include make-responsive(tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      display: grid;
+      gap: make-rem(64);
+    }
+  }
+}
+
+.cta {
+  margin-top: make-rem(32);
+}
+
+.pane {
+  &-primary {
+    align-self: center;
+    padding: make-rem(64) 0;
+  }
+  &-alt {
+    background-color: make-color(paper);
+    border-radius: make-rem(32);
+
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: inherit;
+    }
+  }
+}

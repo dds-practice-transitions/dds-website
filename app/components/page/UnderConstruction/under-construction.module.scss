@@ -1,0 +1,64 @@
+@import "../../../theme/utils";
+
+.uc {
+  min-height: 80vh;
+  width: 100%;
+  position: relative;
+
+  @include make-responsive(zero, desktop) {
+    display: flex;
+    height: 100vh;
+    flex-direction: column-reverse;
+  }
+
+  & > div {
+    &:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      @include make-responsive(zero, desktop) {
+        position: absolute;
+        top: make-rem(32);
+        right: make-rem(32);
+        bottom: make-rem(32);
+        left: make-rem(32);
+        min-height: 80%;
+        background: make-color(paper);
+        border-radius: make-rem(16);
+      }
+
+      @include make-responsive(table) {
+        padding: 0 2rem;
+      }
+
+      img {
+        width: 50%;
+        margin-bottom: 4rem;
+      }
+
+      p {
+        margin-top: 1rem;
+        max-width: 40ch;
+        text-align: center;
+      }
+    }
+
+    &:last-child {
+      background: url("/bg-2.svg");
+      background-size: cover;
+
+      @include make-responsive(zero, desktop) {
+        min-height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  @include make-responsive(desktop) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

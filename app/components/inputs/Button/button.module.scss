@@ -1,0 +1,71 @@
+@import "../../../theme/utils";
+
+.root {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  width: min-content;
+  height: make-rem(40);
+  border-radius: make-rem(12);
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.sm {
+  height: make-rem(32);
+  font-size: make-rem(12);
+  padding: 0 make-rem(16);
+}
+.md {
+  height: make-rem(40);
+  font-size: make-rem(16);
+  padding: 0 make-rem(20);
+}
+
+.lg {
+}
+
+.primary {
+  background: make-color(primary);
+  color: make-color(paper);
+  font-weight: 500;
+
+  &:hover {
+    background: make-color(primary, 0.9);
+  }
+}
+
+.secondary {
+  background: make-color(secondary);
+  color: make-color(paper);
+  font-weight: 500;
+
+  &:hover {
+    background: make-color(secondary, 0.9);
+  }
+}
+
+.tertiary {
+  background: make-color(tertiary);
+  color: make-color(paper);
+  font-weight: 500;
+
+  &:hover {
+    background: make-color(tertiary, 0.9);
+  }
+}
+
+.paper {
+  color: make-color(dark);
+  font-weight: 500;
+  background: make-color(paper);
+  border: make-rem(1) solid make-color(dark);
+
+  &:hover {
+    background: make-color(dark);
+    color: make-color(paper);
+  }
+}

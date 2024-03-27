@@ -1,0 +1,17 @@
+@mixin make-reset-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin make-reset-ul {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

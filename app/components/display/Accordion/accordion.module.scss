@@ -1,0 +1,73 @@
+@import "../../../theme/utils";
+
+.root {
+  gap: make-rem(8);
+  border: make-rem(1) solid make-color(grey-1);
+  border-radius: make-rem(8);
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: make-color(primary);
+
+    summary {
+      color: make-color(primary);
+    }
+  }
+
+  span {
+    transform: rotate(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:global() {
+    &[open] {
+      background-color: make-color(primary, 0.2);
+
+      p {
+        max-height: make-rem(500);
+        overflow: hidden;
+        padding: 0 make-rem(24) make-rem(24) make-rem(20);
+      }
+
+      span {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  summary {
+    display: flex;
+    font-weight: 600;
+    gap: make-rem(8);
+    cursor: pointer;
+    padding: make-rem(20) make-rem(24);
+
+    & > div {
+      flex: 1;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  p {
+    margin: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out;
+    color: make-color(grey-4);
+  }
+}
+
+.list {
+  margin: 0;
+  margin-top: make-rem(32);
+  list-style-type: none;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: make-rem(16);
+  padding: 0;
+}

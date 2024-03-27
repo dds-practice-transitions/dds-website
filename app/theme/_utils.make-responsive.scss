@@ -21,3 +21,15 @@ $breakpoints: (
     }
   }
 }
+
+@mixin make-responsive-mobile() {
+  @include make-responsive(zero, tablet) {
+    @content;
+  }
+}
+
+@mixin make-responsive-tablet() {
+  @include make-responsive(tablet) {
+    @content;
+  }
+}
