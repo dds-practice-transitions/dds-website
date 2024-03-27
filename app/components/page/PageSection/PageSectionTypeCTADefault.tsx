@@ -7,11 +7,11 @@ import { PageSectionActions } from "./PageSectionActions";
 import { Button } from "../../inputs/Button";
 import { PageSection } from "./PageSection";
 
-export type PageSectionTypeCTADefaultProps = Omit<
-  JSX.IntrinsicElements["section"],
-  "children"
-> &
+export type PageSectionTypeCTAPropsNative = JSX.IntrinsicElements["section"];
+export type PageSectionTypeCTADefaultPropsCustom =
   PageSectionTypeCTAPropsVariantDefault;
+export type PageSectionTypeCTADefaultProps = PageSectionTypeCTAPropsNative &
+  PageSectionTypeCTADefaultPropsCustom;
 export const PageSectionTypeCTADefault = forwardRef<
   HTMLElement,
   PageSectionTypeCTADefaultProps

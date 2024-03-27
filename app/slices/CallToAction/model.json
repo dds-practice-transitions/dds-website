@@ -1,0 +1,122 @@
+{
+  "id": "call_to_action",
+  "type": "SharedSlice",
+  "name": "CallToAction",
+  "description": "CallToAction",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "background": {
+          "type": "Select",
+          "config": {
+            "label": "Background",
+            "placeholder": "The color of the background",
+            "options": [
+              "primary",
+              "secondary"
+            ],
+            "default_value": "primary"
+          }
+        }
+      },
+      "items": {
+        "actionlabel": {
+          "type": "Text",
+          "config": {
+            "label": "ActionLabel",
+            "placeholder": ""
+          }
+        },
+        "actionlink": {
+          "type": "Link",
+          "config": {
+            "label": "ActionLink",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    },
+    {
+      "id": "splitImage",
+      "name": "Split Image",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "background": {
+          "type": "Select",
+          "config": {
+            "label": "Background",
+            "placeholder": "The color of the section background",
+            "options": [
+              "primary",
+              "secondary"
+            ],
+            "default_value": "primary"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "actionlabel": {
+          "type": "Text",
+          "config": {
+            "label": "ActionLabel",
+            "placeholder": ""
+          }
+        },
+        "actionlink": {
+          "type": "Link",
+          "config": {
+            "label": "ActionLink",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

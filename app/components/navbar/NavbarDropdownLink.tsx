@@ -1,13 +1,17 @@
-import { forwardRef } from "react";
+import { FC, forwardRef } from "react";
 import { clsx } from "clsx";
 import styles from "./navbar.module.css";
+import { NativeAnchor } from "../native";
 
 export const NavbarDropdownLink = forwardRef<
   HTMLAnchorElement,
-  JSX.IntrinsicElements["a"]
->(function NavbarDropdownLink({ children, className, ...restProps }, ref) {
+  JSX.IntrinsicElements["a"] & { LinkComponent?: FC }
+>(function NavbarDropdownLink(
+  { children, className, LinkComponent = NativeAnchor, ...restProps },
+  ref,
+) {
   return (
-    <a
+    <LinkComponent
       {...restProps}
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
@@ -17,6 +21,6 @@ export const NavbarDropdownLink = forwardRef<
       ref={ref}
     >
       {children}
-    </a>
+    </LinkComponent>
   );
 });
