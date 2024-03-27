@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
-import { UnderConstruction } from "~/components";
+import { UnderConstruction } from "../components";
 
 export const meta: MetaFunction = () => {
   return [
@@ -27,7 +27,7 @@ export default function Index() {
           <strong>Coming soon!</strong>
         </h1>
         <p>
-          We're in the process of building out our web presence. Check in
+          We&apos;re in the process of building out our web presence. Check in
           periodically to see our progress!
         </p>
       </UnderConstruction>
