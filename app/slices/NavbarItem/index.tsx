@@ -5,6 +5,8 @@ import {
   NavbarLink,
   NavbarDropdown,
   useMenu,
+  NavbarDropdownItem,
+  NavbarDropdownLink,
 } from "../../components";
 import { exhaustiveMatchGuard } from "../../utils";
 import { withAdapterLink } from "../../adapters/AdapterLink";
@@ -43,17 +45,20 @@ const NavbarItem = ({ slice }: NavbarItemProps) => {
     case "withSubmenu":
       return (
         <NavItem>
-          <NavbarLink
-            ddLabel={slice.primary.label as string}
-            LinkComponent={withAdapterLink({
-              adapter: "navlink",
-              field: slice.primary.link,
-            })}
-          >
+          <NavbarLink ddLabel={slice.primary.label as string}>
             <NavbarDropdown {...sMenu}>
               {slice.items.map((item, i) => {
                 return (
-                  <PrismicLink key={`dropdown-${i}`} field={item.submenu} />
+                  <NavbarDropdownItem key={`dropdown-${i}`}>
+                    <NavbarDropdownLink
+                      LinkComponent={withAdapterLink({
+                        adapter: "navlink",
+                        field: item.link,
+                      })}
+                    >
+                      {item.label}
+                    </NavbarDropdownLink>
+                  </NavbarDropdownItem>
                 );
               })}
             </NavbarDropdown>

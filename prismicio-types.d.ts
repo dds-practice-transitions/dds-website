@@ -918,16 +918,6 @@ export interface NavbarItemSliceWithSubmenuPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   label: prismic.KeyTextField;
-
-  /**
-   * Link field in *NavbarItem → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar_item.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
 }
 
 /**
@@ -935,14 +925,24 @@ export interface NavbarItemSliceWithSubmenuPrimary {
  */
 export interface NavbarItemSliceWithSubmenuItem {
   /**
-   * Submenu field in *NavbarItem → Items*
+   * Label field in *NavbarItem → Items*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: navbar_item.items[].submenu
+   * - **API ID Path**: navbar_item.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *NavbarItem → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar_item.items[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  submenu: prismic.ContentRelationshipField<"navbarsubmenu">;
+  link: prismic.LinkField;
 }
 
 /**

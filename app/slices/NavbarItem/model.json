@@ -44,6 +44,15 @@
             "label": "Label",
             "placeholder": ""
           }
+        }
+      },
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
         },
         "link": {
           "type": "Link",
@@ -51,18 +60,6 @@
             "label": "Link",
             "placeholder": "",
             "select": null
-          }
-        }
-      },
-      "items": {
-        "submenu": {
-          "type": "Link",
-          "config": {
-            "label": "Submenu",
-            "select": "document",
-            "customtypes": [
-              "navbarsubmenu"
-            ]
           }
         }
       }
