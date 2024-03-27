@@ -32,7 +32,6 @@
   margin: 0;
   text-align: center;
   font-weight: 300;
-  color: make-color(grey-4);
 
   // Up to tablet
   @include make-responsive(zero, tablet) {
@@ -64,12 +63,15 @@
 .page-section-cta {
   @include make-global(primary) {
     background: make-color(primary);
-    color: make-color(paper);
+    color: make-color(paper) !important;
   }
 
   @include make-global(secondary) {
     background: make-color(secondary);
-    color: make-color(paper);
+    h2,
+    h3 {
+      color: make-color(paper) !important;
+    }
   }
 
   // Variant - Default
