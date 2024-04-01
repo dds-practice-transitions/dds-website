@@ -18,7 +18,7 @@ import "./theme/theme.css";
 import { ReactNode } from "react";
 import { PrismicProvider, SliceZone } from "@prismicio/react";
 import { getPrismicClient } from "./lib/prismic";
-import { LayoutDocumentData } from "../prismicio-types";
+import { LayoutDocumentData, NavbarDocumentData } from "../prismicio-types";
 import { PageHeader, Button, Navbar } from "./components";
 import { PageHeaderLogo } from "./components/page/PageHeader/PageHeaderLogo";
 import { PageHeaderColumn } from "./components/page/PageHeader/PageHeaderSection";
@@ -33,17 +33,13 @@ export const loader: LoaderFunction = async ({ context }) => {
 
   const getLayout = client.getByUID("layout", "layout");
   const getNavbar = client.getByUID("navbar", "navbar");
-  const getCategoryDetails = client.getAllByType("services_category_details");
 
   try {
-    const [layout, navbar, details] = await Promise.all([
+    const [{ data: layout }, { data: navbar }] = await Promise.all([
       getLayout,
       getNavbar,
-      getCategoryDetails,
     ]);
-
-    console.log(JSON.stringify({ details }, null, 2));
-    return json({ layout, navbar, details });
+    return json({ layout, navbar });
   } catch (error) {
     console.log(error);
     throw new Response("Not found", {
@@ -53,12 +49,15 @@ export const loader: LoaderFunction = async ({ context }) => {
 };
 
 export function Layout({ children }: { children: ReactNode }) {
-  const data = useRouteLoaderData<LayoutDocumentData>("root");
+  const response = useRouteLoaderData("root") as {
+    layout: LayoutDocumentData;
+    navbar: NavbarDocumentData;
+  };
   const error = useRouteError();
 
-  // if (typeof data === "undefined") return;
+  if (typeof response === "undefined") return;
 
-  // console.log(data);
+  console.log(response.layout, response.navbar);
 
   if (error) {
     return null;
@@ -74,26 +73,29 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        {/* <PageHeader>
+        <PageHeader>
           <PageHeaderColumn>
-            <Link to="">
+            <Link to="/">
               <PageHeaderLogo
-                src={data.logo.url ?? undefined}
-                alt={data.logo.url ?? undefined}
+                src={response.layout.logo.url ?? undefined}
+                alt={response.layout.logo.url ?? undefined}
               />
             </Link>
           </PageHeaderColumn>
           <PageHeaderColumn>
             <Navbar>
-              <SliceZone slices={data.slices} components={components} />
+              <SliceZone
+                slices={response.navbar.slices}
+                components={components}
+              />
             </Navbar>
           </PageHeaderColumn>
           <PageHeaderColumn>
             <Button ddSize="sm" ddVariant="primary">
-              {data.contact_cta_label}
+              {response.layout.contact_cta_label}
             </Button>
           </PageHeaderColumn>
-        </PageHeader> */}
+        </PageHeader>
         <main>
           {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
           {children}

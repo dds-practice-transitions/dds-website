@@ -24,24 +24,24 @@ export const NavbarDropdown = forwardRef<HTMLUListElement, NavbarDropdown>(
     },
     ref,
   ) {
-    const isTabletAndUp = useBreakpoint({ from: "tablet" });
+    const isMobile = useBreakpoint({ to: "tablet" });
 
-    if (isTabletAndUp) {
+    if (isMobile) {
       return (
-        <Menu ref={menuRef}>
-          <MenuList {...closeProps}>{children}</MenuList>
-        </Menu>
+        <ul
+          {...restProps}
+          className={clsx(styles["navbar-dropdown"], className)}
+          ref={ref}
+        >
+          {children}
+        </ul>
       );
     }
 
     return (
-      <ul
-        {...restProps}
-        className={clsx(styles["navbar-dropdown"], className)}
-        ref={ref}
-      >
-        {children}
-      </ul>
+      <Menu ref={menuRef}>
+        <MenuList {...closeProps}>{children}</MenuList>
+      </Menu>
     );
   },
 );

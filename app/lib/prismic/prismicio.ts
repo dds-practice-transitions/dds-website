@@ -2,7 +2,6 @@
 import * as prismic from "@prismicio/client";
 import { createClient, getRepositoryEndpoint } from "@prismicio/client";
 import { AppLoadContext } from "@remix-run/cloudflare";
-import config from "../../../slicemachine.config.json";
 
 //Add your unique repository name, such as "my-prismic-remix-site" below
 export const repoName = "dds-practice-transitions";

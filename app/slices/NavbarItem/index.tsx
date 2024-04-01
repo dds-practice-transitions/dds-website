@@ -42,7 +42,10 @@ const NavbarItem = ({ slice }: NavbarItemProps) => {
     case "withSubmenu":
       return (
         <NavItem>
-          <NavbarLink ddLabel={slice.primary.label as string}>
+          <NavbarLink
+            ddLabel={slice.primary.label as string}
+            {...sMenu.openProps}
+          >
             <NavbarDropdown {...sMenu}>
               {slice.items.map((item, i) => {
                 return (
