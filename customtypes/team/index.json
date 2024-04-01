@@ -1,39 +1,20 @@
 {
   "format": "page",
-  "id": "general",
-  "label": "General",
-  "repeatable": true,
+  "id": "team",
+  "label": "Team",
+  "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "config": {
-          "label": "UID"
-        },
-        "type": "UID"
-      },
-      "sub_page": {
-        "type": "Link",
-        "config": {
-          "label": "Sub Page",
-          "select": "document"
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "accordion": {
+            "team": {
               "type": "SharedSlice"
             },
             "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "content": {
               "type": "SharedSlice"
             }
           }

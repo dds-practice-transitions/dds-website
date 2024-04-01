@@ -1,58 +1,26 @@
 import { PrismicLink, PrismicLinkProps } from "@prismicio/react";
-import { FC } from "react";
+import { FC, memo } from "react";
 
-import { Link, LinkProps, NavLink, NavLinkProps } from "@remix-run/react";
-import { exhaustiveMatchGuard } from "../utils";
+import { Link } from "@remix-run/react";
 
 export type AnchorProps = JSX.IntrinsicElements["a"];
 
-type AdapterLinkProps = { adapter: "link" } & Omit<LinkProps, "to"> &
-  PrismicLinkProps;
-type AdapterNavLinkProps = { adapter: "navlink" } & Omit<NavLinkProps, "to"> &
-  PrismicLinkProps;
-type HOCProps = AdapterLinkProps | AdapterNavLinkProps;
+const InternalLink = memo(function InternalLink(props) {
+  console.log("InternalLinkProps", props);
+  return (
+    <Link className="internal" {...props}>
+      {children}
+    </Link>
+  );
+});
 
-export function withAdapterLink(hocProps: HOCProps) {
-  switch (hocProps.adapter) {
-    case "link": {
-      const LinkComponent: FC<AnchorProps> = ({
-        children,
-        ...restAnchorProps
-      }) => (
-        // @ts-expect-error mismatch between HTMLElement & HTMLAnchor
-        <PrismicLink
-          {...hocProps}
-          {...restAnchorProps}
-          internalComponent={({ href, ...restProps }) => (
-            <Link {...restProps} to={href as string} />
-          )}
-        >
-          {children}
-        </PrismicLink>
-      );
-      return LinkComponent;
-    }
+export function withAdapterNavLink(options: PrismicLinkProps) {
+  const NavLinkComponent: FC<AnchorProps> = memo<AnchorProps>(
+    function NavLinkComponent({ children, ...anchorProps }) {
+      console.log("anchorProps", anchorProps, options);
+      return <PrismicLink {...options} internalComponent={InternalLink} />;
+    },
+  );
 
-    case "navlink": {
-      const LinkComponent: FC<AnchorProps> = ({
-        children,
-        ...restAnchorProps
-      }) => (
-        // @ts-expect-error mismatch between HTMLElement & HTMLAnchor
-        <PrismicLink
-          {...hocProps}
-          {...restAnchorProps}
-          internalComponent={({ href, ...restProps }) => (
-            <NavLink {...restProps} to={href as string} />
-          )}
-        >
-          {children}
-        </PrismicLink>
-      );
-      return LinkComponent;
-    }
-
-    default:
-      return exhaustiveMatchGuard(hocProps);
-  }
+  return NavLinkComponent;
 }

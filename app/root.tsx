@@ -1,6 +1,7 @@
-import type { LinksFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, LoaderFunction } from "@remix-run/cloudflare";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -8,18 +9,61 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  json,
   useRouteError,
+  useRouteLoaderData,
 } from "@remix-run/react";
 
 import "./theme/theme.css";
-import { PageFooter, PageFooterColumn, PageHeader } from "./components";
 import { ReactNode } from "react";
+import { PrismicProvider, SliceZone } from "@prismicio/react";
+import { getPrismicClient } from "./lib/prismic";
+import { LayoutDocumentData } from "../prismicio-types";
+import { PageHeader, Button, Navbar } from "./components";
+import { PageHeaderLogo } from "./components/page/PageHeader/PageHeaderLogo";
+import { PageHeaderColumn } from "./components/page/PageHeader/PageHeaderSection";
+import { components } from "./slices";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
+export const loader: LoaderFunction = async ({ context }) => {
+  const client = getPrismicClient(context);
+
+  const getLayout = client.getByUID("layout", "layout");
+  const getNavbar = client.getByUID("navbar", "navbar");
+  const getCategoryDetails = client.getAllByType("services_category_details");
+
+  try {
+    const [layout, navbar, details] = await Promise.all([
+      getLayout,
+      getNavbar,
+      getCategoryDetails,
+    ]);
+
+    console.log(JSON.stringify({ details }, null, 2));
+    return json({ layout, navbar, details });
+  } catch (error) {
+    console.log(error);
+    throw new Response("Not found", {
+      status: 404,
+    });
+  }
+};
+
 export function Layout({ children }: { children: ReactNode }) {
+  const data = useRouteLoaderData<LayoutDocumentData>("root");
+  const error = useRouteError();
+
+  // if (typeof data === "undefined") return;
+
+  // console.log(data);
+
+  if (error) {
+    return null;
+  }
+
   return (
     <html lang="en">
       <head>
@@ -30,7 +74,26 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        <PageHeader />
+        {/* <PageHeader>
+          <PageHeaderColumn>
+            <Link to="">
+              <PageHeaderLogo
+                src={data.logo.url ?? undefined}
+                alt={data.logo.url ?? undefined}
+              />
+            </Link>
+          </PageHeaderColumn>
+          <PageHeaderColumn>
+            <Navbar>
+              <SliceZone slices={data.slices} components={components} />
+            </Navbar>
+          </PageHeaderColumn>
+          <PageHeaderColumn>
+            <Button ddSize="sm" ddVariant="primary">
+              {data.contact_cta_label}
+            </Button>
+          </PageHeaderColumn>
+        </PageHeader> */}
         <main>
           {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
           {children}
@@ -38,58 +101,17 @@ export function Layout({ children }: { children: ReactNode }) {
         <Scripts />
         <ScrollRestoration />
         <LiveReload />
-        <PageFooter>
-          <PageFooterColumn title="our mission">
-            <p>
-              DDS Practice Transitions is a <strong>premium</strong> boutique
-              brokerage company that specializes in the sale, merger, and
-              purchase of dental practices. We are not matchmakers. We pride
-              ourselves on getting to know you and your dental practice. Our
-              team will meet with you in person – not over Zoom or over the
-              phone. Our aim is to act as stewards during one of the most
-              emotional and critical junctures of your life. We have one central
-              goal in mind when we work with you: to consummate a transaction
-              that fits your particular needs.
-            </p>
-          </PageFooterColumn>
-          <PageFooterColumn title="contact us">
-            <p>
-              <dl
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "auto 1fr",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <dt>
-                  <strong>Phone:</strong>
-                </dt>
-                <dd>
-                  <a href="tel:+14088238884">+1 (408) 823-8884</a>
-                </dd>
-                <dt>
-                  <strong>Email Us:</strong>
-                </dt>
-                <dd>
-                  <a href="mailto:info@ddsbrokerage.com">
-                    info@ddsbrokerage.com
-                  </a>
-                </dd>
-              </dl>
-            </p>
-          </PageFooterColumn>
-          {/* <PageFooterColumn title="Test"></PageFooterColumn>
-          <PageFooterColumn title="subscribe">
-            <Newsletter />
-          </PageFooterColumn> */}
-        </PageFooter>
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <PrismicProvider>
+      <Outlet />
+    </PrismicProvider>
+  );
 }
 
 export function ErrorBoundary() {

@@ -16,6 +16,8 @@ export const NavbarDropdown = forwardRef<HTMLUListElement, NavbarDropdown>(
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       openMenu,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      closeMenu,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       openProps,
       menuRef,
       ...restProps

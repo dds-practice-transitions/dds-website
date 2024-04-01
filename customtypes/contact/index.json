@@ -1,9 +1,6 @@
 {
   "format": "page",
-  "id": "general",
-  "label": "General",
-  "repeatable": true,
-  "status": true,
+  "id": "contact",
   "json": {
     "Main": {
       "uid": {
@@ -12,32 +9,12 @@
         },
         "type": "UID"
       },
-      "sub_page": {
-        "type": "Link",
-        "config": {
-          "label": "Sub Page",
-          "select": "document"
-        }
-      },
       "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "accordion": {
-              "type": "SharedSlice"
-            },
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "content": {
-              "type": "SharedSlice"
-            }
-          }
-        }
+          "choices": {}
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
@@ -67,5 +44,8 @@
         "type": "Text"
       }
     }
-  }
+  },
+  "label": "Contact",
+  "repeatable": true,
+  "status": true
 }

@@ -1,1 +1,1 @@
-export { AdapterLink } from "./AdapterLink";
+export { withAdapterNavLink } from "./AdapterLink";

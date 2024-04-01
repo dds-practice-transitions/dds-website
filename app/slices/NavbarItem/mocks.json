@@ -12,7 +12,7 @@
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io"
+					"url": "http://google.com"
 				}
 			}
 		},
@@ -36,7 +36,7 @@
 						"label",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "knew",
+							"value": "gradually",
 							"type": "Text"
 						}
 					],

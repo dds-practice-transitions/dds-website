@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import { PrismicLink, SliceComponentProps } from "@prismicio/react";
+import { SliceComponentProps } from "@prismicio/react";
 import {
   NavbarItem as NavItem,
   NavbarLink,
@@ -9,7 +9,7 @@ import {
   NavbarDropdownLink,
 } from "../../components";
 import { exhaustiveMatchGuard } from "../../utils";
-import { withAdapterLink } from "../../adapters/AdapterLink";
+import { withAdapterNavLink } from "../../adapters";
 
 /**
  * Props for `NavbarItem`.
@@ -32,13 +32,10 @@ const NavbarItem = ({ slice }: NavbarItemProps) => {
         <NavItem>
           <NavbarLink
             ddLabel={slice.primary.label as string}
-            LinkComponent={withAdapterLink({
-              adapter: "navlink",
+            LinkComponent={withAdapterNavLink({
               field: slice.primary.link,
             })}
-          >
-            {slice.primary.label}
-          </NavbarLink>
+          />
         </NavItem>
       );
 
@@ -51,8 +48,7 @@ const NavbarItem = ({ slice }: NavbarItemProps) => {
                 return (
                   <NavbarDropdownItem key={`dropdown-${i}`}>
                     <NavbarDropdownLink
-                      LinkComponent={withAdapterLink({
-                        adapter: "navlink",
+                      LinkComponent={withAdapterNavLink({
                         field: item.link,
                       })}
                     >

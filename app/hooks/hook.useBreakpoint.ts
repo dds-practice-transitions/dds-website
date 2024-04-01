@@ -36,7 +36,7 @@ const calculateSize = (breakpoint: UseBreakpointParams) => {
  * A custom React hook that listens to the size of the viewport and determines whether it passes a certain predefined breakpoint.
  */
 export function useBreakpoint(params: UseBreakpointParams) {
-  const initShouldRender = useMemo(() => calculateSize(params), [params]);
+  const initShouldRender = useMemo(() => false, []);
   const [shouldRender, setShouldRender] = useState(() => initShouldRender);
 
   useEffect(() => {

@@ -9,5 +9,7 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   navbar_item: dynamic(() => import("./NavbarItem")),
   navbar_submenu_item: dynamic(() => import("./NavbarSubmenuItem")),
+  navigation_item: dynamic(() => import("./NavigationItem")),
+  navigation_submenu_item: dynamic(() => import("./NavigationSubmenuItem")),
   team: dynamic(() => import("./Team")),
 };

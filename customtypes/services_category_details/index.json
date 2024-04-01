@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "general",
-  "label": "General",
+  "id": "services_category_details",
+  "label": "Services - Category - Details",
   "repeatable": true,
   "status": true,
   "json": {
@@ -12,31 +12,19 @@
         },
         "type": "UID"
       },
-      "sub_page": {
+      "category": {
         "type": "Link",
         "config": {
-          "label": "Sub Page",
-          "select": "document"
+          "label": "Category",
+          "select": "document",
+          "customtypes": ["services_category"]
         }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "accordion": {
-              "type": "SharedSlice"
-            },
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "content": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },
