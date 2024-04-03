@@ -15,9 +15,7 @@ export const FooterBottom = forwardRef<HTMLDivElement, FooterBottomProps>(
   ) {
     return (
       <div {...restProps} className={clsx(styles.bottom, className)} ref={ref}>
-        <span>
-          Copyright © {ddCopyrightYear} DDS Practice Transitions, LLC
-        </span>
+        <span>Copyright © {ddCopyrightYear} DDS Practice Transitions</span>
         <span>|</span>
         <span>All Rights Reserved</span>
         {React.Children.map(children, (child) => (
