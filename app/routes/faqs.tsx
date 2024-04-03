@@ -3,6 +3,7 @@ import { getPrismicClient } from "../lib/prismic";
 import { useLoaderData } from "@remix-run/react";
 import { FaqDocumentData } from "../../prismicio-types";
 import { SliceZone } from "@prismicio/react";
+import { components } from "../slices";
 
 export const loader: LoaderFunction = async ({ context }) => {
   const client = getPrismicClient(context);
@@ -20,7 +21,6 @@ export const loader: LoaderFunction = async ({ context }) => {
 
 export default function FAQs() {
   const data = useLoaderData<FaqDocumentData>();
-  console.log(JSON.stringify(data, null, 2));
 
-  return <SliceZone slices={data.slices} />;
+  return <SliceZone slices={data.slices} components={components} />;
 }

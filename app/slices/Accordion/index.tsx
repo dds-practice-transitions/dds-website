@@ -11,7 +11,6 @@ export type AccordionProps = SliceComponentProps<Content.AccordionSlice>;
  * Component for "Accordion" Slices.
  */
 const Accordion = ({ slice }: AccordionProps): JSX.Element => {
-  debugger;
   return (
     <PageSectionTypeFAQDefault
       ddVariant="default"

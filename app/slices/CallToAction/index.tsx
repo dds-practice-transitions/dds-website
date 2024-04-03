@@ -17,14 +17,16 @@ export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 const CallToAction = ({ slice }: CallToActionProps) => {
   switch (slice.variation) {
     case "default":
-      <PageSectionTypeCTADefault
-        ddVariant="default"
-        ddTitle={slice.primary.title ?? ""}
-        ddSubtitle={slice.primary.description ?? undefined}
-        ddBackground={slice.primary.background}
-        ddActionHref="test"
-        ddActionLabel="test"
-      />;
+      return (
+        <PageSectionTypeCTADefault
+          ddVariant="default"
+          ddTitle={slice.primary.title ?? ""}
+          ddSubtitle={slice.primary.description ?? undefined}
+          ddBackground={slice.primary.background}
+          ddActionHref="test"
+          ddActionLabel="test"
+        />
+      );
       break;
 
     case "splitImage":

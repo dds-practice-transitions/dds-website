@@ -66,8 +66,13 @@ export function Layout({ children }: { children: ReactNode }) {
     navbar: NavbarDocumentData;
     footer: FooterDocumentData;
   };
+  const error = useRouteError();
 
   if (typeof response === "undefined") return;
+
+  if (error) {
+    return null;
+  }
 
   return (
     <html lang="en">
