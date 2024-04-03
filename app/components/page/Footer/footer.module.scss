@@ -1,0 +1,85 @@
+@import "../../../theme/utils";
+
+.footer {
+  background: make-color(secondary-dark);
+  width: 100%;
+}
+
+.top {
+  padding: make-rem(72) 0;
+  max-width: make-rem(1024);
+  margin: 0 auto;
+}
+
+.bottom {
+  max-width: make-rem(1024);
+  height: make-rem(60);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: make-color(paper, 0.8);
+
+  a {
+    text-decoration: underline;
+    color: make-color(paper);
+  }
+
+  span {
+    padding: make-rem(6);
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: make-rem(300) 1fr;
+
+  img {
+    max-height: make-rem(32);
+    max-width: make-rem(260);
+    width: auto;
+  }
+
+  p {
+    color: make-color(paper, 0.8);
+    font-size: make-rem(16);
+    line-height: make-rem(24);
+    font-weight: 400;
+  }
+}
+
+.cols {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.column {
+  ul {
+    @include make-reset-ul();
+  }
+
+  h3 {
+    margin: 0;
+    margin-bottom: make-rem(32);
+    font-size: make-rem(16);
+    line-height: make-rem(22);
+    font-weight: 600;
+    color: make-color(paper);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: make-rem(24);
+  }
+}
+
+.column-link {
+  color: make-color(paper, 0.8);
+
+  &:hover {
+    color: make-color(paper);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

@@ -9,6 +9,7 @@ export function withAdapterNavLink(options: PrismicLinkProps) {
   const NavLinkComponent: FC<AnchorProps> = memo<AnchorProps>(
     function NavLinkComponent({ children, ...restAnchorProps }: AnchorProps) {
       return (
+        // @ts-expect-error mismatch on the refs... this is okay
         <PrismicLink
           {...options}
           internalComponent={({ href, ...restICProps }) => {

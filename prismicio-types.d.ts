@@ -133,6 +133,24 @@ interface FaqDocumentData {
 export type FaqDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FaqDocumentData>, "faq", Lang>;
 
+interface FooterDocumentData {}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 type GeneralDocumentDataSlicesSlice =
   | TeamSlice
   | HeroSlice
@@ -653,6 +671,7 @@ export type TeamDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | ContactDocument
   | FaqDocument
+  | FooterDocument
   | GeneralDocument
   | HomeDocument
   | LayoutDocument
@@ -1522,6 +1541,8 @@ declare module "@prismicio/client" {
       FaqDocument,
       FaqDocumentData,
       FaqDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
       GeneralDocument,
       GeneralDocumentData,
       GeneralDocumentDataSlicesSlice,
