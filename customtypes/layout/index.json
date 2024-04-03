@@ -36,6 +36,14 @@
           "customtypes": ["navbar"]
         }
       },
+      "footer": {
+        "type": "Link",
+        "config": {
+          "label": "footer",
+          "select": "document",
+          "customtypes": ["footer"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

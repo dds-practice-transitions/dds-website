@@ -7,8 +7,7 @@ export * from "./dialogs/Drawer";
 export * from "./dialogs/Menu";
 
 // page
-export { PageFooter } from "./page/PageFooter";
-export { PageFooterColumn } from "./page/PageFooterColumn";
+export * from "./page/Footer";
 export { PageHeader } from "./page/PageHeader";
 export { PageContainer } from "./page/PageContainer";
 export {

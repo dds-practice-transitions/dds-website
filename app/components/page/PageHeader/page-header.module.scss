@@ -48,12 +48,7 @@
 
 .secondary {
   padding: 0 make-rem(32);
-  height: make-rem(48);
   background: make-color(secondary);
-  font-size: make-rem(12);
-  color: make-color(paper);
-  font-weight: 400;
-  display: flex;
 
   @include make-responsive(zero, tablet) {
     justify-content: space-between;
@@ -64,7 +59,17 @@
     align-items: center;
   }
 
-  & > * {
+  & > div {
+    height: make-rem(48);
+    font-size: make-rem(12);
+    color: make-color(paper);
+    font-weight: 400;
+    display: flex;
+    max-width: make-rem(1024);
+    margin: 0 auto;
+  }
+
+  a {
     display: flex;
     align-items: center;
     gap: make-rem(4);

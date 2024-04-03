@@ -10,14 +10,16 @@ export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(
     return (
       <header {...restProps} className={clsx(styles.root, className)} ref={ref}>
         <div className={styles.secondary}>
-          <a href="mailto:info@ddsbrokerage.com">
-            <Icon DDIcon={SendEmail} ddSize={16} />
-            <span>info@ddsbrokerage.com</span>
-          </a>
-          <a href="tel:4848990432">
-            <Icon DDIcon={PhoneCall} ddSize={16} />
-            <span>(484) 899-0432</span>
-          </a>
+          <div>
+            <a href="mailto:info@ddsbrokerage.com">
+              <Icon DDIcon={SendEmail} ddSize={16} />
+              <span>info@ddsbrokerage.com</span>
+            </a>
+            <a href="tel:4848990432">
+              <Icon DDIcon={PhoneCall} ddSize={16} />
+              <span>(484) 899-0432</span>
+            </a>
+          </div>
         </div>
         <div className={styles.primary}>{children}</div>
       </header>

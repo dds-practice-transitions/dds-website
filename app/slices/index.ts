@@ -6,6 +6,7 @@ export const components = {
   accordion: lazy(() => import("./Accordion")),
   call_to_action: lazy(() => import("./CallToAction")),
   content: lazy(() => import("./Content")),
+  footer_column: lazy(() => import("./FooterColumn")),
   hero: lazy(() => import("./Hero")),
   navbar_item: lazy(() => import("./NavbarItem")),
   team: lazy(() => import("./Team")),

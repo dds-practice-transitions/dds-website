@@ -1,22 +1,26 @@
 import { PrismicLink, PrismicLinkProps } from "@prismicio/react";
 import { FC, memo } from "react";
 
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 
 export type AnchorProps = JSX.IntrinsicElements["a"];
 
-export function withAdapterLink(options: PrismicLinkProps) {
-  const LinkComponent: FC<AnchorProps> = memo<AnchorProps>(
-    function LinkComponent({ children, ...restAnchorProps }: AnchorProps) {
+export function withAdapterNavLink(options: PrismicLinkProps) {
+  const NavLinkComponent: FC<AnchorProps> = memo<AnchorProps>(
+    function NavLinkComponent({ children, ...restAnchorProps }: AnchorProps) {
       return (
         // @ts-expect-error mismatch on the refs... this is okay
         <PrismicLink
           {...options}
           internalComponent={({ href, ...restICProps }) => {
             return (
-              <Link to={href as string} {...restICProps} {...restAnchorProps}>
+              <NavLink
+                to={href as string}
+                {...restICProps}
+                {...restAnchorProps}
+              >
                 {children}
-              </Link>
+              </NavLink>
             );
           }}
         >
@@ -26,5 +30,5 @@ export function withAdapterLink(options: PrismicLinkProps) {
     },
   );
 
-  return LinkComponent;
+  return NavLinkComponent;
 }

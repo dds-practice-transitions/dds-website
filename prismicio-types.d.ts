@@ -133,7 +133,78 @@ interface FaqDocumentData {
 export type FaqDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FaqDocumentData>, "faq", Lang>;
 
-interface FooterDocumentData {}
+type FooterDocumentDataSlicesSlice = FooterColumnSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Logo field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Summary field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.summary
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  summary: prismic.KeyTextField;
+
+  /**
+   * Copyright Year field in *Footer*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.copyright_year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  copyright_year: prismic.NumberField;
+
+  /**
+   * Terms and Conditions Link field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.terms_and_conditions_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  terms_and_conditions_link: prismic.LinkField;
+
+  /**
+   * Privacy Policy Link field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.privacy_policy_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  privacy_policy_link: prismic.LinkField;
+
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
 
 /**
  * Footer document from Prismic
@@ -145,11 +216,7 @@ interface FooterDocumentData {}
  * @typeParam Lang - Language API ID of the document.
  */
 export type FooterDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<FooterDocumentData>,
-    "footer",
-    Lang
-  >;
+  prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
 
 type GeneralDocumentDataSlicesSlice =
   | TeamSlice
@@ -335,6 +402,17 @@ interface LayoutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   navbar: prismic.ContentRelationshipField<"navbar">;
+
+  /**
+   * footer field in *Layout*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.footer
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  footer: prismic.ContentRelationshipField<"footer">;
 
   /**
    * Slice Zone field in *Layout*
@@ -1292,6 +1370,76 @@ export type ContentSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *FooterColumn → Primary*
+ */
+export interface FooterColumnSliceDefaultPrimary {
+  /**
+   * Title field in *FooterColumn → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FooterColumn → Items*
+ */
+export interface FooterColumnSliceDefaultItem {
+  /**
+   * Label field in *FooterColumn → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *FooterColumn → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for FooterColumn Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterColumnSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterColumnSliceDefaultPrimary>,
+  Simplify<FooterColumnSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FooterColumn*
+ */
+type FooterColumnSliceVariation = FooterColumnSliceDefault;
+
+/**
+ * FooterColumn Shared Slice
+ *
+ * - **API ID**: `footer_column`
+ * - **Description**: FooterColumn
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterColumnSlice = prismic.SharedSlice<
+  "footer_column",
+  FooterColumnSliceVariation
+>;
+
+/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -1543,6 +1691,7 @@ declare module "@prismicio/client" {
       FaqDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       GeneralDocument,
       GeneralDocumentData,
       GeneralDocumentDataSlicesSlice,
@@ -1595,6 +1744,11 @@ declare module "@prismicio/client" {
       ContentSliceCardLeft,
       ContentSliceColumns,
       ContentSliceColumns3,
+      FooterColumnSlice,
+      FooterColumnSliceDefaultPrimary,
+      FooterColumnSliceDefaultItem,
+      FooterColumnSliceVariation,
+      FooterColumnSliceDefault,
       HeroSlice,
       HeroSliceVariation,
       HeroSliceDefault,

@@ -18,11 +18,24 @@ import "./theme/theme.css";
 import { ReactNode } from "react";
 import { PrismicProvider, SliceZone } from "@prismicio/react";
 import { getPrismicClient } from "./lib/prismic";
-import { LayoutDocumentData, NavbarDocumentData } from "../prismicio-types";
-import { PageHeader, Button, Navbar } from "./components";
+import {
+  FooterDocumentData,
+  LayoutDocumentData,
+  NavbarDocumentData,
+} from "../prismicio-types";
+import {
+  PageHeader,
+  Button,
+  Navbar,
+  Footer,
+  FooterBottom,
+  FooterColumnLink,
+  FooterTop,
+} from "./components";
 import { PageHeaderLogo } from "./components/page/PageHeader/PageHeaderLogo";
 import { PageHeaderColumn } from "./components/page/PageHeader/PageHeaderSection";
 import { components } from "./slices";
+import { withAdapterLink } from "./adapters";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -33,13 +46,12 @@ export const loader: LoaderFunction = async ({ context }) => {
 
   const getLayout = client.getByUID("layout", "layout");
   const getNavbar = client.getByUID("navbar", "navbar");
+  const getFooter = client.getByUID("footer", "footer");
 
   try {
-    const [{ data: layout }, { data: navbar }] = await Promise.all([
-      getLayout,
-      getNavbar,
-    ]);
-    return json({ layout, navbar });
+    const [{ data: layout }, { data: navbar }, { data: footer }] =
+      await Promise.all([getLayout, getNavbar, getFooter]);
+    return json({ layout, navbar, footer });
   } catch (error) {
     console.log(error);
     throw new Response("Not found", {
@@ -52,16 +64,10 @@ export function Layout({ children }: { children: ReactNode }) {
   const response = useRouteLoaderData("root") as {
     layout: LayoutDocumentData;
     navbar: NavbarDocumentData;
+    footer: FooterDocumentData;
   };
-  const error = useRouteError();
 
   if (typeof response === "undefined") return;
-
-  console.log(response.layout, response.navbar);
-
-  if (error) {
-    return null;
-  }
 
   return (
     <html lang="en">
@@ -100,6 +106,34 @@ export function Layout({ children }: { children: ReactNode }) {
           {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
           {children}
         </main>
+        <Footer>
+          <FooterTop
+            ddImgSrc={response.footer.logo.url as string}
+            ddImgAlt={response.footer.logo.alt as string}
+            ddSummary={response.footer.summary as string}
+          >
+            <SliceZone
+              slices={response.footer.slices}
+              components={components}
+            />
+          </FooterTop>
+          <FooterBottom ddCopyrightYear={2024}>
+            <FooterColumnLink
+              LinkComponent={withAdapterLink({
+                field: response.footer.terms_and_conditions_link,
+              })}
+            >
+              Terms and Conditions
+            </FooterColumnLink>
+            <FooterColumnLink
+              LinkComponent={withAdapterLink({
+                field: response.footer.privacy_policy_link,
+              })}
+            >
+              Privacy Policy
+            </FooterColumnLink>
+          </FooterBottom>
+        </Footer>
         <Scripts />
         <ScrollRestoration />
         <LiveReload />
