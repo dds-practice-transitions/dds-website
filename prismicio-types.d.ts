@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ContactDocumentDataSlicesSlice = never;
+type ContactDocumentDataSlicesSlice = HeroSlice;
 
 /**
  * Content for Contact documents
@@ -134,6 +134,7 @@ export type FaqDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FaqDocumentData>, "faq", Lang>;
 
 type GeneralDocumentDataSlicesSlice =
+  | TeamSlice
   | HeroSlice
   | AccordionSlice
   | CallToActionSlice
@@ -144,15 +145,15 @@ type GeneralDocumentDataSlicesSlice =
  */
 interface GeneralDocumentData {
   /**
-   * Sub Page field in *General*
+   * Parent Page field in *General*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: general.sub_page
+   * - **API ID Path**: general.parent
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  sub_page: prismic.ContentRelationshipField;
+  parent: prismic.ContentRelationshipField<"general">;
 
   /**
    * Slice Zone field in *General*
@@ -210,136 +211,6 @@ export type GeneralDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<GeneralDocumentData>,
     "general",
-    Lang
-  >;
-
-type GeneralChildDocumentDataSlicesSlice = never;
-
-/**
- * Content for General - Child documents
- */
-interface GeneralChildDocumentData {
-  /**
-   * Slice Zone field in *General - Child*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: general_child.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<GeneralChildDocumentDataSlicesSlice> /**
-   * Meta Description field in *General - Child*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: general_child.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *General - Child*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: general_child.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *General - Child*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: general_child.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * General - Child document from Prismic
- *
- * - **API ID**: `general_child`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type GeneralChildDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<GeneralChildDocumentData>,
-    "general_child",
-    Lang
-  >;
-
-type GeneralGrandchildDocumentDataSlicesSlice = never;
-
-/**
- * Content for General - Grandchild documents
- */
-interface GeneralGrandchildDocumentData {
-  /**
-   * Slice Zone field in *General - Grandchild*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: general_grandchild.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<GeneralGrandchildDocumentDataSlicesSlice> /**
-   * Meta Description field in *General - Grandchild*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: general_grandchild.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *General - Grandchild*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: general_grandchild.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *General - Grandchild*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: general_grandchild.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * General - Grandchild document from Prismic
- *
- * - **API ID**: `general_grandchild`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type GeneralGrandchildDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<GeneralGrandchildDocumentData>,
-    "general_grandchild",
     Lang
   >;
 
@@ -718,7 +589,7 @@ export type ServicesCategoryDetailsDocument<Lang extends string = string> =
     Lang
   >;
 
-type TeamDocumentDataSlicesSlice = TeamSlice | CallToActionSlice;
+type TeamDocumentDataSlicesSlice = HeroSlice | TeamSlice | CallToActionSlice;
 
 /**
  * Content for Team documents
@@ -777,14 +648,12 @@ interface TeamDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type TeamDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<TeamDocumentData>, "team", Lang>;
+  prismic.PrismicDocumentWithUID<Simplify<TeamDocumentData>, "team", Lang>;
 
 export type AllDocumentTypes =
   | ContactDocument
   | FaqDocument
   | GeneralDocument
-  | GeneralChildDocument
-  | GeneralGrandchildDocument
   | HomeDocument
   | LayoutDocument
   | NavbarDocument
@@ -1656,12 +1525,6 @@ declare module "@prismicio/client" {
       GeneralDocument,
       GeneralDocumentData,
       GeneralDocumentDataSlicesSlice,
-      GeneralChildDocument,
-      GeneralChildDocumentData,
-      GeneralChildDocumentDataSlicesSlice,
-      GeneralGrandchildDocument,
-      GeneralGrandchildDocumentData,
-      GeneralGrandchildDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,

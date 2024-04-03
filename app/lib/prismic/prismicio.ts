@@ -13,7 +13,11 @@ export const endpoint = getRepositoryEndpoint(repoName);
 const routes: prismic.ClientConfig["routes"] = [
   {
     type: "general",
-    path: "/:uid",
+    path: "/:root?/:sub?/:uid",
+    resolvers: {
+      root: "parent",
+      sub: "parent.parent",
+    },
   },
   {
     type: "services_category",
@@ -29,6 +33,10 @@ const routes: prismic.ClientConfig["routes"] = [
       category: "category",
       root: "category.parent",
     },
+  },
+  {
+    type: "faq",
+    path: "/:uid",
   },
 ];
 

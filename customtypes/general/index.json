@@ -12,11 +12,12 @@
         },
         "type": "UID"
       },
-      "sub_page": {
+      "parent": {
         "type": "Link",
         "config": {
-          "label": "Sub Page",
-          "select": "document"
+          "label": "Parent Page",
+          "select": "document",
+          "customtypes": ["general"]
         }
       },
       "slices": {
@@ -24,6 +25,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "team": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
