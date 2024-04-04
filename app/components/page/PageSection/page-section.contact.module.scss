@@ -1,0 +1,131 @@
+@import "../../../theme/utils";
+
+.section {
+  width: 100%;
+
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+    padding: make-rem(80) make-rem(32);
+    width: make-rem(1024);
+    margin: 0 auto;
+  }
+}
+
+.contact {
+  width: 100%;
+}
+
+.content-right {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: make-rem(60);
+
+    & > div {
+      &:first-child {
+        * {
+          text-align: left !important;
+        }
+      }
+      &:last-child {
+        padding: make-rem(32);
+        background: make-color(paper);
+        border: make-rem(1) solid make-color(grey-2);
+        box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+        border-radius: make-rem(8);
+      }
+    }
+  }
+}
+
+.content-left {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: make-rem(60);
+
+    & > div {
+      flex: 1;
+      &:first-child {
+        * {
+          text-align: left !important;
+        }
+      }
+      &:last-child {
+        padding: make-rem(32);
+        background: make-color(paper);
+        border: make-rem(1) solid make-color(grey-2);
+        box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+        border-radius: make-rem(8);
+      }
+    }
+  }
+}
+
+.location {
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+    & > div {
+      flex: 1;
+      &:last-child {
+        padding: 0;
+        background: make-color(paper);
+        border: make-rem(1) solid make-color(grey-2);
+        box-shadow: 0px 1px 4px rgba(25, 33, 61, 0.08);
+        border-radius: make-rem(8);
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.contact-cards {
+  @include make-reset-ul();
+
+  li {
+    & + li {
+      border-top: make-rem(1) solid make-color(grey-1);
+    }
+
+    & > dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: make-rem(16);
+      align-items: center;
+
+      dt {
+        color: make-color(grey-5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: make-rem(48);
+        width: make-rem(48);
+        border: make-rem(2) solid make-color(grey-2);
+        border-radius: make-rem(8);
+      }
+      dd {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: make-rem(4);
+      }
+    }
+  }
+
+  @include make-responsive-mobile {
+  }
+
+  @include make-responsive-tablet {
+    margin-top: make-rem(48);
+  }
+}
