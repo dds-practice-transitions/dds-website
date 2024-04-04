@@ -7372,6 +7372,7 @@ __metadata:
     sass: "npm:^1.72.0"
     slice-machine-ui: "npm:^1.26.0"
     storybook: "npm:^8.0.5"
+    ts-pattern: "npm:^5.1.0"
     typescript: "npm:^5.4.3"
     vite: "npm:^5.2.8"
     wrangler: "npm:^3.45.0"
@@ -15378,6 +15379,13 @@ __metadata:
   version: 2.2.0
   resolution: "ts-dedent@npm:2.2.0"
   checksum: 10c0/175adea838468cc2ff7d5e97f970dcb798bbcb623f29c6088cb21aa2880d207c5784be81ab1741f56b9ac37840cbaba0c0d79f7f8b67ffe61c02634cafa5c303
+  languageName: node
+  linkType: hard
+
+"ts-pattern@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "ts-pattern@npm:5.1.0"
+  checksum: 10c0/c0aa72253492896f68db0649a1394a52d3270902a73fd13e6f979f2ea4667446c489711cdd857ed26ec5862fb0fcc048b880fa9807673bd677396f9c73c97dbe
   languageName: node
   linkType: hard
 

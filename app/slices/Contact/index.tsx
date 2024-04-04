@@ -5,6 +5,7 @@ import {
   SectionContactContentRight,
   SectionContactLocation,
 } from "../../components";
+import { ReactNode } from "react";
 
 /**
  * Props for `Contact`.
@@ -14,14 +15,19 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 /**
  * Component for "Contact" Slices.
  */
-const Contact = ({ slice }: ContactProps) => {
+const Contact = ({
+  slice,
+  children,
+}: ContactProps & { children?: ReactNode }) => {
   switch (slice.variation) {
     case "default":
       return (
         <SectionContactContentRight
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.subtitle ?? undefined}
-        />
+        >
+          {children}
+        </SectionContactContentRight>
       );
 
     case "contentLeft":
@@ -29,7 +35,9 @@ const Contact = ({ slice }: ContactProps) => {
         <SectionContactContentLeft
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.subtitle ?? undefined}
-        />
+        >
+          {children}
+        </SectionContactContentLeft>
       );
 
     case "location":
