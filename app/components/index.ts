@@ -9,6 +9,7 @@ export * from "./dialogs/Menu";
 // page
 export * from "./page/Footer";
 export * from "./page/Hero";
+export * from "./page/PageSection";
 
 export { PageHeader } from "./page/PageHeader";
 export { PageContainer } from "./page/PageContainer";

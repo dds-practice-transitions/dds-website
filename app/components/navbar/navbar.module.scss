@@ -88,20 +88,15 @@
     text-decoration: none;
     font-weight: 500;
     text-transform: capitalize;
-    border: make-rem(1) solid make-color(paper);
     white-space: nowrap;
-
-    &:focus {
-      border: make-rem(1) solid make-color(primary);
-    }
 
     &:hover {
       color: make-color(primary);
       cursor: pointer;
     }
 
-    &:active {
-      color: make-color(primary);
+    @include make-global(active) {
+      color: make-color(primary) !important;
     }
   }
 }
@@ -144,7 +139,6 @@
     border-radius: make-rem(8);
     margin: make-rem(6) 0;
     cursor: pointer;
-    border: 1px solid make-color("paper");
     font-size: make-rem(14);
   }
 

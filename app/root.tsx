@@ -25,12 +25,12 @@ import {
 } from "../prismicio-types";
 import {
   PageHeader,
-  Button,
   Navbar,
   Footer,
   FooterBottom,
   FooterColumnLink,
   FooterTop,
+  ButtonLink,
 } from "./components";
 import { PageHeaderLogo } from "./components/page/PageHeader/PageHeaderLogo";
 import { PageHeaderColumn } from "./components/page/PageHeader/PageHeaderSection";
@@ -102,9 +102,15 @@ export function Layout({ children }: { children: ReactNode }) {
             </Navbar>
           </PageHeaderColumn>
           <PageHeaderColumn>
-            <Button ddSize="sm" ddVariant="primary">
+            <ButtonLink
+              ddSize="sm"
+              ddVariant="primary"
+              LinkComponent={withAdapterLink({
+                field: response.layout.contact_cta_link,
+              })}
+            >
               {response.layout.contact_cta_label}
-            </Button>
+            </ButtonLink>
           </PageHeaderColumn>
         </PageHeader>
         <main>

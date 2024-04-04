@@ -30,12 +30,52 @@
 				"value": "alone",
 				"type": "Text"
 			},
-			"location_coordinates": {
-				"__TYPE__": "GeoPointContent",
-				"position": {
-					"lat": 48.8841267,
-					"lng": 2.3300579
-				}
+			"email_address": {
+				"__TYPE__": "FieldContent",
+				"value": "appropriate",
+				"type": "Text"
+			},
+			"phone_number": {
+				"__TYPE__": "FieldContent",
+				"value": "trade",
+				"type": "Text"
+			},
+			"address_1": {
+				"__TYPE__": "FieldContent",
+				"value": "including",
+				"type": "Text"
+			},
+			"address_2": {
+				"__TYPE__": "FieldContent",
+				"value": "clearly",
+				"type": "Text"
+			},
+			"location_url": {
+				"__TYPE__": "FieldContent",
+				"value": "declared",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "contentLeft",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "particles",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "tin",
+				"type": "Text"
 			}
 		},
 		"items": [

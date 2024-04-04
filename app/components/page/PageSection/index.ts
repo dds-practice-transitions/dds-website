@@ -12,3 +12,8 @@ export { PageSectionTypeFAQDefault } from "./PageSectionTypeFAQDefault";
 
 // Team
 export { PageSectionTypeTeamDefault } from "./PageSectionTypeTeamDefault";
+
+// Contact
+export { SectionContactContentRight } from "./SectionContactContentRight";
+export { SectionContactContentLeft } from "./SectionContactContentLeft";
+export { SectionContactLocation } from "./SectionContactLocation";

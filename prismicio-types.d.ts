@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ContactDocumentDataSlicesSlice = HeroSlice;
+type ContactDocumentDataSlicesSlice = ContactSlice | HeroSlice;
 
 /**
  * Content for Contact documents
@@ -393,6 +393,17 @@ interface LayoutDocumentData {
   contact_cta_label: prismic.KeyTextField;
 
   /**
+   * Contact CTA Link field in *Layout*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.contact_cta_link
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  contact_cta_link: prismic.LinkField;
+
+  /**
    * Navbar field in *Layout*
    *
    * - **Field Type**: Content Relationship
@@ -404,7 +415,7 @@ interface LayoutDocumentData {
   navbar: prismic.ContentRelationshipField<"navbar">;
 
   /**
-   * footer field in *Layout*
+   * Footer field in *Layout*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
@@ -1062,7 +1073,7 @@ export interface ContactSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Contact Slice
+ * Content Right variation for Contact Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1099,14 +1110,54 @@ export interface ContactSliceLocationPrimary {
   subtitle: prismic.KeyTextField;
 
   /**
-   * Location Coordinates field in *Contact → Primary*
+   * Email Address field in *Contact → Primary*
    *
-   * - **Field Type**: GeoPoint
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact.primary.location_coordinates
-   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   * - **API ID Path**: contact.primary.email_address
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  location_coordinates: prismic.GeoPointField;
+  email_address: prismic.KeyTextField;
+
+  /**
+   * Phone Number field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.phone_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number: prismic.KeyTextField;
+
+  /**
+   * Address 1 field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.address_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address_1: prismic.KeyTextField;
+
+  /**
+   * Address 2 field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.address_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address_2: prismic.KeyTextField;
+
+  /**
+   * Location URL field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.location_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location_url: prismic.KeyTextField;
 }
 
 /**
@@ -1123,9 +1174,50 @@ export type ContactSliceLocation = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Contact → Primary*
+ */
+export interface ContactSliceContentLeftPrimary {
+  /**
+   * Title field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Content Left variation for Contact Slice
+ *
+ * - **API ID**: `contentLeft`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceContentLeft = prismic.SharedSliceVariation<
+  "contentLeft",
+  Simplify<ContactSliceContentLeftPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Contact*
  */
-type ContactSliceVariation = ContactSliceDefault | ContactSliceLocation;
+type ContactSliceVariation =
+  | ContactSliceDefault
+  | ContactSliceLocation
+  | ContactSliceContentLeft;
 
 /**
  * Contact Shared Slice
@@ -1937,9 +2029,11 @@ declare module "@prismicio/client" {
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceLocationPrimary,
+      ContactSliceContentLeftPrimary,
       ContactSliceVariation,
       ContactSliceDefault,
       ContactSliceLocation,
+      ContactSliceContentLeft,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceDefaultItem,

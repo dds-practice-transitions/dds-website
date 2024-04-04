@@ -17,6 +17,7 @@ export type SectionContactLocationPropsCustom = PageSectionPropsShared & {
   ddPhone: string;
   ddLocationLine1: string;
   ddLocationLine2?: string;
+  ddLocationUrl: string;
 };
 export type SectionContactLocationProps = SectionContactLocationPropsNative &
   SectionContactLocationPropsCustom;
@@ -33,6 +34,7 @@ export const SectionContactLocation = forwardRef<
     ddPhone,
     ddLocationLine1,
     ddLocationLine2,
+    ddLocationUrl,
     ...restProps
   },
   ref,
@@ -125,7 +127,7 @@ export const SectionContactLocation = forwardRef<
           {mapDim && (
             <iframe
               title="location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.7062926071435!2d-75.708281!3d39.7462479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c70001f9b975ab%3A0x9a962fa323a3b845!2s30%20Degas%20Cir%2C%20Wilmington%2C%20DE%2019808!5e0!3m2!1sen!2sus!4v1712233310586!5m2!1sen!2sus"
+              src={ddLocationUrl}
               width={mapDim.width}
               height={mapDim.height}
               loading="lazy"
