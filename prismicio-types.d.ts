@@ -362,7 +362,7 @@ interface HomeDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomeDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+  prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type LayoutDocumentDataSlicesSlice = NavbarItemSlice;
 
@@ -880,24 +880,34 @@ export interface CallToActionSliceDefaultPrimary {
  */
 export interface CallToActionSliceDefaultItem {
   /**
-   * ActionLabel field in *CallToAction → Items*
+   * CTA Label field in *CallToAction → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.items[].actionlabel
+   * - **API ID Path**: call_to_action.items[].cta_label
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  actionlabel: prismic.KeyTextField;
+  cta_label: prismic.KeyTextField;
 
   /**
-   * ActionLink field in *CallToAction → Items*
+   * CTA Link field in *CallToAction → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.items[].actionlink
+   * - **API ID Path**: call_to_action.items[].cta_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  actionlink: prismic.LinkField;
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Variant field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].cta_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  cta_variant: prismic.SelectField<"primary" | "secondary" | "paper">;
 }
 
 /**
@@ -964,24 +974,34 @@ export interface CallToActionSliceSplitImagePrimary {
  */
 export interface CallToActionSliceSplitImageItem {
   /**
-   * ActionLabel field in *CallToAction → Items*
+   * CTA Label field in *CallToAction → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.items[].actionlabel
+   * - **API ID Path**: call_to_action.items[].cta_label
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  actionlabel: prismic.KeyTextField;
+  cta_label: prismic.KeyTextField;
 
   /**
-   * ActionLink field in *CallToAction → Items*
+   * CTA Link field in *CallToAction → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.items[].actionlink
+   * - **API ID Path**: call_to_action.items[].cta_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  actionlink: prismic.LinkField;
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Variant field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].cta_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  cta_variant: prismic.SelectField<"primary" | "secondary" | "paper">;
 }
 
 /**
@@ -1440,7 +1460,88 @@ export type FooterColumnSlice = prismic.SharedSlice<
 >;
 
 /**
- * Default variation for Hero Slice
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Background Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Overline field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.overline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceDefaultItem {
+  /**
+   * CTA Label field in *Hero → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].cta_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *Hero → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Variant field in *Hero → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: primary
+   * - **API ID Path**: hero.items[].cta_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  cta_variant: prismic.SelectField<"primary" | "secondary" | "paper", "filled">;
+}
+
+/**
+ * Basic variation for Hero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1448,8 +1549,8 @@ export type FooterColumnSlice = prismic.SharedSlice<
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  never
+  Simplify<HeroSliceDefaultPrimary>,
+  Simplify<HeroSliceDefaultItem>
 >;
 
 /**
@@ -1750,6 +1851,8 @@ declare module "@prismicio/client" {
       FooterColumnSliceVariation,
       FooterColumnSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceDefaultItem,
       HeroSliceVariation,
       HeroSliceDefault,
       NavbarItemSlice,

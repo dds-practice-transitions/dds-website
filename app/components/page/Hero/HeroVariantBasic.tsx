@@ -21,15 +21,23 @@ export type HeroVariantBasicProps = HeroVariantBasicPropsNative &
   HeroVariantBasicPropsCustom;
 export const HeroVariantBasic = forwardRef<HTMLElement, HeroVariantBasicProps>(
   function HeroVariantBasic(
-    { children, ddTitle, ddSubtitle, ddOverline, ...restProps },
+    {
+      children,
+      ddTitle,
+      ddSubtitle,
+      ddOverline,
+      ddBackgroundAlt,
+      ddBackgroundSrc,
+      ...restProps
+    },
     ref,
   ) {
     return (
       <HeroSection
         {...restProps}
+        ddBackgroundAlt={ddBackgroundAlt}
+        ddBackgroundSrc={ddBackgroundSrc}
         ref={ref}
-        ddBackgroundSrc="/images/backgrounds/layered-waves-1.svg"
-        ddBackgroundAlt="bg-image"
       >
         <div className={clsx(styles["variant-basic"])}>
           <HeroOverline>{ddOverline}</HeroOverline>

@@ -39,6 +39,10 @@ const routes: prismic.ClientConfig["routes"] = [
     type: "contact",
     path: "/:uid",
   },
+  {
+    type: "home",
+    path: "/",
+  },
 ];
 
 export const getPrismicClient = (context: AppLoadContext) => {

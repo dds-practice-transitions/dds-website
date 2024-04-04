@@ -1,5 +1,5 @@
 // inputs
-export { Button } from "./inputs/Button";
+export * from "./inputs/Button";
 
 // dialogs
 export * from "./dialogs/Modal";
@@ -8,6 +8,8 @@ export * from "./dialogs/Menu";
 
 // page
 export * from "./page/Footer";
+export * from "./page/Hero";
+
 export { PageHeader } from "./page/PageHeader";
 export { PageContainer } from "./page/PageContainer";
 export {

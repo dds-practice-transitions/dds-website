@@ -4,7 +4,6 @@ import { type PageSectionTypeCTAPropsVariantDefault } from "./PageSectionTypeCTA
 import { PageSectionTitle } from "./PageSectionTitle";
 import { PageSectionSubtitle } from "./PageSectionSubtitle";
 import { PageSectionActions } from "./PageSectionActions";
-import { Button } from "../../inputs/Button";
 import { PageSection } from "./PageSection";
 
 export type PageSectionTypeCTAPropsNative = JSX.IntrinsicElements["section"];
@@ -22,7 +21,7 @@ export const PageSectionTypeCTADefault = forwardRef<
     ddSubtitle,
     ddVariant,
     ddBackground = "primary",
-    ddActionLabel,
+    children,
     ...restProps
   },
   ref,
@@ -37,9 +36,7 @@ export const PageSectionTypeCTADefault = forwardRef<
       <div>
         <PageSectionTitle>{ddTitle}</PageSectionTitle>
         {ddSubtitle && <PageSectionSubtitle>{ddSubtitle}</PageSectionSubtitle>}
-        <PageSectionActions>
-          <Button ddVariant="paper">{ddActionLabel}</Button>
-        </PageSectionActions>
+        <PageSectionActions>{children}</PageSectionActions>
       </div>
     </PageSection>
   );

@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { ReactNode, forwardRef } from "react";
 
 import { PageSectionTypeCTADefault } from "./PageSectionTypeCTADefault";
 import { exhaustiveMatchGuard } from "../../../utils";
@@ -7,9 +7,8 @@ import { PageSectionTypeCTASplitImage } from "./PageSectionTypeCTASplitImage";
 export type PageSectionTypeCTAPropsShared = {
   ddTitle: string;
   ddSubtitle?: string;
-  ddActionLabel: string;
-  ddActionHref: string;
   ddBackground?: "primary" | "secondary";
+  children: ReactNode;
 };
 export type PageSectionTypeCTAPropsVariantDefault =
   PageSectionTypeCTAPropsShared & {

@@ -4,7 +4,6 @@ import { type PageSectionTypeCTAPropsVariantSplitImage } from "./PageSectionType
 import { PageSectionTitle } from "./PageSectionTitle";
 import { PageSectionSubtitle } from "./PageSectionSubtitle";
 import { PageSectionActions } from "./PageSectionActions";
-import { Button } from "../../inputs/Button";
 import { PageSection } from "./PageSection";
 
 export type PageSectionTypeCTASplitImageProps = Omit<
@@ -20,13 +19,11 @@ export const PageSectionTypeCTASplitImage = forwardRef<
     className,
     ddTitle,
     ddSubtitle,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ddVariant,
-    // ddActionHref,
-    ddActionLabel,
     ddBackground = "primary",
     ddImgAlt,
     ddImgSrc,
+    children,
     ...restProps
   },
   ref,
@@ -44,11 +41,7 @@ export const PageSectionTypeCTASplitImage = forwardRef<
           {ddSubtitle && (
             <PageSectionSubtitle>{ddSubtitle}</PageSectionSubtitle>
           )}
-          <PageSectionActions>
-            <Button ddVariant="paper" ddSize="md">
-              {ddActionLabel}
-            </Button>
-          </PageSectionActions>
+          <PageSectionActions>{children}</PageSectionActions>
         </div>
         <div>
           <img src={ddImgSrc} alt={ddImgAlt} />

@@ -58,6 +58,8 @@
 
 .actions {
   margin-top: make-rem(32);
+  display: flex;
+  gap: make-rem(16);
 }
 
 .page-section-cta {
@@ -89,10 +91,18 @@
 
   // Variant - Split Image
   @include make-global(split-image) {
+    margin-top: make-rem(80);
+
     & > * {
       position: relative;
       max-width: make-rem(1024);
       width: 100%;
+
+      h2,
+      h3 {
+        text-align: left;
+      }
+
       // Tablet and up
       @include make-responsive(tablet) {
         margin: 0 auto;

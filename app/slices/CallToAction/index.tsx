@@ -5,6 +5,8 @@ import {
   PageSectionTypeCTASplitImage,
 } from "../../components/page/PageSection";
 import { exhaustiveMatchGuard } from "../../utils";
+import { withAdapterLink } from "../../adapters";
+import { ButtonLink } from "../../components";
 
 /**
  * Props for `CallToAction`.
@@ -23,9 +25,20 @@ const CallToAction = ({ slice }: CallToActionProps) => {
           ddTitle={slice.primary.title ?? ""}
           ddSubtitle={slice.primary.description ?? undefined}
           ddBackground={slice.primary.background}
-          ddActionHref="test"
-          ddActionLabel="test"
-        />
+        >
+          {slice.items.map((item, i) => (
+            <ButtonLink
+              key={`hero-${slice.variation}-cta-${i}`}
+              ddVariant={item.cta_variant ?? undefined}
+              ddSize="md"
+              LinkComponent={withAdapterLink({
+                field: item.cta_link,
+              })}
+            >
+              {item.cta_label}
+            </ButtonLink>
+          ))}
+        </PageSectionTypeCTADefault>
       );
       break;
 
@@ -36,11 +49,22 @@ const CallToAction = ({ slice }: CallToActionProps) => {
           ddTitle={slice.primary.title ?? ""}
           ddSubtitle={slice.primary.description ?? ""}
           ddBackground={slice.primary.background}
-          ddActionHref="test"
-          ddActionLabel="test"
           ddImgSrc={slice.primary.image.url as string}
           ddImgAlt={slice.primary.image.alt as string}
-        />
+        >
+          {slice.items.map((item, i) => (
+            <ButtonLink
+              key={`hero-${slice.variation}-cta-${i}`}
+              ddVariant={item.cta_variant ?? undefined}
+              ddSize="md"
+              LinkComponent={withAdapterLink({
+                field: item.cta_link,
+              })}
+            >
+              {item.cta_label}
+            </ButtonLink>
+          ))}
+        </PageSectionTypeCTASplitImage>
       );
 
     default:

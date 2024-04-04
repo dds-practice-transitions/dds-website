@@ -24,21 +24,29 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"actionlabel",
+						"cta_variant",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "write",
-							"type": "Text"
+							"value": "primary",
+							"type": "Select"
 						}
 					],
 					[
-						"actionlink",
+						"cta_link",
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
+								"url": "http://google.com"
 							}
+						}
+					],
+					[
+						"cta_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "sign",
+							"type": "Text"
 						}
 					]
 				]
@@ -93,21 +101,29 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"actionlabel",
+						"cta_label",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "vowel",
+							"value": "then",
 							"type": "Text"
 						}
 					],
 					[
-						"actionlink",
+						"cta_link",
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "http://google.com"
+								"url": "https://prismic.io"
 							}
+						}
+					],
+					[
+						"cta_variant",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "secondary",
+							"type": "Select"
 						}
 					]
 				]

@@ -40,19 +40,32 @@
         }
       },
       "items": {
-        "actionlabel": {
+        "cta_label": {
           "type": "Text",
           "config": {
-            "label": "ActionLabel",
+            "label": "CTA Label",
             "placeholder": ""
           }
         },
-        "actionlink": {
+        "cta_link": {
           "type": "Link",
           "config": {
-            "label": "ActionLink",
+            "label": "CTA Link",
             "placeholder": "",
+            "allowTargetBlank": false,
             "select": null
+          }
+        },
+        "cta_variant": {
+          "type": "Select",
+          "config": {
+            "label": "CTA Variant",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "paper"
+            ]
           }
         }
       }
@@ -101,19 +114,32 @@
         }
       },
       "items": {
-        "actionlabel": {
+        "cta_label": {
           "type": "Text",
           "config": {
-            "label": "ActionLabel",
+            "label": "CTA Label",
             "placeholder": ""
           }
         },
-        "actionlink": {
+        "cta_link": {
           "type": "Link",
           "config": {
-            "label": "ActionLink",
+            "label": "CTA Link",
             "placeholder": "",
+            "allowTargetBlank": false,
             "select": null
+          }
+        },
+        "cta_variant": {
+          "type": "Select",
+          "config": {
+            "label": "CTA Variant",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "paper"
+            ]
           }
         }
       }

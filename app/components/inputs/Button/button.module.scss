@@ -8,6 +8,8 @@
 
   width: min-content;
   height: make-rem(40);
+  display: flex;
+  align-items: center;
   border-radius: make-rem(12);
   white-space: nowrap;
   cursor: pointer;
