@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Hero, HeroBaseProps, HeroProps } from "./Hero";
 
 const meta: Meta = {
-  title: "Page / Heros",
+  title: "Page / Hero",
   //@ts-expect-error forwardRef error
   component: Hero,
 } satisfies Meta<typeof meta>;
