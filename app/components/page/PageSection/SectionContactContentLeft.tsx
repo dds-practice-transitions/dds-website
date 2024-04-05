@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { clsx } from "clsx";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
-import { PageSection } from "./PageSection";
+import { Section } from "./Section";
 import styles from "./page-section.contact.module.css";
 import { SectionPropsBase } from "./page-section.types";
 
@@ -20,12 +20,7 @@ export const SectionContactContentLeft = forwardRef<
   ref,
 ) {
   return (
-    <PageSection
-      {...restProps}
-      ddType="contact"
-      className={clsx(className, styles.section)}
-      ref={ref}
-    >
+    <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
       <div className={clsx(styles.contact, styles["content-left"])}>
         <div>
           <SectionTitle>{ddTitle}</SectionTitle>
@@ -33,6 +28,6 @@ export const SectionContactContentLeft = forwardRef<
         </div>
         <div>{children}</div>
       </div>
-    </PageSection>
+    </Section>
   );
 });

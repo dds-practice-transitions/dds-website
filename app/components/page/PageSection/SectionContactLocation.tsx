@@ -2,11 +2,11 @@ import { RefCallback, forwardRef, useCallback, useState } from "react";
 import { clsx } from "clsx";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
-import { PageSection } from "./PageSection";
 import styles from "./page-section.contact.module.css";
 import { SectionPropsBase } from "./page-section.types";
 import { Icon } from "../../display/Icon";
 import { AcceptEmail, LocalPin, PhoneCall } from "@icon-park/react";
+import { Section } from "./Section";
 
 export type SectionContactLocationPropsNative = Omit<
   JSX.IntrinsicElements["section"],
@@ -52,17 +52,12 @@ export const SectionContactLocation = forwardRef<
   }, []);
 
   return (
-    <PageSection
-      {...restProps}
-      ddType="contact"
-      className={clsx(className, styles.section)}
-      ref={ref}
-    >
+    <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
       <div
         className={clsx(
           styles.contact,
           styles["content-right"],
-          styles["location"],
+          styles.location,
         )}
       >
         <div>
@@ -137,6 +132,6 @@ export const SectionContactLocation = forwardRef<
           )}
         </div>
       </div>
-    </PageSection>
+    </Section>
   );
 });

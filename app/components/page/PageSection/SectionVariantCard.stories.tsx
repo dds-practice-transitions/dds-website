@@ -1,10 +1,12 @@
 import type { Meta } from "@storybook/react";
 import { randJobDescriptor, randWord } from "@ngneat/falso";
-import { SectionVariantCardColumn } from "./SectionVariantCardColumn";
+import {
+  SectionVariantCardColumn,
+  SectionVariantCardColumnPropsCustom,
+} from "./SectionVariantCardColumn";
 import { Button } from "../../inputs";
 import { SectionVariantCardRight } from "./SectionVariantCardRight";
 import { SectionVariantCardLeft } from "./SectionVariantCardLeft";
-import { ContentColumn } from "./SectionVariantContent";
 import {
   SectionVariantCardColumns,
   SectionVariantCardColumnsProps,
@@ -36,13 +38,15 @@ const cardLeftProps = {
 };
 export const CardLeft = () => <SectionVariantCardLeft {...cardLeftProps} />;
 
-const ddColumns: ContentColumn[] = [...new Array(3)].map((_, i) => ({
-  ddImageSrc: `/images/test-${i + 1}.jpg`,
-  ddImageAlt: randWord(),
-  ddSubtitle:
-    "Lorem ipsum dolor sit amet dolor sit dolor siet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.",
-  ddTitle: randJobDescriptor(),
-}));
+const ddColumns: SectionVariantCardColumnPropsCustom[] = [...new Array(3)].map(
+  (_, i) => ({
+    ddImageSrc: `/images/test-${i + 1}.jpg`,
+    ddImageAlt: randWord(),
+    ddSubtitle:
+      "Lorem ipsum dolor sit amet dolor sit dolor siet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.",
+    ddTitle: randJobDescriptor(),
+  }),
+);
 
 const columnProps: SectionVariantCardColumnsProps = {
   ddTitle: "Highly effective solutions",

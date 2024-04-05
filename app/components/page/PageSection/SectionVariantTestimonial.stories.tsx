@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
-  PageSectionTypeTestimonial,
-  Testimonial,
-} from "./PageSectionTypeTestimonial";
-import {
   randFullName,
   randJobTitle,
   randNumber,
   randQuote,
 } from "@ngneat/falso";
+import {
+  type Testimonial,
+  SectionVariantTestimonials,
+} from "./SectionVariantTestimonials";
 
 const meta: Meta = {
-  title: "Page / Section / Testimonial",
+  title: "Page / Section / Testimonials",
   // @ts-expect-error forwardRef mismatch
-  component: PageSectionTypeTestimonial,
+  component: SectionVariantTestimonials,
 } satisfies Meta<typeof meta>;
 
 export default meta;
@@ -24,7 +24,7 @@ const logos = [
   "https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg",
 ];
 
-const ddTestimonials: Testimonial[] = [...new Array(5)].map(() => ({
+const ddItems: Testimonial[] = [...new Array(5)].map(() => ({
   ddChannelImg: logos[randNumber({ min: 0, max: 1 })],
   ddChannelAlt: "facebook",
   ddUser: {
@@ -38,10 +38,9 @@ const ddTestimonials: Testimonial[] = [...new Array(5)].map(() => ({
 
 export const Default: Story = {
   args: {
-    ddVariant: "default",
     ddTitle: "What our clients have to say",
     ddSubtitle:
       "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis.",
-    ddTestimonials,
+    ddItems,
   },
 };

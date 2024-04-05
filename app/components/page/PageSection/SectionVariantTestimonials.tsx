@@ -2,9 +2,7 @@ import { forwardRef } from "react";
 import { clsx } from "clsx";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
-import { PageSection } from "./PageSection";
 
-import { PageSectionTypeTestimonialPropsVariantDefault } from "./PageSectionTypeTestimonial";
 import { useCarousel } from "../../../hooks";
 import { Button } from "../../inputs/Button";
 import { Icon } from "../../display/Icon";
@@ -12,37 +10,38 @@ import { ArrowLeft, ArrowRight, Quote } from "@icon-park/react";
 import { Avatar } from "../../display/Avatar";
 import { Responsive } from "../../../utils/Responsive";
 import { AvatarDetails } from "../../display/Avatar/AvatarDetails";
+import { AvatarPropsCustom } from "../../display/Avatar/Avatar";
+import { SectionPropsBase } from "./page-section.types";
+import { Section } from "./Section";
+import styles from "./section-testimonials.module.css";
 
-export type PageSectionTypeTestimonialDefaultProps = Omit<
-  JSX.IntrinsicElements["section"],
-  "children"
-> &
-  PageSectionTypeTestimonialPropsVariantDefault;
+export type Testimonial = {
+  ddChannelImg: string;
+  ddChannelAlt: string;
+  ddUser: Omit<AvatarPropsCustom, "ddDescription" | "ddSize">;
+  ddQuote: string;
+};
 
-export const PageSectionTypeTestimonialDefault = forwardRef<
+export type SectionVariantTestimonialsPropsNative =
+  JSX.IntrinsicElements["section"];
+export type SectionVariantTestimonialsPropsCustom = SectionPropsBase & {
+  ddItems: Testimonial[];
+};
+
+export type SectionVariantTestimonialsProps =
+  SectionVariantTestimonialsPropsNative & SectionVariantTestimonialsPropsCustom;
+export const SectionVariantTestimonials = forwardRef<
   HTMLElement,
-  PageSectionTypeTestimonialDefaultProps
->(function PageSectionTypeTestimonialDefault(
-  {
-    className,
-    ddTitle,
-    ddSubtitle,
-    ddTestimonials = [],
-    ddVariant,
-    ...restProps
-  },
+  SectionVariantTestimonialsProps
+>(function SectionVariantTestimonials(
+  { className, ddTitle, ddSubtitle, ddItems = [], ...restProps },
   ref,
 ) {
-  const { next, prev, currentItem } = useCarousel(ddTestimonials);
+  const { next, prev, currentItem } = useCarousel(ddItems);
 
   return (
-    <PageSection
-      {...restProps}
-      ddType="testimonial"
-      className={clsx(ddVariant, className)}
-      ref={ref}
-    >
-      <div>
+    <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
+      <div className={clsx(styles.content, styles["testimonials"])}>
         <SectionTitle>{ddTitle}</SectionTitle>
         {ddSubtitle && (
           <SectionSubtitle ddColor="secondary">{ddSubtitle}</SectionSubtitle>
@@ -106,6 +105,6 @@ export const PageSectionTypeTestimonialDefault = forwardRef<
           </Responsive>
         </div>
       </div>
-    </PageSection>
+    </Section>
   );
 });

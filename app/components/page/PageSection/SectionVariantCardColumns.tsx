@@ -11,8 +11,10 @@ import { Section } from "./Section";
 export type SectionVariantCardColumnsPropsNative =
   JSX.IntrinsicElements["section"];
 export type SectionVariantCardColumnsPropsCustom = SectionPropsBase;
+
 export type SectionVariantCardColumnsProps =
   SectionVariantCardColumnsPropsNative & SectionVariantCardColumnsPropsCustom;
+
 export const SectionVariantCardColumns = forwardRef<
   HTMLElement,
   SectionVariantCardColumnsProps

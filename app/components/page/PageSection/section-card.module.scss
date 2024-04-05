@@ -24,9 +24,13 @@
 }
 
 .root {
-  width: 100%;
-  padding: 0;
-  margin: 0 auto;
+  @include make-responsive-mobile {
+    margin: make-rem(80) auto;
+  }
+
+  @include make-responsive-tablet {
+    margin: make-rem(100) auto;
+  }
 }
 
 .content {
