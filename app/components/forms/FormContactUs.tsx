@@ -1,4 +1,4 @@
-import { InputText } from "../inputs";
+import { InputCheckbox, InputGroup, InputText } from "../inputs";
 import { Button } from "../inputs/Button";
 import styles from "./form.contact.module.css";
 
@@ -8,8 +8,20 @@ const informationValues = [
     display: "General information",
   },
   {
-    value: "process",
-    display: "process-understanding",
+    value: "brokerage-fees",
+    display: "Brokerage Fees",
+  },
+  {
+    value: "scope-of-services",
+    display: "Scope of Services",
+  },
+  {
+    value: "understand-the-process",
+    display: "Understand the Process",
+  },
+  {
+    value: "other",
+    display: "Other",
   },
 ];
 
@@ -29,12 +41,17 @@ export const FormContactUs = () => {
       </div>
       <div>
         <p>What kinds of information are you seeking?</p>
-        {informationValues.map(({ value, display }) => (
-          <label key={value} htmlFor={value}>
-            <span>{display}</span>
-            <input id={value} type="checkbox" value={value} />
-          </label>
-        ))}
+        <InputGroup ddVariant="checkbox">
+          {informationValues.map(({ value, display }) => (
+            <InputCheckbox
+              key={value}
+              value={value}
+              name="tags"
+              ddVariant="pill"
+              ddLabel={display}
+            />
+          ))}
+        </InputGroup>
       </div>
       <div>
         <p>Enter your email and we&apos;ll be in touch!</p>

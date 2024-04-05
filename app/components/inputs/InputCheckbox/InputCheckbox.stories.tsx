@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { InputCheckbox, type InputCheckboxProps } from "./InputCheckbox";
+import { InputGroup } from "../InputGroup";
 
 const meta: Meta = {
   title: "Inputs / Input Checkbox",
@@ -24,13 +25,7 @@ export const Pill: Story = {
 
 export const ManyBoxes = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: ".5rem",
-      }}
-    >
+    <InputGroup ddVariant="checkbox">
       <InputCheckbox name="pill" ddVariant="pill" ddLabel="Mike Boyd" />
       <InputCheckbox name="pill" ddVariant="pill" ddLabel="Helena Phelps" />
       <InputCheckbox name="pill" ddVariant="pill" ddLabel="Ronald Jefferson" />
@@ -42,6 +37,6 @@ export const ManyBoxes = () => {
       <InputCheckbox name="pill" ddVariant="pill" ddLabel="Blake Haynes" />
       <InputCheckbox name="pill" ddVariant="pill" ddLabel="Sarah Schwartz" />
       <InputCheckbox name="pill" ddVariant="pill" ddLabel="Hulda Wilkerson" />
-    </div>
+    </InputGroup>
   );
 };

@@ -1,0 +1,11 @@
+@import "../../../theme/utils";
+
+.root {
+  display: relative;
+}
+
+.checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: make-rem(8);
+}
