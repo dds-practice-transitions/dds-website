@@ -1,7 +1,7 @@
 import { RefCallback, forwardRef, useCallback, useState } from "react";
 import { clsx } from "clsx";
-import { PageSectionTitle } from "./PageSectionTitle";
-import { PageSectionSubtitle } from "./PageSectionSubtitle";
+import { PageSectionTitle } from "./SectionTitle";
+import { PageSectionSubtitle } from "./SectionSubtitle";
 import { PageSection } from "./PageSection";
 import styles from "./page-section.contact.module.css";
 import { PageSectionPropsShared } from "./page-section.types";

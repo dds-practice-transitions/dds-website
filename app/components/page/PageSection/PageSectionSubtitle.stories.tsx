@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageSectionSubtitle } from "./PageSectionSubtitle";
+import { PageSectionSubtitle } from "./SectionSubtitle";
 
 const meta: Meta = {
   title: "Page / Section",

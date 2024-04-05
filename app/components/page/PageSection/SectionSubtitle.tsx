@@ -2,13 +2,14 @@ import { forwardRef } from "react";
 import { clsx } from "clsx";
 import styles from "./page-section.module.css";
 
-export const PageSectionSubtitle = forwardRef<
+export const SectionSubtitle = forwardRef<
   HTMLHeadingElement,
   JSX.IntrinsicElements["h3"] & { ddColor?: "primary" | "secondary" }
->(function PageSectionSubtitle(
+>(function SectionSubtitle(
   { children, className, ddColor, ...restProps },
   ref,
 ) {
+  if (!children) return null;
   return (
     <h3
       {...restProps}

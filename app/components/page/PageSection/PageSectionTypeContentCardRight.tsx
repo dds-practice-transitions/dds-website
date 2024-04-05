@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import { PageSectionTitle } from "./PageSectionTitle";
-import { PageSectionSubtitle } from "./PageSectionSubtitle";
+import { PageSectionTitle } from "./SectionTitle";
+import { PageSectionSubtitle } from "./SectionSubtitle";
 import { PageSectionActions } from "./PageSectionActions";
 import { PageSection } from "./PageSection";
 

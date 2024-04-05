@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
 import { type PageSectionTypeFAQPropsVariantDefault } from "./PageSectionTypeFAQ";
-import { PageSectionTitle } from "./PageSectionTitle";
-import { PageSectionSubtitle } from "./PageSectionSubtitle";
+import { PageSectionTitle } from "./SectionTitle";
+import { PageSectionSubtitle } from "./SectionSubtitle";
 import { PageSection } from "./PageSection";
 import {
   AccordionList,

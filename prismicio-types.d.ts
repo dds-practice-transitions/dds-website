@@ -877,15 +877,25 @@ export interface CallToActionSliceDefaultPrimary {
   description: prismic.KeyTextField;
 
   /**
-   * Background field in *CallToAction → Primary*
+   * Background Color field in *CallToAction → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: The color of the background
    * - **Default Value**: primary
-   * - **API ID Path**: call_to_action.primary.background
+   * - **API ID Path**: call_to_action.primary.background_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  background: prismic.SelectField<"primary" | "secondary", "filled">;
+  background_color: prismic.SelectField<"primary" | "secondary", "filled">;
+
+  /**
+   * Background Image field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
 }
 
 /**
@@ -924,7 +934,7 @@ export interface CallToActionSliceDefaultItem {
 }
 
 /**
- * Default variation for CallToAction Slice
+ * Basic variation for CallToAction Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -961,17 +971,6 @@ export interface CallToActionSliceSplitImagePrimary {
   description: prismic.KeyTextField;
 
   /**
-   * Background field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: The color of the section background
-   * - **Default Value**: primary
-   * - **API ID Path**: call_to_action.primary.background
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  background: prismic.SelectField<"primary" | "secondary", "filled">;
-
-  /**
    * Image field in *CallToAction → Primary*
    *
    * - **Field Type**: Image
@@ -980,6 +979,27 @@ export interface CallToActionSliceSplitImagePrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Background Color field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: The color of the section background
+   * - **Default Value**: primary
+   * - **API ID Path**: call_to_action.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"primary" | "secondary", "filled">;
+
+  /**
+   * Background Image field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
 }
 
 /**

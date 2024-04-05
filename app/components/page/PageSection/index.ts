@@ -1,6 +1,6 @@
 // CTA
-export { PageSectionTypeCTADefault } from "./PageSectionTypeCTADefault";
-export { PageSectionTypeCTASplitImage } from "./PageSectionTypeCTASplitImage";
+export { SectionVariantCTABasic } from "./SectionVariantCTABasic";
+export { SectionVariantCTAWithImage } from "./SectionVariantCTAWithImage";
 
 // Content
 export { PageSectionTypeContentCardRight } from "./PageSectionTypeContentCardRight";
