@@ -13,14 +13,15 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   });
 
   try {
-    const email = formData.get("email");
+    const role = formData.getAll("role");
     const tags = formData.getAll("tags") as string[];
+    const email_address = formData.get("email_address");
 
-    if (!email || !tags) return;
+    if (!email_address || !tags || !role) return;
 
     const person = await audiencefulClient.createPerson({
-      email: email.toString(),
-      tags: tags ?? [],
+      email: email_address.toString(),
+      tags: tags.concat(role.toString()) ?? [],
     });
 
     return json({ message: "success!", person });

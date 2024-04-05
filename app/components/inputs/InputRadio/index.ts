@@ -1,1 +1,1 @@
-export { InputCheckbox } from "./InputRadio";
+export { InputRadio } from "./InputRadio";
