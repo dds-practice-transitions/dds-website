@@ -164,7 +164,6 @@
 
   @include make-global(cols, nested) {
     display: flex;
-    background: make-color(paper);
 
     @include make-responsive-mobile {
       margin-top: make-rem(48);
@@ -175,7 +174,6 @@
         border-radius: make-rem(8);
         border: 1px solid make-color(grey-1);
         overflow: hidden;
-        background: make-color(paper);
         z-index: 10;
 
         img {
@@ -187,6 +185,7 @@
 
         figcaption {
           padding: make-rem(40) make-rem(16);
+          background: make-color(paper);
 
           h2 {
             margin: 0;
@@ -226,6 +225,7 @@
 
         figcaption {
           padding: make-rem(40);
+          background: make-color(paper);
         }
       }
     }
