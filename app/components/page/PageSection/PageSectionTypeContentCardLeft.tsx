@@ -48,13 +48,12 @@ export const PageSectionTypeContentCardLeft = forwardRef<
   return (
     <PageSection
       {...restProps}
-      ddType="content"
       ddBackgroundAlt={ddBackgroundAlt}
       ddBackgroundSrc={ddBackgroundSrc}
       className={clsx(styles.root, className)}
       ref={ref}
     >
-      <div className={styles[ddVariant]}>
+      <div className={clsx(styles[ddVariant], styles.content)}>
         <img src={ddImageSrc} alt={ddImageAlt} />
         <div className="card">
           <PageSectionTitle>{ddTitle}</PageSectionTitle>

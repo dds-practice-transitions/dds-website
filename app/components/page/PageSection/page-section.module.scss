@@ -2,10 +2,31 @@
 
 .page-section {
   width: 100%;
+  position: relative;
 
   // Up to tablet
   @include make-responsive(zero, tablet) {
     padding: make-rem(52) make-rem(32);
+  }
+
+  @include make-responsive-tablet {
+    padding: make-rem(80) 0 !important;
+  }
+
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+  }
+  & > * {
+    position: relative;
+    z-index: 10;
   }
 }
 
@@ -16,15 +37,16 @@
 
   // Up to tablet
   @include make-responsive(zero, tablet) {
-    font-size: make-rem(24);
-    line-height: make-rem(32);
+    font-size: make-rem(36);
+    line-height: make-rem(40);
     text-align: center;
   }
 
   // Tablet and up
   @include make-responsive(tablet) {
-    font-size: make-rem(30);
-    line-height: make-rem(36);
+    font-size: make-rem(48);
+    line-height: 1.2;
+    font-weight: 700;
   }
 }
 
@@ -308,8 +330,4 @@
       margin-top: make-rem(32);
     }
   }
-}
-
-.page-section-content {
-  max-width: make-rem(1024);
 }

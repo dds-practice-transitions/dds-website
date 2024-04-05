@@ -29,6 +29,11 @@
   margin: 0 auto;
 }
 
+.content {
+  max-width: make-rem(1024);
+  margin: 0 auto;
+}
+
 // Variant: card-right
 .card-right {
   position: relative;
@@ -147,11 +152,6 @@
     p {
       margin: 0;
     }
-    h2 {
-      margin: 0;
-      font-size: make-rem(20);
-      line-height: make-rem(28);
-    }
 
     p {
       margin: 0;
@@ -164,6 +164,7 @@
 
   @include make-global(cols, nested) {
     display: flex;
+    background: make-color(paper);
 
     @include make-responsive-mobile {
       margin-top: make-rem(48);
@@ -174,6 +175,8 @@
         border-radius: make-rem(8);
         border: 1px solid make-color(grey-1);
         overflow: hidden;
+        background: make-color(paper);
+        z-index: 10;
 
         img {
           height: make-rem(300);

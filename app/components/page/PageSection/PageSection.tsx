@@ -8,7 +8,7 @@ export type PageSectionPropsCustom = {
 };
 export type PageSectionPropsNative = JSX.IntrinsicElements["section"];
 export type PageSectionProps = PageSectionPropsNative &
-  PageSectionPropsCustom & { ddType: string };
+  PageSectionPropsCustom & { ddType?: string };
 export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
   function PageSection(
     {
@@ -31,10 +31,10 @@ export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
         )}
         ref={ref}
       >
+        {children}
         {ddBackgroundAlt && ddBackgroundSrc && (
           <img src={ddBackgroundSrc} alt={ddBackgroundAlt} />
         )}
-        {children}
       </section>
     );
   },

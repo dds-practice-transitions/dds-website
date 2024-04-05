@@ -1,6 +1,10 @@
 import { type Content } from "@prismicio/client";
 import { type SliceComponentProps } from "@prismicio/react";
-import { PageSectionTypeContentCardLeft } from "../../components/page/PageSection/PageSectionTypeContentCardLeft";
+import {
+  PageSectionTypeContentCardLeft,
+  PageSectionTypeContentCardRight,
+  PageSectionTypeContentColumns,
+} from "../../components";
 import { exhaustiveMatchGuard } from "../../utils";
 
 /**
@@ -45,6 +49,7 @@ const SectionContent = ({ slice }: ContentProps) => {
         <PageSectionTypeContentColumns
           ddVariant="columns"
           ddTitle={slice.primary.title ?? ""}
+          ddSubtitle={slice.primary.description ?? undefined}
           ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
           ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
           ddColumns={slice.items.map((item) => ({

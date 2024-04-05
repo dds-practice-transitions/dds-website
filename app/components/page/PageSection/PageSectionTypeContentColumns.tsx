@@ -27,7 +27,7 @@ export const PageSectionTypeContentColumns = forwardRef<
       className={clsx(styles.root, className)}
       ref={ref}
     >
-      <div className={styles[ddVariant]}>
+      <div className={clsx(styles[ddVariant], styles.content)}>
         <PageSectionTitle>{ddTitle}</PageSectionTitle>
         {ddSubtitle && <PageSectionSubtitle>{ddSubtitle}</PageSectionSubtitle>}
         <div

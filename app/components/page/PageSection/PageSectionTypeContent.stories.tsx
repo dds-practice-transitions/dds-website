@@ -22,6 +22,8 @@ export const CardRight: Story = {
       "Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.",
     ddImageSrc: "/images/test-2.jpg",
     ddImageAlt: "image",
+    ddBackgroundSrc: "/images/backgrounds/layered-waves-1.svg",
+    ddBackgroundAlt: "layered-aves",
   },
 };
 
