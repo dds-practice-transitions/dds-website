@@ -36,7 +36,6 @@ export type PageSectionTypeContentPropsVariantColumns =
     ddVariant: "columns";
     ddTitle: string;
     ddSubtitle?: string;
-    ddColumns: ContentColumn[];
   };
 
 export type PageSectionTypeContentPropsVariantThumbnailGrid =

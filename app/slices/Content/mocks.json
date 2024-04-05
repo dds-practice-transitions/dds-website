@@ -256,6 +256,32 @@
 							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
+					],
+					[
+						"cta_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
+							}
+						}
+					],
+					[
+						"cta_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "repeat",
+							"type": "Text"
+						}
+					],
+					[
+						"cta_variant",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "paper",
+							"type": "Select"
+						}
 					]
 				]
 			}
@@ -343,6 +369,32 @@
 							"alt": null,
 							"__TYPE__": "ImageContent",
 							"thumbnails": {}
+						}
+					],
+					[
+						"cta_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "pupil",
+							"type": "Text"
+						}
+					],
+					[
+						"cta_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					],
+					[
+						"cta_variant",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "primary",
+							"type": "Select"
 						}
 					]
 				]

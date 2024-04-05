@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { PageSectionTitle } from "./PageSectionTitle";
 import { PageSectionSubtitle } from "./PageSectionSubtitle";
 import { PageSection } from "./PageSection";
@@ -17,9 +17,11 @@ export const PageSectionTypeContentColumns = forwardRef<
   HTMLElement,
   PageSectionTypeContentColumnsProps
 >(function PageSectionTypeContentColumns(
-  { ddTitle, ddSubtitle, ddVariant, ddColumns, className, ...restProps },
+  { ddTitle, ddSubtitle, ddVariant, className, children, ...restProps },
   ref,
 ) {
+  const numOfChildren = React.Children.count(children);
+
   return (
     <PageSection
       {...restProps}
@@ -32,19 +34,17 @@ export const PageSectionTypeContentColumns = forwardRef<
         {ddSubtitle && <PageSectionSubtitle>{ddSubtitle}</PageSectionSubtitle>}
         <div
           className={clsx("cols", {
-            two: ddColumns.length === 2,
-            three: ddColumns.length === 3,
+            two: numOfChildren === 2,
+            three: numOfChildren === 3,
           })}
         >
-          {ddColumns.map((col, i) => (
-            <figure key={`col-${i}`} className={i % 2 ? "even" : "odd"}>
-              <img src={col.ddImageSrc} alt={col.ddImageAlt} />
-              <figcaption>
-                <h2>{col.ddTitle}</h2>
-                <p>{col.ddSubtitle}</p>
-              </figcaption>
-            </figure>
-          ))}
+          {React.Children.map(children, (child, i) =>
+            // @ts-expect-error type mismatch
+            React.cloneElement(child, {
+              className: i % 2 ? "even" : "odd",
+              ddNumOfCols: numOfChildren,
+            }),
+          )}
         </div>
       </div>
     </PageSection>

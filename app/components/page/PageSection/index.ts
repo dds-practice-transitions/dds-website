@@ -6,6 +6,7 @@ export { PageSectionTypeCTASplitImage } from "./PageSectionTypeCTASplitImage";
 export { PageSectionTypeContentCardRight } from "./PageSectionTypeContentCardRight";
 export { PageSectionTypeContentCardLeft } from "./PageSectionTypeContentCardLeft";
 export { PageSectionTypeContentColumns } from "./PageSectionTypeContentColumns";
+export { PageSectionTypeContentColumn } from "./PageSectionTypeContentColumn";
 
 // FAQs
 export { PageSectionTypeFAQDefault } from "./PageSectionTypeFAQDefault";

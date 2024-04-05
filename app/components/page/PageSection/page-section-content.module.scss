@@ -205,6 +205,20 @@
     }
   }
 
+  @include make-global(col-action, nested) {
+    margin-top: make-rem(32);
+    @include make-responsive-mobile {
+      button,
+      a {
+        width: 100%;
+        justify-content: center;
+        height: make-rem(52);
+      }
+    }
+    @include make-responsive-tablet {
+    }
+  }
+
   @include make-global(two, nested) {
     @include make-responsive-tablet {
       margin-top: make-rem(24);

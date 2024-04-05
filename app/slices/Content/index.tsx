@@ -1,11 +1,14 @@
 import { type Content } from "@prismicio/client";
 import { type SliceComponentProps } from "@prismicio/react";
 import {
+  ButtonLink,
   PageSectionTypeContentCardLeft,
   PageSectionTypeContentCardRight,
+  PageSectionTypeContentColumn,
   PageSectionTypeContentColumns,
 } from "../../components";
 import { exhaustiveMatchGuard } from "../../utils";
+import { withAdapterLink } from "../../adapters";
 
 /**
  * Props for `Content`.
@@ -52,13 +55,30 @@ const SectionContent = ({ slice }: ContentProps) => {
           ddSubtitle={slice.primary.description ?? undefined}
           ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
           ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
-          ddColumns={slice.items.map((item) => ({
-            ddTitle: item.column_title as string,
-            ddSubtitle: item.column_description as string,
-            ddImageSrc: item.column_image.url as string,
-            ddImageAlt: item.column_image.alt as string,
-          }))}
-        />
+        >
+          {slice.items.map((item, i) => (
+            <PageSectionTypeContentColumn
+              key={i}
+              ddTitle={item.column_title as string}
+              ddSubtitle={item.column_description as string}
+              ddImageSrc={item.column_image.url as string}
+              ddImageAlt={item.column_image.alt as string}
+            >
+              {item.cta_label && item.cta_link && item.cta_variant && (
+                <ButtonLink
+                  key={`col-${slice.variation}-cta-${i}`}
+                  ddVariant={item.cta_variant}
+                  ddSize="md"
+                  LinkComponent={withAdapterLink({
+                    field: item.cta_link,
+                  })}
+                >
+                  {item.cta_label}
+                </ButtonLink>
+              )}
+            </PageSectionTypeContentColumn>
+          ))}
+        </PageSectionTypeContentColumns>
       );
 
     default:

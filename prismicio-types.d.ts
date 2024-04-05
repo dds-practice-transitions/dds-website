@@ -300,6 +300,7 @@ export type GeneralDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | ContactSlice
   | ContentSlice
   | AccordionSlice
   | CallToActionSlice
@@ -1465,6 +1466,36 @@ export interface ContentSliceColumnsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   column_image: prismic.ImageField<never>;
+
+  /**
+   * CTA Link field in *Content → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Label field in *Content → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].cta_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Variant field in *Content → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].cta_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  cta_variant: prismic.SelectField<"primary" | "secondary" | "paper">;
 }
 
 /**
@@ -1548,6 +1579,36 @@ export interface ContentSliceColumns3Item {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   column_image: prismic.ImageField<never>;
+
+  /**
+   * CTA Label field in *Content → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].cta_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *Content → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Variant field in *Content → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].cta_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  cta_variant: prismic.SelectField<"primary" | "secondary" | "paper">;
 }
 
 /**

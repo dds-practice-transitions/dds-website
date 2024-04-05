@@ -4,6 +4,8 @@ import {
   PageSectionTypeContent,
 } from "./PageSectionTypeContent";
 import { randJobDescriptor, randWord } from "@ngneat/falso";
+import { PageSectionTypeContentColumn } from "./PageSectionTypeContentColumn";
+import { Button } from "../../inputs";
 
 const meta: Meta = {
   title: "Page / Section / Content",
@@ -52,7 +54,13 @@ export const ColumnsTwo: Story = {
     ddTitle: "Highly effective solutions",
     ddSubtitle:
       "Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.",
-    ddColumns: ddColumns.filter((_, i) => i < 2),
+    children: ddColumns
+      .map((record, i) => (
+        <PageSectionTypeContentColumn key={i} {...record}>
+          <Button ddVariant="primary">test cta</Button>
+        </PageSectionTypeContentColumn>
+      ))
+      .filter((_, i) => i < 2),
   },
 };
 
@@ -62,6 +70,10 @@ export const ColumnsThree: Story = {
     ddTitle: "Highly effective solutions",
     ddSubtitle:
       "Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.",
-    ddColumns,
+    children: ddColumns.map((record, i) => (
+      <PageSectionTypeContentColumn key={i} {...record}>
+        <Button ddVariant="primary">test cta</Button>
+      </PageSectionTypeContentColumn>
+    )),
   },
 };

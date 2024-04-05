@@ -171,6 +171,33 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Label",
+            "placeholder": ""
+          }
+        },
+        "cta_variant": {
+          "type": "Select",
+          "config": {
+            "label": "CTA Variant",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "paper"
+            ]
+          }
         }
       }
     },
@@ -226,6 +253,33 @@
             "label": "Column Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Label",
+            "placeholder": ""
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_variant": {
+          "type": "Select",
+          "config": {
+            "label": "CTA Variant",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "paper"
+            ]
           }
         }
       }
