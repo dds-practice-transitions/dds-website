@@ -1,4 +1,23 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import { LoaderFunction, json, type MetaFunction } from "@remix-run/cloudflare";
+import { getPrismicClient } from "../lib/prismic";
+import { HomeDocumentData } from "../../prismicio-types";
+import { useLoaderData } from "@remix-run/react";
+import { components } from "../slices";
+import { SliceZone } from "@prismicio/react";
+
+export const loader: LoaderFunction = async ({ context }) => {
+  const client = getPrismicClient(context);
+
+  try {
+    const res = await client.getByUID("home", "home");
+    return json(res.data);
+  } catch (error) {
+    console.log(error);
+    throw new Response("Not found", {
+      status: 404,
+    });
+  }
+};
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,5 +30,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  return <div>home</div>;
+  const data = useLoaderData<HomeDocumentData>();
+
+  return <SliceZone slices={data.slices} components={components} />;
 }
