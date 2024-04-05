@@ -12,7 +12,7 @@ export { SectionVariantCardColumn } from "./SectionVariantCardColumn";
 export { PageSectionTypeFAQDefault } from "./PageSectionTypeFAQDefault";
 
 // // Team
-export { PageSectionTypeTeamDefault } from "./PageSectionTypeTeamDefault";
+export { SectionVariantTeam } from "./SectionVariantTeam";
 
 // // Contact
 export { SectionContactContentRight } from "./SectionContactContentRight";

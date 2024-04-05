@@ -67,6 +67,32 @@
 							"value": "layers",
 							"type": "Text"
 						}
+					],
+					[
+						"view_member_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "excited",
+							"type": "Text"
+						}
+					],
+					[
+						"view_member_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
+							}
+						}
+					],
+					[
+						"view_member_variant",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "primary",
+							"type": "Select"
+						}
 					]
 				]
 			}

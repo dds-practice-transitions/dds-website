@@ -2204,6 +2204,36 @@ export interface TeamSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * View Member Label field in *Team → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].view_member_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  view_member_label: prismic.KeyTextField;
+
+  /**
+   * View Member Link field in *Team → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].view_member_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  view_member_link: prismic.LinkField;
+
+  /**
+   * View Member Variant field in *Team → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].view_member_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  view_member_variant: prismic.SelectField<"primary" | "secondary" | "paper">;
 }
 
 /**

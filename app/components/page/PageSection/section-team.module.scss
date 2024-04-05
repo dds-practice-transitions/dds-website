@@ -1,0 +1,58 @@
+@import "../../../theme/utils";
+
+.root {
+  @include make-responsive-mobile {
+    margin: make-rem(80) auto;
+  }
+
+  @include make-responsive-tablet {
+    margin: make-rem(100) auto;
+  }
+}
+
+.content {
+  & > h2,
+  & > h3 {
+    text-align: center;
+  }
+}
+
+.team {
+  @include make-responsive(tablet, desktop) {
+    width: 100%;
+    padding: make-rem(64) make-rem(32);
+  }
+
+  @include make-responsive(desktop) {
+    padding: make-rem(64) make-rem(32);
+  }
+}
+
+.members {
+  @include make-reset-ul();
+
+  // Responsive - up to tablet
+  @include make-responsive(zero, desktop) {
+    margin-top: make-rem(32);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: make-rem(16);
+  }
+
+  // Responsive - desktop
+  @include make-responsive(desktop) {
+    max-width: make-rem(1280);
+    margin: 0 auto;
+    margin-top: make-rem(40);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: make-rem(16);
+  }
+
+  .action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: make-rem(16);
+    margin-top: make-rem(24);
+  }
+}

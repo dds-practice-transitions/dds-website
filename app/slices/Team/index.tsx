@@ -1,6 +1,9 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { PageSectionTypeTeamDefault } from "../../components";
+import { ButtonLink, SectionVariantTeam } from "../../components";
+import { SectionVariantTeamMember } from "../../components/page/PageSection/SectionVariantTeamMember";
+import { withAdapterLink } from "../../adapters";
+import { exhaustiveMatchGuard } from "../../utils";
 
 /**
  * Props for `Team`.
@@ -14,17 +17,35 @@ const Team = ({ slice }: TeamProps) => {
   switch (slice.variation) {
     case "default":
       return (
-        <PageSectionTypeTeamDefault
+        <SectionVariantTeam
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.description ?? undefined}
-          ddVariant={"default"}
-          ddMembers={[]}
-        />
+        >
+          {slice.items.map((member, i) => (
+            <SectionVariantTeamMember
+              key={`member-${i}`}
+              ddTitle={member.job_title as string}
+              ddDescription={member.job_description as string}
+              ddFullName={member.full_name as string}
+              ddImgAlt={member.image.alt as string}
+              ddImgSrc={member.image.url as string}
+            >
+              <ButtonLink
+                ddVariant={member.view_member_variant ?? undefined}
+                ddSize="md"
+                LinkComponent={withAdapterLink({
+                  field: member.view_member_link,
+                })}
+              >
+                {member.view_member_label}
+              </ButtonLink>
+            </SectionVariantTeamMember>
+          ))}
+        </SectionVariantTeam>
       );
-      break;
 
     default:
-      break;
+      return exhaustiveMatchGuard(slice.variation);
   }
 };
 

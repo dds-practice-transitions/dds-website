@@ -30,6 +30,7 @@ export type SectionVariantTestimonialsPropsCustom = SectionPropsBase & {
 
 export type SectionVariantTestimonialsProps =
   SectionVariantTestimonialsPropsNative & SectionVariantTestimonialsPropsCustom;
+
 export const SectionVariantTestimonials = forwardRef<
   HTMLElement,
   SectionVariantTestimonialsProps
@@ -43,9 +44,7 @@ export const SectionVariantTestimonials = forwardRef<
     <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
       <div className={clsx(styles.content, styles["testimonials"])}>
         <SectionTitle>{ddTitle}</SectionTitle>
-        {ddSubtitle && (
-          <SectionSubtitle ddColor="secondary">{ddSubtitle}</SectionSubtitle>
-        )}
+        <SectionSubtitle>{ddSubtitle}</SectionSubtitle>
         <div className="content">
           <Responsive to="tablet">
             <nav className="dirs">

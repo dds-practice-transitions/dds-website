@@ -56,6 +56,33 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "view_member_label": {
+          "type": "Text",
+          "config": {
+            "label": "View Member Label",
+            "placeholder": ""
+          }
+        },
+        "view_member_link": {
+          "type": "Link",
+          "config": {
+            "label": "View Member Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "view_member_variant": {
+          "type": "Select",
+          "config": {
+            "label": "View Member Variant",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "paper"
+            ]
+          }
         }
       }
     }
