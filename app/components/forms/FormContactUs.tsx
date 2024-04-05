@@ -1,3 +1,4 @@
+import { InputText } from "../inputs";
 import { Button } from "../inputs/Button";
 import styles from "./form.contact.module.css";
 
@@ -37,7 +38,12 @@ export const FormContactUs = () => {
       </div>
       <div>
         <p>Enter your email and we&apos;ll be in touch!</p>
-        <input name="email" type="email" placeholder="your-email@domain.com" />
+        <InputText
+          id="email"
+          ddType="email"
+          name="email_address"
+          placeholder="your-email@domain.com"
+        />
       </div>
       <Button ddVariant="primary" type="submit">
         Submit

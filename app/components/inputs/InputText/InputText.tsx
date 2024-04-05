@@ -4,7 +4,7 @@ import styles from "./input-text.module.css";
 import { InputLabel } from "../InputLabel";
 import { InputContainer } from "../InputContainer";
 
-export type InputTextPropsNative = JSX.IntrinsicElements["input"];
+export type InputTextPropsNative = Omit<JSX.IntrinsicElements["input"], "type">;
 export type InputTextPropsCustom = {
   id: string;
   name: string;
