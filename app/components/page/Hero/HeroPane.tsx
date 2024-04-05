@@ -16,7 +16,7 @@ export const HeroPane = forwardRef<HTMLDivElement, HeroPaneProps>(
             className={clsx(
               styles.root,
               styles[props.ddLayout],
-              props.className
+              props.className,
             )}
             ref={ref}
           >
@@ -48,5 +48,5 @@ export const HeroPane = forwardRef<HTMLDivElement, HeroPaneProps>(
       default:
         break;
     }
-  }
+  },
 );

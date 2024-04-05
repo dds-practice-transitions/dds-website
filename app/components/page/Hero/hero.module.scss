@@ -40,7 +40,7 @@
   bottom: 0;
   z-index: 0;
 
-  img {
+  & > img {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -100,30 +100,18 @@
   position: relative;
   height: min-content;
 
-  @include make-responsive-mobile {
-    min-height: 50vh;
+  & > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
 
-    img {
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      object-fit: cover;
-      height: 100%;
-      max-width: 100%;
-      object-position: bottom;
-    }
-  }
-
-  @include make-responsive-tablet {
-    img {
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      object-fit: cover;
+    @include make-responsive-tablet {
       width: 100%;
-      max-height: 100%;
     }
   }
 }
@@ -175,6 +163,10 @@
 }
 
 .actions {
+  margin-top: make-rem(32);
+  display: flex;
+  gap: make-rem(16);
+  justify-content: center;
 }
 
 .variant-basic {
@@ -203,6 +195,78 @@
     }
 
     @include make-responsive-tablet {
+    }
+  }
+}
+
+.variant-image-right {
+  position: relative;
+  z-index: 10;
+
+  @include make-responsive-mobile {
+    margin: 0 auto;
+    padding: make-rem(60) make-rem(32);
+    text-align: center;
+  }
+
+  @include make-responsive-tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: make-rem(92);
+    max-width: make-rem(1024);
+    margin: 0 auto;
+    padding: make-rem(80) make-rem(32);
+    height: max-content;
+  }
+
+  & > div {
+    &:last-child {
+      border-radius: make-rem(8);
+      overflow: hidden;
+
+      @include make-responsive-mobile {
+        height: make-rem(400);
+        margin-top: make-rem(60);
+
+        & > img {
+          width: 100%;
+          object-position: center !important;
+        }
+      }
+
+      @include make-responsive-tablet {
+        height: make-rem(600);
+
+        & > img {
+          width: 100%;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+      }
+    }
+  }
+
+  @include make-global(actions, nested) {
+    @include make-responsive-mobile {
+      justify-content: center;
+      flex-direction: column;
+      align-items: stretch;
+
+      button {
+        width: 100%;
+        justify-content: center;
+        height: make-rem(52);
+      }
+    }
+
+    @include make-responsive-tablet {
+      justify-content: flex-start;
     }
   }
 }
