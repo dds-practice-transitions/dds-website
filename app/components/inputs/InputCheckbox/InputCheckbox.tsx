@@ -4,28 +4,27 @@ import styles from "./input-checkbox.module.css";
 
 export type InputCheckboxPropsNative = JSX.IntrinsicElements["input"];
 export type InputCheckboxPropsCustom = {
-  id: string;
   name: string;
-  ddVariant: "default" | "pill";
+  ddVariant?: "default" | "pill";
+  ddLabel: string;
 };
 export type InputCheckboxProps = InputCheckboxPropsNative &
   InputCheckboxPropsCustom;
 export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckboxProps>(
   function InputCheckbox(
-    { children, className, id, ddVariant, ...restProps },
+    { className, id, ddVariant = "default", ddLabel, ...restProps },
     ref,
   ) {
     return (
-      <label htmlFor={id} className={styles[ddVariant]}>
+      <label className={clsx(styles.root, styles[ddVariant])}>
         <input
           {...restProps}
           id={id}
           type="checkbox"
-          className={clsx(styles.root, className)}
+          className={clsx(className)}
           ref={ref}
-        >
-          <span>{children}</span>
-        </input>
+        />
+        <div>{ddLabel}</div>
       </label>
     );
   },

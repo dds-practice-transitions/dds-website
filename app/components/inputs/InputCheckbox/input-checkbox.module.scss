@@ -1,8 +1,50 @@
+@import "../../../theme/utils";
+
 .root {
   font-size: make-rem(14);
   line-height: make-rem(20);
   font-weight: 600;
+  display: inline-flex;
+  position: relative;
+
+  input {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
 }
 
 .pill {
+  div {
+    padding: 0 make-rem(12);
+    height: make-rem(24);
+    font-size: make-rem(12);
+    display: grid;
+    place-items: center;
+    color: make-color(grey-5);
+    border-radius: make-rem(8);
+  }
+
+  & > input {
+    &:checked {
+      & + div {
+        background: make-color(primary-dark);
+        color: make-color(paper);
+      }
+    }
+
+    &:hover {
+      &:not(:checked) {
+        & + div {
+          cursor: pointer;
+          background: make-color(primary, 0.5);
+        }
+      }
+    }
+  }
 }

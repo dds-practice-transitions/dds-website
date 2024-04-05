@@ -1,6 +1,8 @@
 @import "../../../theme/utils";
 
 .root {
+  display: relative;
+
   label + input {
     &[type="text"] {
       margin-top: make-rem(12);
