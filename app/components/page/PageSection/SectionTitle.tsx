@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
-import styles from "./page-section.module.css";
+import styles from "./section.module.css";
 
 export const SectionTitle = forwardRef<
   HTMLHeadingElement,

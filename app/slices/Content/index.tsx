@@ -2,10 +2,10 @@ import { type Content } from "@prismicio/client";
 import { type SliceComponentProps } from "@prismicio/react";
 import {
   ButtonLink,
-  PageSectionTypeContentCardLeft,
-  PageSectionTypeContentCardRight,
-  PageSectionTypeContentColumn,
-  PageSectionTypeContentColumns,
+  SectionVariantCardLeft,
+  SectionVariantCardRight,
+  SectionVariantCardColumns,
+  SectionVariantCardColumn,
 } from "../../components";
 import { exhaustiveMatchGuard } from "../../utils";
 import { withAdapterLink } from "../../adapters";
@@ -18,12 +18,11 @@ export type ContentProps = SliceComponentProps<Content.ContentSlice>;
 /**
  * Component for "Content" Slices.
  */
-const SectionContent = ({ slice }: ContentProps) => {
+const Cards = ({ slice }: ContentProps) => {
   switch (slice.variation) {
     case "default":
       return (
-        <PageSectionTypeContentCardRight
-          ddVariant="card-right"
+        <SectionVariantCardRight
           ddTitle={slice.primary.title ?? ""}
           ddSubtitle={slice.primary.description ?? undefined}
           ddImageSrc={slice.primary.image.url as string}
@@ -35,8 +34,7 @@ const SectionContent = ({ slice }: ContentProps) => {
 
     case "cardLeft":
       return (
-        <PageSectionTypeContentCardLeft
-          ddVariant="card-left"
+        <SectionVariantCardLeft
           ddTitle={slice.primary.title ?? ""}
           ddSubtitle={slice.primary.description ?? undefined}
           ddImageSrc={slice.primary.image.url as string}
@@ -49,15 +47,14 @@ const SectionContent = ({ slice }: ContentProps) => {
     case "columns":
     case "columns3":
       return (
-        <PageSectionTypeContentColumns
-          ddVariant="columns"
+        <SectionVariantCardColumns
           ddTitle={slice.primary.title ?? ""}
           ddSubtitle={slice.primary.description ?? undefined}
           ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
           ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
         >
           {slice.items.map((item, i) => (
-            <PageSectionTypeContentColumn
+            <SectionVariantCardColumn
               key={i}
               ddTitle={item.column_title as string}
               ddSubtitle={item.column_description as string}
@@ -76,9 +73,9 @@ const SectionContent = ({ slice }: ContentProps) => {
                   {item.cta_label}
                 </ButtonLink>
               )}
-            </PageSectionTypeContentColumn>
+            </SectionVariantCardColumn>
           ))}
-        </PageSectionTypeContentColumns>
+        </SectionVariantCardColumns>
       );
 
     default:
@@ -86,4 +83,4 @@ const SectionContent = ({ slice }: ContentProps) => {
   }
 };
 
-export default SectionContent;
+export default Cards;
