@@ -12,6 +12,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "official",
 				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "secondary",
+				"type": "Select"
 			}
 		},
 		"items": []
@@ -76,6 +81,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "tin",
 				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "grey-1",
+				"type": "Select"
 			}
 		},
 		"items": [
@@ -98,6 +108,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "today",
 				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "secondary",
+				"type": "Select"
 			}
 		},
 		"items": [
@@ -120,6 +135,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "method",
 				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "primary",
+				"type": "Select"
 			}
 		},
 		"items": [

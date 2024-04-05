@@ -26,6 +26,7 @@ const Contact = ({
         <SectionContactContentRight
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.subtitle ?? undefined}
+          ddBackgroundColor={slice.primary.background_color ?? undefined}
         >
           {children}
         </SectionContactContentRight>
@@ -36,6 +37,7 @@ const Contact = ({
         <SectionContactContentLeft
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.subtitle ?? undefined}
+          ddBackgroundColor={slice.primary.background_color ?? undefined}
         >
           {children}
         </SectionContactContentLeft>
@@ -59,6 +61,7 @@ const Contact = ({
         <SectionContactContentRight
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.subtitle ?? undefined}
+          ddBackgroundColor={slice.primary.background_color ?? undefined}
         >
           <WithContactUsForm />
         </SectionContactContentRight>
@@ -69,6 +72,7 @@ const Contact = ({
         <SectionContactContentLeft
           ddTitle={slice.primary.title as string}
           ddSubtitle={slice.primary.subtitle ?? undefined}
+          ddBackgroundColor={slice.primary.background_color ?? undefined}
         >
           <WithContactUsForm />
         </SectionContactContentLeft>

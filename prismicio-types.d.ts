@@ -1091,6 +1091,16 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subtitle: prismic.KeyTextField;
+
+  /**
+   * Background Color field in *Contact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"primary" | "secondary" | "grey-1">;
 }
 
 /**
@@ -1217,6 +1227,16 @@ export interface ContactSliceContentLeftPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subtitle: prismic.KeyTextField;
+
+  /**
+   * Background Color field in *Contact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"primary" | "secondary" | "grey-1">;
 }
 
 /**
@@ -1255,6 +1275,16 @@ export interface ContactSliceWithFormRightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subtitle: prismic.KeyTextField;
+
+  /**
+   * Background Color field in *Contact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"primary" | "secondary" | "grey-1">;
 }
 
 /**
@@ -1293,6 +1323,16 @@ export interface ContactSliceWithFormLeftPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subtitle: prismic.KeyTextField;
+
+  /**
+   * Background Color field in *Contact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"primary" | "secondary" | "grey-1">;
 }
 
 /**

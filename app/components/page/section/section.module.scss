@@ -41,6 +41,9 @@
 .primary {
   background-color: make-color(primary);
 }
+.grey-1 {
+  background-color: make-color(grey-1, 0.2);
+}
 .secondary {
   background-color: make-color(primary);
   background: make-color(secondary);
