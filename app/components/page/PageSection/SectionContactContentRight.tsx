@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
 import { Section } from "./Section";
-import styles from "./page-section.contact.module.css";
+import styles from "./section-contact.module.css";
 import { SectionPropsBase } from "./page-section.types";
 
 export type SectionContactContentRightPropsNative =
@@ -21,7 +21,7 @@ export const SectionContactContentRight = forwardRef<
 ) {
   return (
     <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
-      <div className={clsx(styles.contact, styles["content-right"])}>
+      <div className={clsx(styles.content, styles["right"])}>
         <div>
           <SectionTitle>{ddTitle}</SectionTitle>
           {ddSubtitle && (

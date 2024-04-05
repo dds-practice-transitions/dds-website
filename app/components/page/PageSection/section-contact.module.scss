@@ -1,5 +1,20 @@
 @import "../../../theme/utils";
 
+.root {
+  @include make-responsive-mobile {
+    margin: make-rem(80) auto;
+  }
+
+  @include make-responsive-tablet {
+    margin: make-rem(100) auto;
+  }
+}
+
+.content {
+  max-width: make-rem(1024);
+  margin: 0 auto;
+}
+
 .section {
   width: 100%;
 
@@ -13,12 +28,12 @@
   }
 }
 
-.contact {
+.content {
   padding: make-rem(100) 0;
   width: 100%;
 }
 
-.content-right {
+.right {
   @include make-responsive-mobile {
   }
 
@@ -44,7 +59,7 @@
   }
 }
 
-.content-left {
+.left {
   @include make-responsive-mobile {
   }
 

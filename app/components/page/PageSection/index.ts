@@ -9,7 +9,7 @@ export { SectionVariantCardColumns } from "./SectionVariantCardColumns";
 export { SectionVariantCardColumn } from "./SectionVariantCardColumn";
 
 // FAQs
-export { PageSectionTypeFAQDefault } from "./PageSectionTypeFAQDefault";
+export { SectionVariantFAQ } from "./SectionVariantFAQ";
 
 // // Team
 export { SectionVariantTeam } from "./SectionVariantTeam";

@@ -8,8 +8,17 @@
   transition: all 0.2s ease-in-out;
   text-align: left;
 
+  &:not([open]) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &[open] {
+    transform: scale(1.1);
+  }
+
   &:hover {
-    transform: scale(1.02);
     border-color: make-color(primary);
 
     summary {

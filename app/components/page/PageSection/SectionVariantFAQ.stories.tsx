@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageSectionTypeFAQ } from "./PageSectionTypeFAQ";
 import { randAmericanFootballTeam, randSentence } from "@ngneat/falso";
+import { SectionVariantFAQ } from "./SectionVariantFAQ";
 
 const meta: Meta = {
   title: "Page / Section / FAQ",
   // @ts-expect-error forwardRef mismatch
-  component: PageSectionTypeFAQ,
+  component: SectionVariantFAQ,
 } satisfies Meta<typeof meta>;
 
 export default meta;
