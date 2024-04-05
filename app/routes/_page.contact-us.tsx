@@ -10,7 +10,6 @@ export const loader: LoaderFunction = async ({ context }) => {
 
   try {
     const res = await client.getByUID("contact", "contact-us");
-    console.log("getting data");
     return json(res.data);
   } catch (error) {
     console.log(error);
