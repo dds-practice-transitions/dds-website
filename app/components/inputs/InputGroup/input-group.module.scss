@@ -1,11 +1,42 @@
 @import "../../../theme/utils";
 
 .root {
-  display: relative;
+  position: relative;
 }
 
 .checkbox {
   display: flex;
   flex-wrap: wrap;
   gap: make-rem(8);
+}
+
+.radio {
+  display: flex;
+
+  & > label {
+    &:not(:first-child),
+    &:not(:last-child) {
+      & > div {
+        border-radius: 0;
+        border-right: none !important;
+      }
+    }
+
+    &:first-child {
+      & > div {
+        border-radius: make-rem(8);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &:last-child {
+      & > div {
+        border-radius: make-rem(8);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border: make-rem(1) solid make-color(grey-1) !important;
+      }
+    }
+  }
 }

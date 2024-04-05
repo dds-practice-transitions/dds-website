@@ -40,7 +40,9 @@ export const FormContactUs = () => {
         </label>
       </div>
       <div>
-        <p>What kinds of information are you seeking?</p>
+        <p>
+          What kinds of information are you seeking? (select all that apply)
+        </p>
         <InputGroup ddVariant="checkbox">
           {informationValues.map(({ value, display }) => (
             <InputCheckbox

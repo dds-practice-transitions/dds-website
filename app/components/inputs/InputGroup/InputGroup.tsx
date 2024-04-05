@@ -4,15 +4,12 @@ import styles from "./input-group.module.css";
 
 export type InputGroupPropsNative = JSX.IntrinsicElements["div"];
 export type InputGroupPropsCustom = {
-  ddVariant?: "checkbox" | "default";
+  ddVariant: "checkbox" | "radio";
 };
 export type InputGroupProps = InputGroupPropsNative & InputGroupPropsCustom;
 
 export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
-  function InputGroup(
-    { children, className, ddVariant = "default", ...restProps },
-    ref,
-  ) {
+  function InputGroup({ children, className, ddVariant, ...restProps }, ref) {
     return (
       <div
         {...restProps}
