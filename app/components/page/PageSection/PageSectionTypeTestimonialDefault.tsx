@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
-import { PageSectionTitle } from "./SectionTitle";
-import { PageSectionSubtitle } from "./SectionSubtitle";
+import { SectionTitle } from "./SectionTitle";
+import { SectionSubtitle } from "./SectionSubtitle";
 import { PageSection } from "./PageSection";
 
 import { PageSectionTypeTestimonialPropsVariantDefault } from "./PageSectionTypeTestimonial";
@@ -43,11 +43,9 @@ export const PageSectionTypeTestimonialDefault = forwardRef<
       ref={ref}
     >
       <div>
-        <PageSectionTitle>{ddTitle}</PageSectionTitle>
+        <SectionTitle>{ddTitle}</SectionTitle>
         {ddSubtitle && (
-          <PageSectionSubtitle ddColor="secondary">
-            {ddSubtitle}
-          </PageSectionSubtitle>
+          <SectionSubtitle ddColor="secondary">{ddSubtitle}</SectionSubtitle>
         )}
         <div className="content">
           <Responsive to="tablet">

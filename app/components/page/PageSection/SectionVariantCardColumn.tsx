@@ -1,22 +1,21 @@
 import { forwardRef } from "react";
 
-export type PageSectionTypeContentColumnPropsNative =
+export type SectionVariantCardColumnPropsNative =
   JSX.IntrinsicElements["figure"];
-export type PageSectionTypeContentColumnPropsCustom = {
+export type SectionVariantCardColumnPropsCustom = {
   ddTitle: string;
   ddSubtitle: string;
   ddImageSrc: string;
   ddImageAlt: string;
   ddNumOfCols?: number;
 };
-export type PageSectionTypeContentColumnProps =
-  PageSectionTypeContentColumnPropsNative &
-    PageSectionTypeContentColumnPropsCustom;
+export type SectionVariantCardColumnProps =
+  SectionVariantCardColumnPropsNative & SectionVariantCardColumnPropsCustom;
 
-export const PageSectionTypeContentColumn = forwardRef<
+export const SectionVariantCardColumn = forwardRef<
   HTMLElement,
-  PageSectionTypeContentColumnProps
->(function PageSectionTypeContentColumn(
+  SectionVariantCardColumnProps
+>(function SectionVariantCardColumn(
   {
     className,
     ddImageAlt,

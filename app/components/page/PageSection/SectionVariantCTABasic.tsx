@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { clsx } from "clsx";
 import styles from "./section-cta.module.css";
 import { Section } from "./Section";
-import { PageSectionActions } from "./PageSectionActions";
+import { SectionActions } from "./SectionActions";
 import { SectionSubtitle } from "./SectionSubtitle";
 import { SectionTitle } from "./SectionTitle";
 import { SectionPropsBase } from "./page-section.types";
@@ -25,7 +25,7 @@ export const SectionVariantCTABasic = forwardRef<
       <div className={clsx(styles.root, styles["variant-basic"])}>
         <SectionTitle>{ddTitle}</SectionTitle>
         <SectionSubtitle>{ddSubtitle}</SectionSubtitle>
-        <PageSectionActions>{children}</PageSectionActions>
+        <SectionActions>{children}</SectionActions>
       </div>
     </Section>
   );

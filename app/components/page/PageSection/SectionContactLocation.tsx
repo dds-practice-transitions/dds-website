@@ -1,10 +1,10 @@
 import { RefCallback, forwardRef, useCallback, useState } from "react";
 import { clsx } from "clsx";
-import { PageSectionTitle } from "./SectionTitle";
-import { PageSectionSubtitle } from "./SectionSubtitle";
+import { SectionTitle } from "./SectionTitle";
+import { SectionSubtitle } from "./SectionSubtitle";
 import { PageSection } from "./PageSection";
 import styles from "./page-section.contact.module.css";
-import { PageSectionPropsShared } from "./page-section.types";
+import { SectionPropsBase } from "./page-section.types";
 import { Icon } from "../../display/Icon";
 import { AcceptEmail, LocalPin, PhoneCall } from "@icon-park/react";
 
@@ -12,7 +12,7 @@ export type SectionContactLocationPropsNative = Omit<
   JSX.IntrinsicElements["section"],
   "children"
 >;
-export type SectionContactLocationPropsCustom = PageSectionPropsShared & {
+export type SectionContactLocationPropsCustom = SectionPropsBase & {
   ddEmail: string;
   ddPhone: string;
   ddLocationLine1: string;
@@ -66,11 +66,9 @@ export const SectionContactLocation = forwardRef<
         )}
       >
         <div>
-          <PageSectionTitle>{ddTitle}</PageSectionTitle>
+          <SectionTitle>{ddTitle}</SectionTitle>
           {ddSubtitle && (
-            <PageSectionSubtitle ddColor="secondary">
-              {ddSubtitle}
-            </PageSectionSubtitle>
+            <SectionSubtitle ddColor="secondary">{ddSubtitle}</SectionSubtitle>
           )}
           <div>
             <ul className={styles["contact-cards"]}>

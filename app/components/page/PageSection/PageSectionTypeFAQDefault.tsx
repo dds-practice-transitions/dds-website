@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
 import { type PageSectionTypeFAQPropsVariantDefault } from "./PageSectionTypeFAQ";
-import { PageSectionTitle } from "./SectionTitle";
-import { PageSectionSubtitle } from "./SectionSubtitle";
+import { SectionTitle } from "./SectionTitle";
+import { SectionSubtitle } from "./SectionSubtitle";
 import { PageSection } from "./PageSection";
 import {
   AccordionList,
@@ -31,11 +31,9 @@ export const PageSectionTypeFAQDefault = forwardRef<
       ref={ref}
     >
       <div>
-        <PageSectionTitle>{ddTitle}</PageSectionTitle>
+        <SectionTitle>{ddTitle}</SectionTitle>
         {ddSubtitle && (
-          <PageSectionSubtitle ddColor="secondary">
-            {ddSubtitle}
-          </PageSectionSubtitle>
+          <SectionSubtitle ddColor="secondary">{ddSubtitle}</SectionSubtitle>
         )}
         <AccordionList>
           {ddItems.map(({ ddContent, ddTitle }, i) => (

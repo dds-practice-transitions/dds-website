@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageSectionSubtitle } from "./SectionSubtitle";
+import { SectionSubtitle } from "./SectionSubtitle";
 
 const meta: Meta = {
   title: "Page / Section",
-  component: PageSectionSubtitle,
+  component: SectionSubtitle,
 } satisfies Meta<typeof meta>;
 
 export default meta;

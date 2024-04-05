@@ -5,20 +5,19 @@ import { SectionActions } from "./SectionActions";
 import { PageSection } from "./PageSection";
 
 import {
-  PageSectionTypeContentPropsNative,
-  PageSectionTypeContentPropsVariantCardLeft,
+  SectionVariantCardPropsNative,
+  SectionVariantCardPropsVariantCardLeft,
 } from "./SectionVariantCard";
 import clsx from "clsx";
 
 import styles from "./page-section-content.module.css";
 
-export type PageSectionTypeContentCardLeftProps =
-  PageSectionTypeContentPropsNative &
-    PageSectionTypeContentPropsVariantCardLeft;
-export const PageSectionTypeContentCardLeft = forwardRef<
+export type SectionVariantCardLeftProps = SectionVariantCardPropsNative &
+  SectionVariantCardPropsVariantCardLeft;
+export const SectionVariantCardLeft = forwardRef<
   HTMLElement,
-  PageSectionTypeContentCardLeftProps
->(function PageSectionTypeContentCardLeft(
+  SectionVariantCardLeftProps
+>(function SectionVariantCardLeft(
   {
     ddTitle,
     ddSubtitle,

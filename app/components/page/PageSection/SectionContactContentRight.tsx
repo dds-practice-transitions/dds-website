@@ -1,14 +1,14 @@
 import { forwardRef } from "react";
 import { clsx } from "clsx";
-import { PageSectionTitle } from "./SectionTitle";
-import { PageSectionSubtitle } from "./SectionSubtitle";
+import { SectionTitle } from "./SectionTitle";
+import { SectionSubtitle } from "./SectionSubtitle";
 import { PageSection } from "./PageSection";
 import styles from "./page-section.contact.module.css";
-import { PageSectionPropsShared } from "./page-section.types";
+import { SectionPropsBase } from "./page-section.types";
 
 export type SectionContactContentRightPropsNative =
   JSX.IntrinsicElements["section"];
-export type SectionContactContentRightPropsCustom = PageSectionPropsShared;
+export type SectionContactContentRightPropsCustom = SectionPropsBase;
 export type SectionContactContentRightProps =
   SectionContactContentRightPropsNative & SectionContactContentRightPropsCustom;
 
@@ -28,11 +28,9 @@ export const SectionContactContentRight = forwardRef<
     >
       <div className={clsx(styles.contact, styles["content-right"])}>
         <div>
-          <PageSectionTitle>{ddTitle}</PageSectionTitle>
+          <SectionTitle>{ddTitle}</SectionTitle>
           {ddSubtitle && (
-            <PageSectionSubtitle ddColor="secondary">
-              {ddSubtitle}
-            </PageSectionSubtitle>
+            <SectionSubtitle ddColor="secondary">{ddSubtitle}</SectionSubtitle>
           )}
         </div>
         <div>{children}</div>

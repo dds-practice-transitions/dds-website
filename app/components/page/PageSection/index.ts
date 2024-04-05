@@ -2,11 +2,11 @@
 export { SectionVariantCTABasic } from "./SectionVariantCTABasic";
 export { SectionVariantCTAWithImage } from "./SectionVariantCTAWithImage";
 
-// Content
-export { PageSectionTypeContentCardRight } from "./PageSectionTypeContentCardRight";
-export { PageSectionTypeContentCardLeft } from "./PageSectionTypeContentCardLeft";
-export { PageSectionTypeContentColumns } from "./PageSectionTypeContentColumns";
-export { PageSectionTypeContentColumn } from "./PageSectionTypeContentColumn";
+// Cards
+export { SectionVariantCardRight } from "./SectionVariantCardRight";
+export { SectionVariantCardLeft } from "./SectionVariantCardLeft";
+export { SectionVariantCardColumns } from "./SectionVariantCardColumns";
+export { SectionVariantCardColumn } from "./SectionVariantCardColumn";
 
 // FAQs
 export { PageSectionTypeFAQDefault } from "./PageSectionTypeFAQDefault";
