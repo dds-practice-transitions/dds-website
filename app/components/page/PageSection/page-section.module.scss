@@ -9,10 +9,6 @@
     padding: make-rem(52) make-rem(32);
   }
 
-  @include make-responsive-tablet {
-    padding: make-rem(80) 0 !important;
-  }
-
   & > img {
     position: absolute;
     top: 0;
@@ -113,6 +109,7 @@
 
   // Variant - Split Image
   @include make-global(split-image) {
+    padding: initial;
     margin-top: make-rem(80);
 
     & > * {
@@ -157,6 +154,10 @@
 }
 
 .page-section-faq {
+  @include make-responsive-tablet {
+    padding: make-rem(80) 0 !important;
+  }
+
   // Variant - Default
   @include make-global(default) {
     & > * {
@@ -172,6 +173,10 @@
 }
 
 .page-section-team {
+  @include make-responsive-tablet {
+    padding: make-rem(80) 0 !important;
+  }
+
   // Variant - Default
   @include make-global(default) {
     & > div {
@@ -215,6 +220,10 @@
 }
 
 .page-section-testimonial {
+  @include make-responsive-tablet {
+    padding: make-rem(80) 0 !important;
+  }
+
   @include make-responsive(tablet) {
     width: 100%;
     padding: make-rem(80) make-rem(32);

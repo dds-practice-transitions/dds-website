@@ -300,6 +300,7 @@ export type GeneralDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | TeamSlice
   | ContactSlice
   | ContentSlice
   | AccordionSlice
@@ -1213,12 +1214,90 @@ export type ContactSliceContentLeft = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Contact → Primary*
+ */
+export interface ContactSliceWithFormRightPrimary {
+  /**
+   * Title field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * WithForm - Right variation for Contact Slice
+ *
+ * - **API ID**: `withFormRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceWithFormRight = prismic.SharedSliceVariation<
+  "withFormRight",
+  Simplify<ContactSliceWithFormRightPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Contact → Primary*
+ */
+export interface ContactSliceWithFormLeftPrimary {
+  /**
+   * Title field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * WithForm - Left variation for Contact Slice
+ *
+ * - **API ID**: `withFormLeft`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceWithFormLeft = prismic.SharedSliceVariation<
+  "withFormLeft",
+  Simplify<ContactSliceWithFormLeftPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Contact*
  */
 type ContactSliceVariation =
   | ContactSliceDefault
   | ContactSliceLocation
-  | ContactSliceContentLeft;
+  | ContactSliceContentLeft
+  | ContactSliceWithFormRight
+  | ContactSliceWithFormLeft;
 
 /**
  * Contact Shared Slice
@@ -2195,10 +2274,14 @@ declare module "@prismicio/client" {
       ContactSliceDefaultPrimary,
       ContactSliceLocationPrimary,
       ContactSliceContentLeftPrimary,
+      ContactSliceWithFormRightPrimary,
+      ContactSliceWithFormLeftPrimary,
       ContactSliceVariation,
       ContactSliceDefault,
       ContactSliceLocation,
       ContactSliceContentLeft,
+      ContactSliceWithFormRight,
+      ContactSliceWithFormLeft,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceDefaultItem,

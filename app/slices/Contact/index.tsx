@@ -6,6 +6,7 @@ import {
   SectionContactLocation,
 } from "../../components";
 import { ReactNode } from "react";
+import { WithContactUsForm } from "./WithContactUsForm";
 
 /**
  * Props for `Contact`.
@@ -51,6 +52,26 @@ const Contact = ({
           ddLocationLine2={slice.primary.address_2 ?? undefined}
           ddLocationUrl={slice.primary.location_url as string}
         />
+      );
+
+    case "withFormRight":
+      return (
+        <SectionContactContentRight
+          ddTitle={slice.primary.title as string}
+          ddSubtitle={slice.primary.subtitle ?? undefined}
+        >
+          <WithContactUsForm />
+        </SectionContactContentRight>
+      );
+
+    case "withFormLeft":
+      return (
+        <SectionContactContentLeft
+          ddTitle={slice.primary.title as string}
+          ddSubtitle={slice.primary.subtitle ?? undefined}
+        >
+          <WithContactUsForm />
+        </SectionContactContentLeft>
       );
 
     default:
