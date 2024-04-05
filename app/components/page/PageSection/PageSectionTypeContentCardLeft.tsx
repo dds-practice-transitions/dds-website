@@ -33,6 +33,18 @@ export const PageSectionTypeContentCardLeft = forwardRef<
   },
   ref,
 ) {
+  console.log(
+    ddTitle,
+    ddSubtitle,
+    ddVariant,
+    ddImageSrc,
+    ddImageAlt,
+    ddBackgroundAlt,
+    ddBackgroundSrc,
+    children,
+    className,
+    restProps,
+  );
   return (
     <PageSection
       {...restProps}

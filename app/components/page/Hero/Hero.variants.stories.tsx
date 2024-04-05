@@ -1,13 +1,10 @@
 import type { Meta } from "@storybook/react";
-import { Hero } from "./Hero";
 import { HeroVariantBasic } from "./HeroVariantBasic";
 import { Button } from "../../inputs/Button";
 import { HeroVariantImageRight } from "./HeroVariantImageRight";
 
 const meta: Meta = {
   title: "Page / Hero / Variants",
-  //@ts-expect-error forwardRef error
-  component: Hero,
 } satisfies Meta<typeof meta>;
 
 export default meta;

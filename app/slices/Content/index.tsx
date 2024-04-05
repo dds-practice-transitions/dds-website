@@ -1,10 +1,6 @@
 import { type Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
-import {
-  PageSectionTypeContentCardLeft,
-  PageSectionTypeContentCardRight,
-  PageSectionTypeContentColumns,
-} from "../../components/page/PageSection";
+import { type SliceComponentProps } from "@prismicio/react";
+import { PageSectionTypeContentCardLeft } from "../../components/page/PageSection/PageSectionTypeContentCardLeft";
 import { exhaustiveMatchGuard } from "../../utils";
 
 /**
@@ -15,7 +11,7 @@ export type ContentProps = SliceComponentProps<Content.ContentSlice>;
 /**
  * Component for "Content" Slices.
  */
-const Content = ({ slice }: ContentProps) => {
+const SectionContent = ({ slice }: ContentProps) => {
   switch (slice.variation) {
     case "default":
       return (
@@ -25,8 +21,8 @@ const Content = ({ slice }: ContentProps) => {
           ddSubtitle={slice.primary.description ?? undefined}
           ddImageSrc={slice.primary.image.url as string}
           ddImageAlt={slice.primary.image.alt as string}
-          ddBackgroundSrc={slice.primary.background_image.url ?? undefined}
-          ddBackgroundAlt={slice.primary.background_image.alt ?? undefined}
+          ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
+          ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
         />
       );
 
@@ -38,8 +34,8 @@ const Content = ({ slice }: ContentProps) => {
           ddSubtitle={slice.primary.description ?? undefined}
           ddImageSrc={slice.primary.image.url as string}
           ddImageAlt={slice.primary.image.alt as string}
-          ddBackgroundSrc={slice.primary.background_image.url ?? undefined}
-          ddBackgroundAlt={slice.primary.background_image.alt ?? undefined}
+          ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
+          ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
         />
       );
 
@@ -49,8 +45,8 @@ const Content = ({ slice }: ContentProps) => {
         <PageSectionTypeContentColumns
           ddVariant="columns"
           ddTitle={slice.primary.title ?? ""}
-          ddBackgroundSrc={slice.primary.background_image.url ?? undefined}
-          ddBackgroundAlt={slice.primary.background_image.alt ?? undefined}
+          ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
+          ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
           ddColumns={slice.items.map((item) => ({
             ddTitle: item.column_title as string,
             ddSubtitle: item.column_description as string,
@@ -65,4 +61,4 @@ const Content = ({ slice }: ContentProps) => {
   }
 };
 
-export default Content;
+export default SectionContent;

@@ -15,7 +15,7 @@ export * from "./page/PageSection";
 export * from "./forms";
 
 export { PageHeader } from "./page/PageHeader";
-export { PageContainer } from "./page/PageContainer";
+
 export {
   Navbar,
   NavbarLink,

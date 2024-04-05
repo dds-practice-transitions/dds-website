@@ -37,7 +37,7 @@ export const HeroPane = forwardRef<HTMLDivElement, HeroPaneProps>(
                 style={{
                   gridArea: `box-${i + 1}`,
                 }}
-                key={i.toString()}
+                key={i}
               >
                 <img src={img.src} alt={img.alt} />
               </div>

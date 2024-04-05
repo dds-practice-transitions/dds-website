@@ -2,8 +2,9 @@ import { LoaderFunction, json, type MetaFunction } from "@remix-run/cloudflare";
 import { getPrismicClient } from "../lib/prismic";
 import { HomeDocumentData } from "../../prismicio-types";
 import { useLoaderData } from "@remix-run/react";
-import { components } from "../slices";
 import { SliceZone } from "@prismicio/react";
+import Hero from "../slices/Hero";
+import Content from "../slices/Content";
 
 export const loader: LoaderFunction = async ({ context }) => {
   const client = getPrismicClient(context);
@@ -32,5 +33,13 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   const data = useLoaderData<HomeDocumentData>();
 
-  return <SliceZone slices={data.slices} components={components} />;
+  return (
+    <SliceZone
+      slices={data.slices}
+      components={{
+        hero: Hero,
+        content: Content,
+      }}
+    />
+  );
 }
