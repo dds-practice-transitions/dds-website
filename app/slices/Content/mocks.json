@@ -65,21 +65,29 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"actiontext",
+						"cta_label",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "stranger",
+							"value": "being",
 							"type": "Text"
 						}
 					],
 					[
-						"actionlink",
+						"cta_link",
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "http://twitter.com"
+								"url": "https://prismic.io"
 							}
+						}
+					],
+					[
+						"cta_variant",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "paper",
+							"type": "Select"
 						}
 					]
 				]
@@ -152,21 +160,29 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"actiontext",
+						"cta_label",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "per",
+							"value": "needs",
 							"type": "Text"
 						}
 					],
 					[
-						"actionlink",
+						"cta_link",
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
+								"url": "http://google.com"
 							}
+						}
+					],
+					[
+						"cta_variant",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "paper",
+							"type": "Select"
 						}
 					]
 				]

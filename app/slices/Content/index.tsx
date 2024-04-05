@@ -29,7 +29,25 @@ const Cards = ({ slice }: ContentProps) => {
           ddImageAlt={slice.primary.image.alt as string}
           ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
           ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
-        />
+        >
+          {slice.items.map((item, i) => {
+            if (!item.cta_label || !item.cta_link || !item.cta_variant) {
+              return null;
+            }
+            return (
+              <ButtonLink
+                key={`col-${slice.variation}-cta-${i}`}
+                ddVariant={item.cta_variant}
+                ddSize="md"
+                LinkComponent={withAdapterLink({
+                  field: item.cta_link,
+                })}
+              >
+                {item.cta_label}
+              </ButtonLink>
+            );
+          })}
+        </SectionVariantCardRight>
       );
 
     case "cardLeft":
@@ -41,7 +59,25 @@ const Cards = ({ slice }: ContentProps) => {
           ddImageAlt={slice.primary.image.alt as string}
           ddBackgroundSrc={slice.primary.background_image?.url ?? undefined}
           ddBackgroundAlt={slice.primary.background_image?.alt ?? undefined}
-        />
+        >
+          {slice.items.map((item, i) => {
+            if (!item.cta_label || !item.cta_link || !item.cta_variant) {
+              return null;
+            }
+            return (
+              <ButtonLink
+                key={`col-${slice.variation}-cta-${i}`}
+                ddVariant={item.cta_variant}
+                ddSize="md"
+                LinkComponent={withAdapterLink({
+                  field: item.cta_link,
+                })}
+              >
+                {item.cta_label}
+              </ButtonLink>
+            );
+          })}
+        </SectionVariantCardLeft>
       );
 
     case "columns":

@@ -1,7 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { ButtonLink, SectionVariantTeam } from "../../components";
-import { SectionVariantTeamMember } from "../../components/page/PageSection/SectionVariantTeamMember";
+import { SectionVariantTeamMember } from "../../components/page/section/SectionVariantTeamMember";
 import { withAdapterLink } from "../../adapters";
 import { exhaustiveMatchGuard } from "../../utils";
 

@@ -9,7 +9,7 @@ export * from "./dialogs/Menu";
 // page
 export * from "./page/Footer";
 export * from "./page/Hero";
-export * from "./page/PageSection";
+export * from "./page/section";
 
 // forms
 export * from "./forms";

@@ -1,6 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { PageSectionTypeFAQDefault } from "../../components/page/PageSection";
+import { SectionVariantFAQ } from "../../components";
 
 /**
  * Props for `Accordion`.
@@ -12,8 +12,7 @@ export type AccordionProps = SliceComponentProps<Content.AccordionSlice>;
  */
 const Accordion = ({ slice }: AccordionProps): JSX.Element => {
   return (
-    <PageSectionTypeFAQDefault
-      ddVariant="default"
+    <SectionVariantFAQ
       ddTitle={slice.primary.title as string}
       ddSubtitle={slice.primary.description as string}
       ddItems={slice.items.map((item) => ({
