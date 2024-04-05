@@ -3,12 +3,14 @@ import { getPrismicClient } from "../lib/prismic";
 import { useFetcher, useLoaderData } from "@remix-run/react";
 import { ContactDocumentData } from "../../prismicio-types";
 import { components } from "../slices";
+import { FormContactUs } from "../components";
 
 export const loader: LoaderFunction = async ({ context }) => {
   const client = getPrismicClient(context);
 
   try {
     const res = await client.getByUID("contact", "contact-us");
+    console.log("getting data");
     return json(res.data);
   } catch (error) {
     console.log(error);
@@ -30,8 +32,7 @@ export default function ContactUs() {
         // @ts-expect-error slice mismatch is okay
         <Component key={slice.id} slice={slice}>
           <fetcher.Form method="post" action="/api/contact">
-            <input name="email" placeholder="email@domain.com" />
-            <button type="submit">Subscribe</button>
+            <FormContactUs />
           </fetcher.Form>
         </Component>
       );

@@ -1,0 +1,15 @@
+@import "../../theme/utils";
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: make-rem(32);
+
+  p {
+    font-size: make-rem(20);
+    line-height: make-rem(28);
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: make-rem(8);
+  }
+}

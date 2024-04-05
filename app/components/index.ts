@@ -11,6 +11,9 @@ export * from "./page/Footer";
 export * from "./page/Hero";
 export * from "./page/PageSection";
 
+// forms
+export * from "./forms";
+
 export { PageHeader } from "./page/PageHeader";
 export { PageContainer } from "./page/PageContainer";
 export {

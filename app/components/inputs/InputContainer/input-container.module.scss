@@ -1,0 +1,9 @@
+@import "../../../theme/utils";
+
+.root {
+  label + input {
+    &[type="text"] {
+      margin-top: make-rem(12);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@import "../../../theme/utils";
+
+.root {
+  font-size: make-rem(14);
+  line-height: make-rem(20);
+  font-weight: 600;
+  display: inline-block;
+}

@@ -7,6 +7,7 @@ declare module "@remix-run/server-runtime" {
       env: {
         PRISMIC_REPO_NAME: string;
         PRISMIC_ACCESS_TOKEN: string;
+        AUDIENCEFUL_API_TOKEN: string;
       };
     };
   }
