@@ -8,7 +8,7 @@ import {
   NavbarLink,
   useMenu,
 } from "../../components";
-import { withAdapterNavLink } from "../../adapters";
+import { withPrismicAdapterNavLink } from "../../adapters";
 import { type NavbarItemSliceWithSubmenu } from "../../../prismicio-types";
 
 export const NavbarItemWithSubmenu: FC<NavbarItemSliceWithSubmenu> = (
@@ -28,7 +28,7 @@ export const NavbarItemWithSubmenu: FC<NavbarItemSliceWithSubmenu> = (
             return (
               <NavbarDropdownItem key={`dropdown-${i}`}>
                 <NavbarDropdownLink
-                  LinkComponent={withAdapterNavLink({
+                  LinkComponent={withPrismicAdapterNavLink({
                     field: item.link,
                   })}
                 >

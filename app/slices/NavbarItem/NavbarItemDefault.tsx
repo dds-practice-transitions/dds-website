@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { NavbarItem as NavItem, NavbarLink } from "../../components";
-import { withAdapterNavLink } from "../../adapters";
+import { withPrismicAdapterNavLink } from "../../adapters";
 import { NavbarItemSliceDefault } from "../../../prismicio-types";
 
 export const NavbarItemDefault: FC<NavbarItemSliceDefault> = (slice) => {
@@ -9,7 +9,7 @@ export const NavbarItemDefault: FC<NavbarItemSliceDefault> = (slice) => {
     <NavItem>
       <NavbarLink
         ddLabel={slice.primary.label as string}
-        LinkComponent={withAdapterNavLink({
+        LinkComponent={withPrismicAdapterNavLink({
           field: slice.primary.link,
         })}
       />

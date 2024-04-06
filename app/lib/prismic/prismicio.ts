@@ -17,19 +17,12 @@ const routes: prismic.ClientConfig["routes"] = [
     },
   },
   {
-    type: "services_category",
-    path: "/:root/:uid",
-    resolvers: {
-      root: "parent",
-    },
+    type: "resources",
+    path: "/resources",
   },
   {
-    type: "services_category_details",
-    path: "/:root/:category/:uid",
-    resolvers: {
-      category: "category",
-      root: "category.parent",
-    },
+    type: "resource",
+    path: "/resources/:uid",
   },
   {
     type: "faq",

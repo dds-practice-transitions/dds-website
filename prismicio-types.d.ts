@@ -482,49 +482,71 @@ interface NavbarDocumentData {
 export type NavbarDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<NavbarDocumentData>, "navbar", Lang>;
 
-type ServicesDocumentDataSlicesSlice = ContentSlice | HeroSlice;
+type ResourceDocumentDataSlicesSlice = RichTextSlice;
 
 /**
- * Content for Services documents
+ * Content for Resource documents
  */
-interface ServicesDocumentData {
+interface ResourceDocumentData {
   /**
-   * Slice Zone field in *Services*
+   * Parent field in *Resource*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.parent
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  parent: prismic.ContentRelationshipField;
+
+  /**
+   * Title field in *Resource*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Resource*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: services.slices[]
+   * - **API ID Path**: resource.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ServicesDocumentDataSlicesSlice> /**
-   * Meta Description field in *Services*
+  slices: prismic.SliceZone<ResourceDocumentDataSlicesSlice> /**
+   * Meta Description field in *Resource*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: services.meta_description
+   * - **API ID Path**: resource.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Services*
+   * Meta Image field in *Resource*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: services.meta_image
+   * - **API ID Path**: resource.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
 
   /**
-   * Meta Title field in *Services*
+   * Meta Title field in *Resource*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: services.meta_title
+   * - **API ID Path**: resource.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -532,170 +554,83 @@ interface ServicesDocumentData {
 }
 
 /**
- * Services document from Prismic
+ * Resource document from Prismic
  *
- * - **API ID**: `services`
+ * - **API ID**: `resource`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ResourceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ResourceDocumentData>,
+    "resource",
+    Lang
+  >;
+
+type ResourcesDocumentDataSlicesSlice = CallToActionSlice | HeroSlice;
+
+/**
+ * Content for Resources documents
+ */
+interface ResourcesDocumentData {
+  /**
+   * Slice Zone field in *Resources*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resources.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ResourcesDocumentDataSlicesSlice> /**
+   * Meta Description field in *Resources*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: resources.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Resources*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resources.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Resources*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: resources.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Resources document from Prismic
+ *
+ * - **API ID**: `resources`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ServicesDocument<Lang extends string = string> =
+export type ResourcesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
-    Simplify<ServicesDocumentData>,
-    "services",
-    Lang
-  >;
-
-type ServicesCategoryDocumentDataSlicesSlice = HeroSlice | ContentSlice;
-
-/**
- * Content for Services - Category documents
- */
-interface ServicesCategoryDocumentData {
-  /**
-   * Parent field in *Services - Category*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services_category.parent
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  parent: prismic.ContentRelationshipField<"services">;
-
-  /**
-   * Slice Zone field in *Services - Category*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services_category.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ServicesCategoryDocumentDataSlicesSlice> /**
-   * Meta Description field in *Services - Category*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: services_category.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Services - Category*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services_category.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Services - Category*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: services_category.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * Services - Category document from Prismic
- *
- * - **API ID**: `services_category`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ServicesCategoryDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ServicesCategoryDocumentData>,
-    "services_category",
-    Lang
-  >;
-
-type ServicesCategoryDetailsDocumentDataSlicesSlice = never;
-
-/**
- * Content for Services - Category - Details documents
- */
-interface ServicesCategoryDetailsDocumentData {
-  /**
-   * Category field in *Services - Category - Details*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services_category_details.category
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  category: prismic.ContentRelationshipField<"services_category">;
-
-  /**
-   * Slice Zone field in *Services - Category - Details*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services_category_details.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ServicesCategoryDetailsDocumentDataSlicesSlice> /**
-   * Meta Description field in *Services - Category - Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: services_category_details.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Services - Category - Details*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services_category_details.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Services - Category - Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: services_category_details.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * Services - Category - Details document from Prismic
- *
- * - **API ID**: `services_category_details`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ServicesCategoryDetailsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ServicesCategoryDetailsDocumentData>,
-    "services_category_details",
+    Simplify<ResourcesDocumentData>,
+    "resources",
     Lang
   >;
 
@@ -768,9 +703,8 @@ export type AllDocumentTypes =
   | HomeDocument
   | LayoutDocument
   | NavbarDocument
-  | ServicesDocument
-  | ServicesCategoryDocument
-  | ServicesCategoryDetailsDocument
+  | ResourceDocument
+  | ResourcesDocument
   | TeamDocument;
 
 /**
@@ -2400,15 +2334,12 @@ declare module "@prismicio/client" {
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataSlicesSlice,
-      ServicesDocument,
-      ServicesDocumentData,
-      ServicesDocumentDataSlicesSlice,
-      ServicesCategoryDocument,
-      ServicesCategoryDocumentData,
-      ServicesCategoryDocumentDataSlicesSlice,
-      ServicesCategoryDetailsDocument,
-      ServicesCategoryDetailsDocumentData,
-      ServicesCategoryDetailsDocumentDataSlicesSlice,
+      ResourceDocument,
+      ResourceDocumentData,
+      ResourceDocumentDataSlicesSlice,
+      ResourcesDocument,
+      ResourcesDocumentData,
+      ResourcesDocumentDataSlicesSlice,
       TeamDocument,
       TeamDocumentData,
       TeamDocumentDataSlicesSlice,

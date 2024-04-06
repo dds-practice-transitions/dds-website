@@ -5,7 +5,7 @@ import { NavLink } from "@remix-run/react";
 
 export type AnchorProps = JSX.IntrinsicElements["a"];
 
-export function withAdapterNavLink(options: PrismicLinkProps) {
+export function withPrismicAdapterNavLink(options: PrismicLinkProps) {
   const NavLinkComponent: FC<AnchorProps> = memo<AnchorProps>(
     function NavLinkComponent({ children, ...restAnchorProps }: AnchorProps) {
       return (

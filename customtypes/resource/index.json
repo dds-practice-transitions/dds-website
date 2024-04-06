@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "services_category",
-  "label": "Services - Category",
+  "id": "resource",
+  "label": "Resource",
   "repeatable": true,
   "status": true,
   "json": {
@@ -16,8 +16,14 @@
         "type": "Link",
         "config": {
           "label": "Parent",
-          "select": "document",
-          "customtypes": ["services"]
+          "select": "document"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
         }
       },
       "slices": {
@@ -25,10 +31,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "content": {
+            "rich_text": {
               "type": "SharedSlice"
             }
           }

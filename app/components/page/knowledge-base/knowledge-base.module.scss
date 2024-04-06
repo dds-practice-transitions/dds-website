@@ -1,0 +1,44 @@
+@import "../../../theme/utils";
+
+.main {
+  @include make-responsive(desktop) {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: make-rem(300) 1fr;
+  }
+}
+
+.nav {
+  background: make-color(grey-1, 0.2);
+
+  & > div {
+    position: sticky;
+    top: make-rem(129);
+  }
+
+  ul {
+    @include make-reset-ul();
+    padding: make-rem(8);
+    display: flex;
+    flex-direction: column;
+    gap: make-rem(16);
+
+    a {
+      display: block;
+      width: 100%;
+      padding: make-rem(16);
+      border-radius: make-rem(8);
+
+      @include make-global(active) {
+        background-color: make-color(paper);
+        // color: make-color(paper);
+      }
+    }
+  }
+}
+
+.content {
+  @include make-responsive(desktop) {
+    padding: make-rem(32);
+  }
+}

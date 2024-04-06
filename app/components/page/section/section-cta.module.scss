@@ -13,6 +13,7 @@
   }
 
   @include make-responsive(tablet) {
+    padding-top: 0;
     max-width: make-rem(420);
     margin: 0 auto;
     text-align: center;

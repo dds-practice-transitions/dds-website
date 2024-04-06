@@ -21,6 +21,7 @@
     font-size: make-rem(36);
     line-height: 1.2;
     padding-bottom: make-rem(16);
+    color: make-color(grey-6);
     border-bottom: make-rem(1) solid make-color(grey-1);
   }
   h3 {
@@ -28,7 +29,7 @@
     letter-spacing: normal;
     line-height: 1.2;
     margin-top: make-rem(28);
-    color: make-color(grey-6);
+    color: make-color(grey-5);
   }
   h4 {
     font-size: make-rem(24);
@@ -42,5 +43,13 @@
   a {
     color: make-color(secondary);
     text-decoration: underline;
+  }
+  ul {
+    li {
+      line-height: 1.8;
+      & + li {
+        margin-top: make-rem(16);
+      }
+    }
   }
 }
