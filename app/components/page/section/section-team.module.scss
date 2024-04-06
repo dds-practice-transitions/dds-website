@@ -11,7 +11,6 @@
 }
 
 .content {
-  max-width: make-rem(1024);
   margin: 0 auto;
 
   & > h2,
@@ -53,6 +52,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: make-rem(16);
+    padding: 0 make-rem(80);
   }
 
   .action {

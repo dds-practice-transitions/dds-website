@@ -219,6 +219,8 @@ export type FooterDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
 
 type GeneralDocumentDataSlicesSlice =
+  | ContactSlice
+  | RichTextSlice
   | TeamSlice
   | HeroSlice
   | AccordionSlice
@@ -2196,6 +2198,51 @@ export type NavbarItemSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *RichText → Primary*
+ */
+export interface RichTextSliceDefaultPrimary {
+  /**
+   * Rich Text field in *RichText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RichText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RichTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RichText*
+ */
+type RichTextSliceVariation = RichTextSliceDefault;
+
+/**
+ * RichText Shared Slice
+ *
+ * - **API ID**: `rich_text`
+ * - **Description**: RichText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextSlice = prismic.SharedSlice<
+  "rich_text",
+  RichTextSliceVariation
+>;
+
+/**
  * Primary content in *Team → Primary*
  */
 export interface TeamSliceDefaultPrimary {
@@ -2425,6 +2472,10 @@ declare module "@prismicio/client" {
       NavbarItemSliceVariation,
       NavbarItemSliceDefault,
       NavbarItemSliceWithSubmenu,
+      RichTextSlice,
+      RichTextSliceDefaultPrimary,
+      RichTextSliceVariation,
+      RichTextSliceDefault,
       TeamSlice,
       TeamSliceDefaultPrimary,
       TeamSliceDefaultItem,

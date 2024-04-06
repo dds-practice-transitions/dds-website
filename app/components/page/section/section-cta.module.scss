@@ -8,6 +8,10 @@
 
 // Variant - Basic
 .variant-basic {
+  @include make-global(actions, nested) {
+    justify-content: center;
+  }
+
   @include make-responsive(tablet) {
     max-width: make-rem(420);
     margin: 0 auto;

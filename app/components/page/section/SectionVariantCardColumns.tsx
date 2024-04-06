@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
+import styles from "./section-card.module.css";
 
 import clsx from "clsx";
 
-import styles from "./page-section-content.module.css";
 import { SectionPropsBase } from "./page-section.types";
 import { Section } from "./Section";
 

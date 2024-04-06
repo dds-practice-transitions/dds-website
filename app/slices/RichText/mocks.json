@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"rich_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nisi sit laborum duis dolore duis veniam tempor aute nulla ut ipsum consectetur id veniam. Laboris labore dolore anim excepteur velit incididunt labore. Officia deserunt esse consectetur deserunt."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

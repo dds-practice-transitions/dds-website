@@ -25,7 +25,12 @@ const Team = ({ slice }: TeamProps) => {
             <SectionVariantTeamMember
               key={`member-${i}`}
               ddTitle={member.job_title as string}
-              ddDescription={member.job_description as string}
+              ddDescription={
+                member.job_description
+                  ?.toString()
+                  .substring(0, 200)
+                  .concat("...") ?? ""
+              }
               ddFullName={member.full_name as string}
               ddImgAlt={member.image.alt as string}
               ddImgSrc={member.image.url as string}

@@ -18,3 +18,6 @@ export { SectionVariantTeam } from "./SectionVariantTeam";
 export { SectionContactContentRight } from "./SectionContactContentRight";
 export { SectionContactContentLeft } from "./SectionContactContentLeft";
 export { SectionContactLocation } from "./SectionContactLocation";
+
+// Text
+export { SectionVariantText } from "./SectionVariantText";

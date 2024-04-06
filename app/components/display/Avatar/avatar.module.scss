@@ -182,6 +182,7 @@
   @include make-responsive(tablet) {
     min-height: make-rem(172);
     max-height: min-content;
+    height: 100%;
     grid-template-columns: make-rem(220) 1fr;
 
     & > figcaption {

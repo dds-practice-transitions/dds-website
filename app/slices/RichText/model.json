@@ -1,0 +1,28 @@
+{
+  "id": "rich_text",
+  "type": "SharedSlice",
+  "name": "RichText",
+  "description": "RichText",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "rich_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Rich Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,heading3,strong,em,hyperlink,image,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

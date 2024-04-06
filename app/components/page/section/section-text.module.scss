@@ -1,0 +1,46 @@
+@import "../../../theme/utils";
+
+.root {
+  @include make-responsive-mobile {
+    margin: make-rem(80) auto;
+  }
+
+  @include make-responsive-tablet {
+    margin: make-rem(100) auto;
+  }
+}
+
+.content {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.text {
+  font-family: var(--font-family);
+  h2 {
+    font-size: make-rem(36);
+    line-height: 1.2;
+    padding-bottom: make-rem(16);
+    border-bottom: make-rem(1) solid make-color(grey-1);
+  }
+  h3 {
+    font-size: make-rem(32);
+    letter-spacing: normal;
+    line-height: 1.2;
+    margin-top: make-rem(28);
+    color: make-color(grey-6);
+  }
+  h4 {
+    font-size: make-rem(24);
+    letter-spacing: normal;
+    line-height: 1.2;
+    color: make-color(grey-4);
+  }
+  p {
+    line-height: 1.8;
+  }
+  a {
+    color: make-color(secondary);
+    text-decoration: underline;
+  }
+}

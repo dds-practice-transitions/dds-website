@@ -7,7 +7,11 @@ export const SectionActions = forwardRef<
   JSX.IntrinsicElements["div"]
 >(function SectionActions({ children, className, ...restProps }, ref) {
   return (
-    <div {...restProps} className={clsx(styles.actions, className)} ref={ref}>
+    <div
+      {...restProps}
+      className={clsx(styles.actions, className, "actions")}
+      ref={ref}
+    >
       {children}
     </div>
   );

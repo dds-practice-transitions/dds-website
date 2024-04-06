@@ -183,7 +183,6 @@
         img {
           height: make-rem(300);
           width: 100%;
-          width: 100%;
           object-fit: cover;
         }
 
@@ -219,8 +218,6 @@
         height: make-rem(52);
       }
     }
-    @include make-responsive-tablet {
-    }
   }
 
   @include make-global(two, nested) {
@@ -238,7 +235,9 @@
         overflow: hidden;
 
         img {
-          max-width: 100%;
+          max-height: make-rem(300);
+          width: 100%;
+          object-fit: cover;
         }
 
         figcaption {
