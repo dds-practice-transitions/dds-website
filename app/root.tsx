@@ -36,6 +36,7 @@ import { PageHeaderLogo } from "./components/page/PageHeader/PageHeaderLogo";
 import { PageHeaderColumn } from "./components/page/PageHeader/PageHeaderSection";
 import { components } from "./slices";
 import { withAdapterLink } from "./adapters";
+import { SEOFavicon } from "./lib/seo";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -79,9 +80,10 @@ export function Layout({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/filson-pro.css" />
+        <link rel="stylesheet" href="/fonts/filson-pro.css" />
         <Meta />
         <Links />
+        <SEOFavicon />
       </head>
       <body>
         <PageHeader>

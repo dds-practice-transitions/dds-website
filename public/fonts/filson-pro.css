@@ -23,7 +23,8 @@
 
 @font-face {
   font-family: "filson-pro";
-  src: url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+  src:
+    url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/c12453/0000000000000000000157bf/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
       format("woff"),
@@ -37,7 +38,8 @@
 
 @font-face {
   font-family: "filson-pro";
-  src: url("https://use.typekit.net/af/125ffe/0000000000000000000157c0/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
+  src:
+    url("https://use.typekit.net/af/125ffe/0000000000000000000157c0/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/125ffe/0000000000000000000157c0/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
       format("woff"),
@@ -51,7 +53,8 @@
 
 @font-face {
   font-family: "filson-pro";
-  src: url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+  src:
+    url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
       format("woff"),
@@ -65,7 +68,8 @@
 
 @font-face {
   font-family: "filson-pro";
-  src: url("https://use.typekit.net/af/27caf4/0000000000000000000157ca/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+  src:
+    url("https://use.typekit.net/af/27caf4/0000000000000000000157ca/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/27caf4/0000000000000000000157ca/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
       format("woff"),
@@ -79,7 +83,8 @@
 
 @font-face {
   font-family: "filson-soft";
-  src: url("https://use.typekit.net/af/0ceada/00000000000000003b9ade5c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+  src:
+    url("https://use.typekit.net/af/0ceada/00000000000000003b9ade5c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/0ceada/00000000000000003b9ade5c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
       format("woff"),
@@ -93,7 +98,8 @@
 
 @font-face {
   font-family: "filson-soft";
-  src: url("https://use.typekit.net/af/f50b47/00000000000000003b9ade5b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+  src:
+    url("https://use.typekit.net/af/f50b47/00000000000000003b9ade5b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/f50b47/00000000000000003b9ade5b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
       format("woff"),
@@ -107,7 +113,8 @@
 
 @font-face {
   font-family: "filson-soft";
-  src: url("https://use.typekit.net/af/63da2e/00000000000000003b9ade54/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
+  src:
+    url("https://use.typekit.net/af/63da2e/00000000000000003b9ade54/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/63da2e/00000000000000003b9ade54/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
       format("woff"),
@@ -121,7 +128,8 @@
 
 @font-face {
   font-family: "filson-soft";
-  src: url("https://use.typekit.net/af/277d7a/00000000000000003b9ade63/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+  src:
+    url("https://use.typekit.net/af/277d7a/00000000000000003b9ade63/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
       format("woff2"),
     url("https://use.typekit.net/af/277d7a/00000000000000003b9ade63/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
       format("woff"),

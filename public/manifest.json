@@ -1,0 +1,28 @@
+{
+  "theme_color": "#5c9b9e",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait",
+  "display": "standalone",
+  "dir": "left",
+  "lang": "en-US",
+  "name": "DDS Practice Transitions",
+  "short_name": "DDS",
+  "start_url": "https://ddsbrokerage.com",
+  "scope": "https://ddsbrokerage.com",
+  "id": "https://ddsbrokerage.com",
+  "description": "We're a brokerage company founded by dentists, dedicated to maximizing the value of your dental practice while educating you on your options. Our goal is to facilitate a transaction tailored to your specific needs."
+}

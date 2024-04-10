@@ -283,7 +283,8 @@
 
   @include make-responsive-tablet {
     padding: make-rem(80) make-rem(64);
-    max-width: make-rem(1024);
+    max-width: make-rem(1400);
+    margin: 0 auto;
     display: flex;
   }
 
