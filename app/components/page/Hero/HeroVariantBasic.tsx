@@ -14,7 +14,7 @@ import { HeroOverline } from "./HeroOverline";
 export type HeroVariantBasicPropsNative = HeroSectionPropsNative;
 export type HeroVariantBasicPropsCustom = HeroSectionPropsCustom & {
   ddTitle: string;
-  ddSubtitle: string;
+  ddSubtitle?: string;
   ddOverline?: string;
 };
 export type HeroVariantBasicProps = HeroVariantBasicPropsNative &

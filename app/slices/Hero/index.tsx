@@ -4,6 +4,7 @@ import { exhaustiveMatchGuard } from "../../utils";
 import {
   ButtonLink,
   HeroVariantBasic,
+  HeroVariantFadedImage,
   HeroVariantImageRight,
 } from "../../components";
 import { withAdapterLink } from "../../adapters";
@@ -66,6 +67,33 @@ const Hero = ({ slice }: HeroProps) => {
             </ButtonLink>
           ))}
         </HeroVariantImageRight>
+      );
+
+    case "fadedImage":
+      return (
+        <HeroVariantFadedImage
+          ddBackgroundSrc={slice.primary.background_image.url ?? undefined}
+          ddBackgroundAlt={slice.primary.background_image.alt ?? undefined}
+          ddOverline={slice.primary.overline ?? undefined}
+          ddTitle={slice.primary.title as string}
+          ddSubtitle={slice.primary.subtitle as string}
+          ddLogoSrc={slice.primary.logo.url ?? undefined}
+          ddLogoAlt={slice.primary.logo.alt ?? undefined}
+          ddAlign="left"
+        >
+          {slice.items.map((item, i) => (
+            <ButtonLink
+              key={`hero-${slice.variation}-cta-${i}`}
+              ddVariant={item.cta_variant}
+              ddSize="md"
+              LinkComponent={withAdapterLink({
+                field: item.cta_link,
+              })}
+            >
+              {item.cta_label}
+            </ButtonLink>
+          ))}
+        </HeroVariantFadedImage>
       );
 
     default:

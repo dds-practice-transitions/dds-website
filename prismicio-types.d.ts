@@ -2008,9 +2008,116 @@ export type HeroSliceImageRight = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceFadedImagePrimary {
+  /**
+   * Background Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Overline field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.overline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Logo field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceFadedImageItem {
+  /**
+   * CTA Label field in *Hero → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].cta_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *Hero → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Variant field in *Hero → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: primary
+   * - **API ID Path**: hero.items[].cta_variant
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  cta_variant: prismic.SelectField<"primary" | "secondary" | "paper", "filled">;
+}
+
+/**
+ * FadedImage variation for Hero Slice
+ *
+ * - **API ID**: `fadedImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceFadedImage = prismic.SharedSliceVariation<
+  "fadedImage",
+  Simplify<HeroSliceFadedImagePrimary>,
+  Simplify<HeroSliceFadedImageItem>
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
+type HeroSliceVariation =
+  | HeroSliceDefault
+  | HeroSliceImageRight
+  | HeroSliceFadedImage;
 
 /**
  * Hero Shared Slice
@@ -2393,9 +2500,12 @@ declare module "@prismicio/client" {
       HeroSliceDefaultItem,
       HeroSliceImageRightPrimary,
       HeroSliceImageRightItem,
+      HeroSliceFadedImagePrimary,
+      HeroSliceFadedImageItem,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceImageRight,
+      HeroSliceFadedImage,
       NavbarItemSlice,
       NavbarItemSliceDefaultPrimary,
       NavbarItemSliceWithSubmenuPrimary,
