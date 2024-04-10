@@ -55,6 +55,17 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "seo_social": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

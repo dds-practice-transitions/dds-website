@@ -4,6 +4,7 @@ export type SEOSocial = SEOMeta & {
   pageType: "website";
   pageURL: string;
   imageURL: string;
+  imageAlt: string;
 };
 export const makeSEOSocial = ({
   title,
@@ -11,6 +12,7 @@ export const makeSEOSocial = ({
   pageType,
   pageURL,
   imageURL,
+  imageAlt,
 }: SEOSocial) => {
   return [
     // facebook
@@ -25,5 +27,6 @@ export const makeSEOSocial = ({
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
     { name: "twitter:image", content: imageURL },
+    { name: "twitter:image:alt", content: imageAlt },
   ];
 };

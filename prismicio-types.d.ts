@@ -6,6 +6,8 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type ContactDocumentDataSlicesSlice = ContactSlice | HeroSlice;
 
+type ContactDocumentDataSlices1Slice = SeoSocialSlice;
+
 /**
  * Content for Contact documents
  */
@@ -51,6 +53,17 @@ interface ContactDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Contact*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<ContactDocumentDataSlices1Slice>;
 }
 
 /**
@@ -73,6 +86,8 @@ type FaqDocumentDataSlicesSlice =
   | AccordionSlice
   | HeroSlice
   | CallToActionSlice;
+
+type FaqDocumentDataSlices1Slice = SeoSocialSlice;
 
 /**
  * Content for FAQ documents
@@ -119,6 +134,17 @@ interface FaqDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *FAQ*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<FaqDocumentDataSlices1Slice>;
 }
 
 /**
@@ -227,6 +253,8 @@ type GeneralDocumentDataSlicesSlice =
   | CallToActionSlice
   | ContentSlice;
 
+type GeneralDocumentDataSlices1Slice = SeoSocialSlice;
+
 /**
  * Content for General documents
  */
@@ -283,6 +311,17 @@ interface GeneralDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *General*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<GeneralDocumentDataSlices1Slice>;
 }
 
 /**
@@ -307,6 +346,8 @@ type HomeDocumentDataSlicesSlice =
   | AccordionSlice
   | CallToActionSlice
   | HeroSlice;
+
+type HomeDocumentDataSlices1Slice = SeoSocialSlice;
 
 /**
  * Content for Home documents
@@ -353,6 +394,17 @@ interface HomeDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Home*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<HomeDocumentDataSlices1Slice>;
 }
 
 /**
@@ -484,6 +536,8 @@ export type NavbarDocument<Lang extends string = string> =
 
 type ResourceDocumentDataSlicesSlice = RichTextSlice;
 
+type ResourceDocumentDataSlices1Slice = SeoSocialSlice;
+
 /**
  * Content for Resource documents
  */
@@ -551,6 +605,17 @@ interface ResourceDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Resource*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<ResourceDocumentDataSlices1Slice>;
 }
 
 /**
@@ -636,6 +701,8 @@ export type ResourcesDocument<Lang extends string = string> =
 
 type TeamDocumentDataSlicesSlice = HeroSlice | TeamSlice | CallToActionSlice;
 
+type TeamDocumentDataSlices1Slice = SeoSocialSlice;
+
 /**
  * Content for Team documents
  */
@@ -681,6 +748,17 @@ interface TeamDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Team*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<TeamDocumentDataSlices1Slice>;
 }
 
 /**
@@ -2284,6 +2362,61 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SeoSocial → Primary*
+ */
+export interface SeoSocialSliceDefaultPrimary {
+  /**
+   * Page Type field in *SeoSocial → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_social.primary.page_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  page_type: prismic.SelectField<"Website" | "DO_NOT_SELECT">;
+
+  /**
+   * Card Image field in *SeoSocial → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_social.primary.card_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SeoSocial Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SeoSocialSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SeoSocialSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SeoSocial*
+ */
+type SeoSocialSliceVariation = SeoSocialSliceDefault;
+
+/**
+ * SeoSocial Shared Slice
+ *
+ * - **API ID**: `seo_social`
+ * - **Description**: SeoSocial
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SeoSocialSlice = prismic.SharedSlice<
+  "seo_social",
+  SeoSocialSliceVariation
+>;
+
+/**
  * Primary content in *Team → Primary*
  */
 export interface TeamSliceDefaultPrimary {
@@ -2423,18 +2556,22 @@ declare module "@prismicio/client" {
       ContactDocument,
       ContactDocumentData,
       ContactDocumentDataSlicesSlice,
+      ContactDocumentDataSlices1Slice,
       FaqDocument,
       FaqDocumentData,
       FaqDocumentDataSlicesSlice,
+      FaqDocumentDataSlices1Slice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataSlicesSlice,
       GeneralDocument,
       GeneralDocumentData,
       GeneralDocumentDataSlicesSlice,
+      GeneralDocumentDataSlices1Slice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      HomeDocumentDataSlices1Slice,
       LayoutDocument,
       LayoutDocumentData,
       LayoutDocumentDataSlicesSlice,
@@ -2444,12 +2581,14 @@ declare module "@prismicio/client" {
       ResourceDocument,
       ResourceDocumentData,
       ResourceDocumentDataSlicesSlice,
+      ResourceDocumentDataSlices1Slice,
       ResourcesDocument,
       ResourcesDocumentData,
       ResourcesDocumentDataSlicesSlice,
       TeamDocument,
       TeamDocumentData,
       TeamDocumentDataSlicesSlice,
+      TeamDocumentDataSlices1Slice,
       AllDocumentTypes,
       AccordionSlice,
       AccordionSliceDefaultPrimary,
@@ -2517,6 +2656,10 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      SeoSocialSlice,
+      SeoSocialSliceDefaultPrimary,
+      SeoSocialSliceVariation,
+      SeoSocialSliceDefault,
       TeamSlice,
       TeamSliceDefaultPrimary,
       TeamSliceDefaultItem,
