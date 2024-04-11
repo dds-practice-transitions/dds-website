@@ -9,7 +9,7 @@ export const loader: LoaderFunction = async ({ context }) => {
   const client = getPrismicClient(context);
 
   try {
-    const res = await client.getByUID("general", "about-us");
+    const res = await client.getByUID("general", "our-team");
     return json(res.data);
   } catch (error) {
     console.log(error);
