@@ -1,10 +1,11 @@
 import { SEOMeta } from "./makeSEOMeta";
+import invariant from "tiny-invariant";
 
 export type SEOSocial = SEOMeta & {
   pageType: "website";
-  pageURL: string;
-  imageURL: string;
-  imageAlt: string;
+  pageURL: string | null | undefined;
+  imageURL: string | null | undefined;
+  imageAlt: string | null | undefined;
 };
 export const makeSEOSocial = ({
   title,
@@ -14,6 +15,13 @@ export const makeSEOSocial = ({
   imageURL,
   imageAlt,
 }: SEOSocial) => {
+  invariant(imageAlt ?? "SEOSocial Invariant: Missing `imageAlt`");
+  invariant(imageURL ?? "SEOSocial Invariant: Missing `imageURL`");
+  invariant(title ?? "SEOSocial Invariant: Missing `title`");
+  invariant(description ?? "SEOSocial Invariant: Missing `description`");
+  invariant(pageType ?? "SEOSocial Invariant: Missing `pageType`");
+  invariant(pageURL ?? "SEOSocial Invariant: Missing `pageURL`");
+
   return [
     // facebook
     { name: "og:type", content: pageType },
