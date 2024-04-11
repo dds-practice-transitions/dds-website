@@ -6,7 +6,7 @@
   }
 
   @include make-responsive-tablet {
-    margin: make-rem(100) auto;
+    margin: 0 auto;
   }
 }
 
