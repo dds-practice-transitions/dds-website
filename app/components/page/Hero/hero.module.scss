@@ -340,3 +340,32 @@
     rgba(255, 255, 255, 0)
   );
 }
+
+.variant-seo-banner {
+  @include make-responsive-mobile {
+    padding: make-rem(60) make-rem(32);
+  }
+
+  @include make-responsive-tablet {
+    padding: make-rem(80) make-rem(64);
+    max-width: make-rem(1024);
+    margin: 0 auto;
+    z-index: 10;
+  }
+
+  text-align: center !important;
+
+  img {
+    max-width: make-rem(300);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: make-rem(32);
+  }
+}
+
+.seo-container {
+  width: 1200px !important;
+  height: 630px !important;
+  border: make-rem(1) solid make-color(primary, 0.2);
+}

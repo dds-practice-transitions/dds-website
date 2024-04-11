@@ -19,7 +19,7 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
     const articles = await client.getAllByType("resource", {
       fetchLinks: ["parent"],
     });
-    return json({ page: res.data, articles });
+    return json({ page: res.data, url: res.url, articles });
   } catch (error) {
     console.log(error);
     throw new Response("Not found", {

@@ -1,17 +1,20 @@
-import { LoaderFunction, json, type MetaFunction } from "@remix-run/cloudflare";
+import {
+  LoaderFunctionArgs,
+  json,
+  type MetaFunction,
+} from "@remix-run/cloudflare";
 import { getPrismicClient } from "../lib/prismic";
-import { ResourceDocumentData } from "../../prismicio-types";
 import { useLoaderData } from "@remix-run/react";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 import { Article } from "../components";
 
-export const loader: LoaderFunction = async ({ context, params }) => {
+export const loader = async ({ context, params }: LoaderFunctionArgs) => {
   const client = getPrismicClient(context);
 
   try {
     const res = await client.getByUID("resource", params.slug as string);
-    return json(res.data);
+    return json({ data: res.data, url: res.url });
   } catch (error) {
     console.log(error);
     throw new Response("Not found", {
@@ -25,11 +28,11 @@ export const meta: MetaFunction = () => {
 };
 
 export default function ServicePage() {
-  const data = useLoaderData<ResourceDocumentData>();
+  const res = useLoaderData<typeof loader>();
 
   return (
-    <Article ddTitle={data.title as string}>
-      <SliceZone slices={data.slices} components={components} />
+    <Article ddTitle={res.data.title as string}>
+      <SliceZone slices={res.data.slices} components={components} />
     </Article>
   );
 }

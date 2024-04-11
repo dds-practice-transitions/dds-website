@@ -1,16 +1,15 @@
-import { LoaderFunction, json } from "@remix-run/cloudflare";
+import { LoaderFunctionArgs, json } from "@remix-run/cloudflare";
 import { getPrismicClient } from "../lib/prismic";
 import { useLoaderData } from "@remix-run/react";
-import { GeneralDocumentData } from "../../prismicio-types";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 
-export const loader: LoaderFunction = async ({ context }) => {
+export const loader = async ({ context }: LoaderFunctionArgs) => {
   const client = getPrismicClient(context);
 
   try {
     const res = await client.getByUID("general", "our-team");
-    return json(res.data);
+    return json({ data: res.data, url: res.url });
   } catch (error) {
     console.log(error);
     throw new Response("Not found", {
@@ -20,7 +19,7 @@ export const loader: LoaderFunction = async ({ context }) => {
 };
 
 export default function AboutUs() {
-  const data = useLoaderData<GeneralDocumentData>();
+  const res = useLoaderData<typeof loader>();
 
-  return <SliceZone slices={data.slices} components={components} />;
+  return <SliceZone slices={res.data.slices} components={components} />;
 }

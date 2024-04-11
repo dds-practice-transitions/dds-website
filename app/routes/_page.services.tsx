@@ -11,7 +11,6 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
     const res = await client.getByUID("general", "services");
     return json({ data: res.data, url: res.url });
   } catch (error) {
-    console.log(error);
     throw new Response("Not found", {
       status: 404,
     });
