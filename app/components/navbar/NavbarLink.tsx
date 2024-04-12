@@ -66,8 +66,6 @@ export const Link = forwardRef<
 
 const NavbarLinkMobile = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
   function NavbarLinkMobile({ children, ...restProps }, ref) {
-    console.log("here");
-
     const { closeDialog } = useDrawerContext();
     return (
       <Link {...restProps} ref={ref} onClose={closeDialog}>
