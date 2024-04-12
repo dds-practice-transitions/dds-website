@@ -3,21 +3,24 @@ import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import { NativeAnchor } from "../native";
 import { useDrawerContext } from "../dialogs/Drawer";
+import { useBreakpoint } from "../../hooks";
+// import { useMenuContext } from "../dialogs/Menu";
 
-export const NavbarDropdownLink = forwardRef<
+export type NavbarDropdownLinkProps = JSX.IntrinsicElements["a"] & {
+  LinkComponent?: FC;
+};
+
+const Link = forwardRef<
   HTMLAnchorElement,
-  JSX.IntrinsicElements["a"] & { LinkComponent?: FC }
->(function NavbarDropdownLink(
-  { children, className, LinkComponent = NativeAnchor, ...restProps },
+  NavbarDropdownLinkProps & { onClose?: () => void }
+>(function Link(
+  { children, className, LinkComponent = NativeAnchor, onClose, ...restProps },
   ref,
 ) {
-  const { closeDialog } = useDrawerContext();
-
   return (
     <LinkComponent
       {...restProps}
-      onClick={closeDialog}
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+      onClick={onClose}
       tabIndex={0}
       className={clsx(
         styles["navbar-dropdown-link"],
@@ -30,5 +33,48 @@ export const NavbarDropdownLink = forwardRef<
     >
       {children}
     </LinkComponent>
+  );
+});
+
+const ContentMobile = forwardRef<HTMLAnchorElement, NavbarDropdownLinkProps>(
+  function ContentMobile({ children, ...restProps }, ref) {
+    const { closeDialog } = useDrawerContext();
+    return (
+      <Link {...restProps} ref={ref} onClose={closeDialog}>
+        {children}
+      </Link>
+    );
+  },
+);
+
+const ContentDesktop = forwardRef<HTMLAnchorElement, NavbarDropdownLinkProps>(
+  function ContentDesktop({ children, ...restProps }, ref) {
+    // const { closeDialog } = useMenuContext();
+    return (
+      <Link {...restProps} ref={ref}>
+        {children}
+      </Link>
+    );
+  },
+);
+
+export const NavbarDropdownLink = forwardRef<
+  HTMLAnchorElement,
+  NavbarDropdownLinkProps
+>(function NavbarDropdownLink({ children, ...restProps }, ref) {
+  const isMobile = useBreakpoint({ to: "tablet" });
+
+  if (isMobile) {
+    return (
+      <ContentMobile {...restProps} ref={ref}>
+        {children}
+      </ContentMobile>
+    );
+  }
+
+  return (
+    <ContentDesktop {...restProps} ref={ref}>
+      {children}
+    </ContentDesktop>
   );
 });

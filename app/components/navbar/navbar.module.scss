@@ -118,6 +118,11 @@
     text-align: left;
     font-size: make-rem(14);
   }
+
+  @include make-responsive-tablet {
+    display: flex;
+    gap: make-rem(8);
+  }
 }
 
 .launcher {

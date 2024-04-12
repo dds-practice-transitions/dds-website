@@ -6,15 +6,12 @@
 
   @include make-responsive-mobile {
     margin: make-rem(20) auto;
+    padding: make-rem(52) make-rem(32);
   }
 
   @include make-responsive-tablet {
     margin: make-rem(80) auto;
-  }
-
-  // Up to tablet
-  @include make-responsive(zero, tablet) {
-    padding: make-rem(52) make-rem(32);
+    padding: 0 make-rem(32);
   }
 
   & > img {

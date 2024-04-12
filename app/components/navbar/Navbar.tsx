@@ -8,6 +8,10 @@ import { useBreakpoint } from "../../hooks";
 import { match } from "ts-pattern";
 import { Icon } from "../display/Icon";
 import { Close } from "@icon-park/react";
+import { ResponsiveMobile } from "../../utils";
+import { ResponsiveDesktop } from "../../utils/ResponsiveDesktop";
+import { ResponsiveTablet } from "../../utils/ResponsiveTablet";
+import { Responsive } from "../../utils/Responsive";
 
 export type NavbarProps = Omit<JSX.IntrinsicElements["nav"], "children"> & {
   children: ReactElement<NavbarLinkProps>[] | ReactElement<NavbarLinkProps>;
@@ -15,61 +19,39 @@ export type NavbarProps = Omit<JSX.IntrinsicElements["nav"], "children"> & {
   ddLogoAlt: string;
 };
 
+// const Content = forwardRef<HTMLElement, NavbarProps>(
+//   function Content(props, ref) {},
+// );
+
 export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar(
   { children, className, ddLogoAlt, ddLogoSrc, ...restProps },
   ref,
 ) {
-  const isDesktop = useBreakpoint({ from: "tablet" });
   const { openDrawer, drawerRef, closeDrawer } = useDrawer();
-
-  // const toggle = useCallback(() => {
-  //   setIsOpen((prevState) => !prevState);
-  // }, []);
-
-  // const getBody = useCallback(() => {
-  //   if (!bodyRef.current) {
-  //     bodyRef.current = document.body;
-  //   }
-  //   return bodyRef.current;
-  // }, []);
-
-  // useEffect(() => {
-  //   const bodyNode = getBody();
-  //   if (isOpen) {
-  //     bodyNode.style.overflow = "hidden";
-  //     return;
-  //   }
-  //   bodyNode.style.overflow = "auto";
-
-  //   return () => {
-  //     const bodyNode = getBody();
-  //     bodyNode.style.overflow = "auto";
-  //   };
-  // }, [getBody, isOpen]);
 
   return (
     <nav {...restProps} className={clsx(styles.navbar, className)} ref={ref}>
       <NavbarLauncher onClick={openDrawer} />
-      {match(isDesktop)
-        .with(false, () => (
-          <Drawer ref={drawerRef} ddSize="lg" ddOrientation="right-to-left">
-            <div className={styles["navbar-m"]}>
-              <div className={styles["navbar-m-head"]}>
-                <button onClick={closeDrawer}>
-                  <Icon DDIcon={Close} />
-                </button>
-              </div>
-              <img
-                className={styles["navbar-m-logo"]}
-                src={ddLogoSrc}
-                alt={ddLogoAlt}
-              />
-              <ul className={styles["navbar-m-body"]}>{children}</ul>
+      <ResponsiveMobile>
+        <Drawer ref={drawerRef} ddSize="lg" ddOrientation="right-to-left">
+          <div className={styles["navbar-m"]}>
+            <div className={styles["navbar-m-head"]}>
+              <button onClick={closeDrawer}>
+                <Icon DDIcon={Close} />
+              </button>
             </div>
-          </Drawer>
-        ))
-        .with(true, () => <ul>{children}</ul>)
-        .exhaustive()}
+            <img
+              className={styles["navbar-m-logo"]}
+              src={ddLogoSrc}
+              alt={ddLogoAlt}
+            />
+            <ul className={styles["navbar-m-body"]}>{children}</ul>
+          </div>
+        </Drawer>
+      </ResponsiveMobile>
+      <Responsive from="tablet">
+        <ul>{children}</ul>
+      </Responsive>
     </nav>
   );
 });

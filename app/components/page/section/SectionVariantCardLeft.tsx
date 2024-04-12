@@ -8,6 +8,7 @@ import clsx from "clsx";
 import styles from "./section-card.module.css";
 import { Section } from "./Section";
 import { SectionPropsBase } from "./page-section.types";
+import { useBreakpoint } from "../../../hooks";
 
 export type SectionVariantCardLeftPropsNative =
   JSX.IntrinsicElements["section"];
@@ -32,11 +33,15 @@ export const SectionVariantCardLeft = forwardRef<
   },
   ref,
 ) {
+  const isDesktop = useBreakpoint({ from: "tablet" });
   const imgRef = useRef<HTMLImageElement | null>(null);
-  const cardRef = useCallback<RefCallback<HTMLDivElement>>((node) => {
-    if (!node || !imgRef.current) return;
-    imgRef.current.style.height = node.clientHeight.toString().concat("px");
-  }, []);
+  const cardRef = useCallback<RefCallback<HTMLDivElement>>(
+    (node) => {
+      if (!node || !imgRef.current || isDesktop) return;
+      imgRef.current.style.height = node.clientHeight.toString().concat("px");
+    },
+    [isDesktop],
+  );
 
   return (
     <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
