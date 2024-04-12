@@ -6,7 +6,7 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type ContactDocumentDataSlicesSlice = ContactSlice | HeroSlice;
 
-type ContactDocumentDataSlices1Slice = SeoSocialSlice;
+type ContactDocumentDataSlices1Slice = StructuredContentSlice;
 
 /**
  * Content for Contact documents
@@ -87,7 +87,7 @@ type FaqDocumentDataSlicesSlice =
   | HeroSlice
   | CallToActionSlice;
 
-type FaqDocumentDataSlices1Slice = SeoSocialSlice;
+type FaqDocumentDataSlices1Slice = StructuredContentSlice;
 
 /**
  * Content for FAQ documents
@@ -253,7 +253,7 @@ type GeneralDocumentDataSlicesSlice =
   | CallToActionSlice
   | ContentSlice;
 
-type GeneralDocumentDataSlices1Slice = SeoSocialSlice;
+type GeneralDocumentDataSlices1Slice = StructuredContentSlice;
 
 /**
  * Content for General documents
@@ -347,7 +347,7 @@ type HomeDocumentDataSlicesSlice =
   | CallToActionSlice
   | HeroSlice;
 
-type HomeDocumentDataSlices1Slice = SeoSocialSlice;
+type HomeDocumentDataSlices1Slice = StructuredContentSlice;
 
 /**
  * Content for Home documents
@@ -536,7 +536,7 @@ export type NavbarDocument<Lang extends string = string> =
 
 type ResourceDocumentDataSlicesSlice = RichTextSlice;
 
-type ResourceDocumentDataSlices1Slice = SeoSocialSlice;
+type ResourceDocumentDataSlices1Slice = StructuredContentSlice;
 
 /**
  * Content for Resource documents
@@ -636,6 +636,8 @@ export type ResourceDocument<Lang extends string = string> =
 
 type ResourcesDocumentDataSlicesSlice = CallToActionSlice | HeroSlice;
 
+type ResourcesDocumentDataSlices1Slice = never;
+
 /**
  * Content for Resources documents
  */
@@ -681,6 +683,17 @@ interface ResourcesDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Resources*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resources.slices1[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<ResourcesDocumentDataSlices1Slice>;
 }
 
 /**
@@ -701,7 +714,7 @@ export type ResourcesDocument<Lang extends string = string> =
 
 type TeamDocumentDataSlicesSlice = HeroSlice | TeamSlice | CallToActionSlice;
 
-type TeamDocumentDataSlices1Slice = SeoSocialSlice;
+type TeamDocumentDataSlices1Slice = StructuredContentSlice;
 
 /**
  * Content for Team documents
@@ -2417,6 +2430,101 @@ export type SeoSocialSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SeoStructuredContent → Items*
+ */
+export interface StructuredContentSliceDefaultItem {
+  /**
+   * Question field in *SeoStructuredContent → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: structured_content.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *SeoStructuredContent → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: structured_content.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  answer: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SeoStructuredContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StructuredContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<StructuredContentSliceDefaultItem>
+>;
+
+/**
+ * Primary content in *SeoStructuredContent → Items*
+ */
+export interface StructuredContentSliceFaqPageItem {
+  /**
+   * Question field in *SeoStructuredContent → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: structured_content.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *SeoStructuredContent → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: structured_content.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  answer: prismic.KeyTextField;
+}
+
+/**
+ * FAQPage variation for SeoStructuredContent Slice
+ *
+ * - **API ID**: `faqPage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StructuredContentSliceFaqPage = prismic.SharedSliceVariation<
+  "faqPage",
+  Record<string, never>,
+  Simplify<StructuredContentSliceFaqPageItem>
+>;
+
+/**
+ * Slice variation for *SeoStructuredContent*
+ */
+type StructuredContentSliceVariation =
+  | StructuredContentSliceDefault
+  | StructuredContentSliceFaqPage;
+
+/**
+ * SeoStructuredContent Shared Slice
+ *
+ * - **API ID**: `structured_content`
+ * - **Description**: StructuredContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StructuredContentSlice = prismic.SharedSlice<
+  "structured_content",
+  StructuredContentSliceVariation
+>;
+
+/**
  * Primary content in *Team → Primary*
  */
 export interface TeamSliceDefaultPrimary {
@@ -2585,6 +2693,7 @@ declare module "@prismicio/client" {
       ResourcesDocument,
       ResourcesDocumentData,
       ResourcesDocumentDataSlicesSlice,
+      ResourcesDocumentDataSlices1Slice,
       TeamDocument,
       TeamDocumentData,
       TeamDocumentDataSlicesSlice,
@@ -2660,6 +2769,12 @@ declare module "@prismicio/client" {
       SeoSocialSliceDefaultPrimary,
       SeoSocialSliceVariation,
       SeoSocialSliceDefault,
+      StructuredContentSlice,
+      StructuredContentSliceDefaultItem,
+      StructuredContentSliceFaqPageItem,
+      StructuredContentSliceVariation,
+      StructuredContentSliceDefault,
+      StructuredContentSliceFaqPage,
       TeamSlice,
       TeamSliceDefaultPrimary,
       TeamSliceDefaultItem,

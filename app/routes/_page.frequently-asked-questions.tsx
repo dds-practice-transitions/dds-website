@@ -44,8 +44,8 @@ export const meta: MetaFunction<typeof loader> = ({ data: resData }) => {
       description: data.meta_description,
       pageType: "website",
       pageURL: url,
-      imageAlt: data.slices1[0]?.primary.card_image.alt,
-      imageURL: data.slices1[0]?.primary.card_image.url,
+      imageAlt: resData.data.meta_image.alt,
+      imageURL: resData.data.meta_image.url,
     }),
     ...makeSchemaFAQPage(faqs),
   ];

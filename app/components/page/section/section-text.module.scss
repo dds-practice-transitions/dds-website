@@ -17,6 +17,12 @@
 
 .text {
   font-family: var(--font-family);
+  h1 {
+    font-size: make-rem(48);
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+  }
   h2 {
     font-size: make-rem(36);
     line-height: 1.2;
@@ -41,8 +47,15 @@
     line-height: 1.8;
   }
   a {
-    color: make-color(secondary);
+    color: make-color(primary-dark);
+    background-color: make-color(primary, 0.2);
+    padding: 0 make-rem(4);
     text-decoration: underline;
+    font-weight: 700;
+
+    &:hover {
+      background-color: make-color(primary, 0.3);
+    }
   }
   ul {
     li {

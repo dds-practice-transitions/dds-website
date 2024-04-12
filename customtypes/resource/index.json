@@ -69,7 +69,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "seo_social": {
+            "structured_content": {
               "type": "SharedSlice"
             }
           }

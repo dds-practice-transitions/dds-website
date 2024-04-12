@@ -32,8 +32,8 @@ export const meta: MetaFunction<typeof loader> = ({ data: resData }) => {
     description: resData.data.meta_description,
     pageType: "website",
     pageURL: resData.url,
-    imageAlt: resData.data.slices1[0]?.primary.card_image.alt,
-    imageURL: resData.data.slices1[0]?.primary.card_image.url,
+    imageAlt: resData.data.meta_image.alt,
+    imageURL: resData.data.meta_image.url,
   });
 };
 

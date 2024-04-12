@@ -12,5 +12,6 @@ export const components = {
   navbar_item: dynamic(() => import("./NavbarItem")),
   rich_text: dynamic(() => import("./RichText")),
   seo_social: dynamic(() => import("./SeoSocial")),
+  structured_content: dynamic(() => import("./SeoStructuredContent")),
   team: dynamic(() => import("./Team")),
 };
