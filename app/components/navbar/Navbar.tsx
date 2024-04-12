@@ -4,13 +4,9 @@ import styles from "./navbar.module.css";
 import { NavbarLauncher } from "./NavbarLauncher";
 import { NavbarLinkProps } from "./NavbarLink";
 import { Drawer, useDrawer } from "../dialogs/Drawer";
-import { useBreakpoint } from "../../hooks";
-import { match } from "ts-pattern";
 import { Icon } from "../display/Icon";
 import { Close } from "@icon-park/react";
 import { ResponsiveMobile } from "../../utils";
-import { ResponsiveDesktop } from "../../utils/ResponsiveDesktop";
-import { ResponsiveTablet } from "../../utils/ResponsiveTablet";
 import { Responsive } from "../../utils/Responsive";
 
 export type NavbarProps = Omit<JSX.IntrinsicElements["nav"], "children"> & {

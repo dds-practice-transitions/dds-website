@@ -3,7 +3,9 @@ import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import { NativeAnchor } from "../native";
 import { useDrawerContext } from "../dialogs/Drawer";
-import { useBreakpoint } from "../../hooks";
+import { ResponsiveMobile } from "../../utils";
+import { Responsive } from "../../utils/Responsive";
+import { useMenuContext } from "../dialogs/Menu";
 // import { useMenuContext } from "../dialogs/Menu";
 
 export type NavbarDropdownLinkProps = JSX.IntrinsicElements["a"] & {
@@ -49,9 +51,9 @@ const ContentMobile = forwardRef<HTMLAnchorElement, NavbarDropdownLinkProps>(
 
 const ContentDesktop = forwardRef<HTMLAnchorElement, NavbarDropdownLinkProps>(
   function ContentDesktop({ children, ...restProps }, ref) {
-    // const { closeDialog } = useMenuContext();
+    const { closeDialog } = useMenuContext();
     return (
-      <Link {...restProps} ref={ref}>
+      <Link {...restProps} ref={ref} onClose={closeDialog}>
         {children}
       </Link>
     );
@@ -62,19 +64,18 @@ export const NavbarDropdownLink = forwardRef<
   HTMLAnchorElement,
   NavbarDropdownLinkProps
 >(function NavbarDropdownLink({ children, ...restProps }, ref) {
-  const isMobile = useBreakpoint({ to: "tablet" });
-
-  if (isMobile) {
-    return (
-      <ContentMobile {...restProps} ref={ref}>
-        {children}
-      </ContentMobile>
-    );
-  }
-
   return (
-    <ContentDesktop {...restProps} ref={ref}>
-      {children}
-    </ContentDesktop>
+    <>
+      <ResponsiveMobile>
+        <ContentMobile {...restProps} ref={ref}>
+          {children}
+        </ContentMobile>
+      </ResponsiveMobile>
+      <Responsive from="tablet">
+        <ContentDesktop {...restProps} ref={ref}>
+          {children}
+        </ContentDesktop>
+      </Responsive>
+    </>
   );
 });
