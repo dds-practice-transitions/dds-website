@@ -5,11 +5,23 @@
   flex-direction: column;
   gap: make-rem(40);
 
+  @include make-responsive-mobile {
+    margin-top: make-rem(32);
+  }
+
   p {
     font-size: make-rem(20);
     line-height: make-rem(28);
     font-weight: 600;
     margin: 0;
     margin-bottom: make-rem(16);
+  }
+
+  button {
+    @include make-responsive-mobile {
+      width: 100%;
+      justify-content: center;
+      height: make-rem(44);
+    }
   }
 }

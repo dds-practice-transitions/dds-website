@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { RefCallback, forwardRef, useCallback, useRef } from "react";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
 import { SectionActions } from "./SectionActions";
@@ -32,11 +32,17 @@ export const SectionVariantCardLeft = forwardRef<
   },
   ref,
 ) {
+  const imgRef = useRef<HTMLImageElement | null>(null);
+  const cardRef = useCallback<RefCallback<HTMLDivElement>>((node) => {
+    if (!node || !imgRef.current) return;
+    imgRef.current.style.height = node.clientHeight.toString().concat("px");
+  }, []);
+
   return (
     <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
       <div className={clsx(styles.content, styles["card-left"])}>
-        <img src={ddImageSrc} alt={ddImageAlt} />
-        <div className="card">
+        <img src={ddImageSrc} alt={ddImageAlt} ref={imgRef} />
+        <div className="card" ref={cardRef}>
           <SectionTitle>{ddTitle}</SectionTitle>
           <SectionSubtitle>{ddSubtitle}</SectionSubtitle>
           <SectionActions>{children}</SectionActions>

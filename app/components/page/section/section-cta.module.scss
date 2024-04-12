@@ -1,6 +1,19 @@
 @import "../../../theme/utils";
 
 .root {
+  @include make-responsive-mobile {
+    @include make-global(actions, nested) {
+      flex-direction: column;
+      gap: make-rem(16);
+
+      button,
+      a {
+        height: make-rem(44);
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
   @include make-responsive-tablet {
     padding: make-rem(100) make-rem(32);
   }

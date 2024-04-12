@@ -5,11 +5,11 @@
   position: relative;
 
   @include make-responsive-mobile {
-    margin: make-rem(80) 0;
+    margin: make-rem(20) auto;
   }
 
   @include make-responsive-tablet {
-    margin: make-rem(100) 0;
+    margin: make-rem(80) auto;
   }
 
   // Up to tablet

@@ -192,6 +192,16 @@
     justify-content: center;
 
     @include make-responsive-mobile {
+      justify-content: center;
+      flex-direction: column;
+      align-items: stretch;
+
+      button,
+      a {
+        width: 100%;
+        justify-content: center;
+        height: make-rem(52);
+      }
     }
 
     @include make-responsive-tablet {
@@ -279,6 +289,7 @@
 
   @include make-responsive-mobile {
     padding: make-rem(60) make-rem(32);
+    text-align: center;
   }
 
   @include make-responsive-tablet {
@@ -295,6 +306,20 @@
 
   @include make-global(subtitle, nested) {
     color: make-color(grey-8);
+  }
+
+  @include make-global(actions, nested) {
+    @include make-responsive-mobile {
+      flex-direction: column;
+      gap: make-rem(16);
+      justify-content: center;
+      button,
+      a {
+        width: 100%;
+        justify-content: center;
+        height: make-rem(44);
+      }
+    }
   }
 
   @include make-global(left) {
@@ -322,9 +347,17 @@
   }
 
   .logo {
-    max-height: make-rem(120);
-    max-width: 60%;
-    margin-bottom: make-rem(32);
+    @include make-responsive-mobile {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: make-rem(32);
+    }
+
+    @include make-responsive-tablet {
+      max-height: make-rem(120);
+      max-width: 60%;
+      margin-bottom: make-rem(32);
+    }
   }
 }
 

@@ -38,6 +38,7 @@
   @include make-responsive(zero, desktop) {
     padding-top: make-rem(24);
     flex-wrap: wrap;
+    text-align: center;
   }
 
   @include make-responsive-desktop {

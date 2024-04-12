@@ -1,13 +1,6 @@
 @import "../../../theme/utils";
 
 .root {
-  @include make-responsive-mobile {
-    margin: make-rem(80) auto;
-  }
-
-  @include make-responsive-tablet {
-    margin: make-rem(100) auto;
-  }
 }
 
 .content {

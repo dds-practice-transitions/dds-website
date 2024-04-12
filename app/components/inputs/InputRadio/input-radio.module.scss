@@ -21,8 +21,8 @@
 
 .button {
   div {
-    padding: 0 make-rem(12);
-    height: make-rem(32);
+    padding: make-rem(8) make-rem(12);
+    min-height: make-rem(32);
     font-size: make-rem(14);
     display: grid;
     place-items: center;

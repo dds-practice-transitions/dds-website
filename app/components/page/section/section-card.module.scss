@@ -24,13 +24,6 @@
 }
 
 .root {
-  @include make-responsive-mobile {
-    margin: make-rem(80) auto;
-  }
-
-  @include make-responsive-tablet {
-    margin: make-rem(100) auto;
-  }
 }
 
 .content {
@@ -94,6 +87,8 @@
   position: relative;
 
   @include make-responsive-mobile {
+    margin-bottom: make-rem(60);
+
     img {
       height: 50vh;
       width: 100%;
@@ -145,7 +140,7 @@
   }
 
   @include make-responsive-mobile {
-    padding: make-rem(52) make-rem(24);
+    padding: make-rem(52) 0;
   }
 
   @include make-responsive-tablet {
