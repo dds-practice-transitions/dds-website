@@ -4,10 +4,8 @@ import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import { Down } from "@icon-park/react";
 import { Icon } from "../display/Icon";
-import { useBreakpoint, useToggle } from "../../hooks";
 import { NativeAnchor } from "../native";
 import { useDrawerContext } from "../dialogs/Drawer";
-import { useLocation } from "@remix-run/react";
 
 export type NavbarLinkProps = JSX.IntrinsicElements["a"] & {
   ddLabel: string;
@@ -26,19 +24,12 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
     },
     ref,
   ) {
-    const { pathname } = useLocation();
-    console.log(pathname, ddLabel, cn, ddActive);
-
     const isMenu = typeof children !== "undefined";
-    const isMobile = useBreakpoint({ to: "tablet" });
     const { closeDialog } = useDrawerContext();
-
-    const [isOpen, toggle] = useToggle(ddActive);
 
     const className = clsx(styles["navbar-link"], cn, {
       menu: isMenu,
       active: ddActive,
-      open: isOpen,
     });
 
     const Content = useMemo(
@@ -50,17 +41,6 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
       ),
       [ddLabel, isMenu],
     );
-
-    if (isMobile && isMenu) {
-      return (
-        <>
-          <button className={className} onClick={toggle}>
-            {Content}
-          </button>
-          {isOpen && children}
-        </>
-      );
-    }
 
     return (
       <LinkComponent

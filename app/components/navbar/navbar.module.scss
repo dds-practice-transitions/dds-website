@@ -22,7 +22,8 @@
 .navbar-m {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: make-rem(80) make-rem(80) 1fr;
+  grid-template-rows: make-rem(80) auto 1fr;
+  gap: make-rem(16);
 
   ul {
     @include make-reset-ul();
@@ -45,9 +46,10 @@
   }
 }
 .navbar-m-logo {
-  padding: 0 make-rem(36);
-  max-width: 100%;
+  max-width: 50%;
+  margin: 0 auto;
   max-height: 100%;
+  align-self: center;
 }
 
 .navbar-item {
@@ -76,14 +78,9 @@
   // Up to tablet
   @include make-responsive-mobile {
     @include make-global(active) {
-      background: make-color(primary, 0.1);
-    }
-
-    @include make-global(open) {
-      background: make-color(primary, 0.1);
-
-      & + ul {
-        background: make-color(primary, 0.1);
+      & > div {
+        background: make-color(primary);
+        color: make-color(paper);
       }
     }
   }
@@ -138,7 +135,8 @@
 
   // Responsive: Up to tablet
   @include make-responsive-mobile {
-    padding: 0 make-rem(32);
+    padding-left: make-rem(32);
+    font-size: make-rem(12);
   }
 
   // Responsive: Tablet and up
