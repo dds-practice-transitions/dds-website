@@ -17,31 +17,41 @@ export const breakpointMap: { [key in Breakpoint]: number } = {
 export type BreakpointFromTo = { from?: Breakpoint; to?: Breakpoint };
 type UseBreakpointParams = Breakpoint | BreakpointFromTo;
 
-const calculateSize = (breakpoint: UseBreakpointParams) => {
-  if (typeof window === "undefined") return false;
+const calculateSize = (
+  breakpoint: UseBreakpointParams,
+  windowWidth: number,
+) => {
   if (typeof breakpoint === "string") {
-    return window.innerWidth > breakpointMap[breakpoint];
+    return windowWidth > breakpointMap[breakpoint];
   }
 
   const fromDevice = breakpoint.from;
   const toDevice = breakpoint.to;
 
   const from = fromDevice ? breakpointMap[fromDevice] : 0;
-  if (!toDevice) return window.innerWidth >= from;
+  if (!toDevice) return windowWidth >= from;
   const to = breakpointMap[toDevice] - 1;
-  return window.innerWidth >= from && window.innerWidth <= to;
+  return windowWidth >= from && windowWidth <= to;
 };
 
 /**
  * A custom React hook that listens to the size of the viewport and determines whether it passes a certain predefined breakpoint.
  */
 export function useBreakpoint(params: UseBreakpointParams) {
-  const initShouldRender = useMemo(() => false, []);
-  const [shouldRender, setShouldRender] = useState(() => initShouldRender);
+  const initShouldRender = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return calculateSize(params, window.innerWidth);
+    }
+    return false;
+  }, [params]);
+
+  const [shouldRender, setShouldRender] = useState(initShouldRender);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     function handleResize() {
-      setShouldRender(calculateSize(params));
+      setShouldRender(calculateSize(params, window.innerWidth));
     }
 
     window.addEventListener("resize", handleResize);
