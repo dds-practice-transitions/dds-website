@@ -11,7 +11,7 @@
     justify-content: center;
     gap: make-rem(24);
 
-    @include make-responsive(zero, tablet) {
+    @include make-responsive-mobile {
       display: none;
       height: make-rem(80);
     }
@@ -28,7 +28,6 @@
     @include make-reset-ul();
   }
 }
-
 .navbar-m-head {
   padding: make-rem(16);
 
@@ -52,12 +51,11 @@
 }
 
 .navbar-item {
-  @include make-responsive(zero, tablet) {
-    min-height: make-rem(64);
+  @include make-responsive-mobile {
     width: 100%;
     border-bottom: make-rem(1) solid make-color(grey-1, 0.5);
   }
-  @include make-responsive(tablet) {
+  @include make-responsive-tablet {
     height: make-rem(40);
     display: flex;
     align-items: center;
@@ -65,9 +63,6 @@
 }
 
 .navbar-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-transform: capitalize;
   text-decoration: none;
   background: none;
@@ -78,30 +73,26 @@
   font-family: var(--font-family);
   padding: 0;
 
-  @include make-global(content, nested) {
-    display: flex;
-    align-items: center;
-    gap: make-rem(6);
-  }
-
   // Up to tablet
-  @include make-responsive(zero, tablet) {
-    height: 100%;
-    min-height: inherit;
-
+  @include make-responsive-mobile {
     @include make-global(active) {
-      background: make-color(primary);
-      color: make-color(paper);
+      background: make-color(primary, 0.1);
     }
 
     @include make-global(open) {
-      background: make-color(primary);
-      color: make-color(paper);
+      background: make-color(primary, 0.1);
+
+      & + ul {
+        background: make-color(primary, 0.1);
+      }
     }
   }
 
   // tablet and up
-  @include make-responsive(tablet) {
+  @include make-responsive-tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: inherit;
     text-decoration: none;
     font-weight: 500;
@@ -119,17 +110,26 @@
   }
 }
 
+.navbar-link-content {
+  @include make-responsive-mobile {
+    padding: 0 make-rem(16);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: make-rem(8);
+    height: make-rem(44);
+    text-align: left;
+    font-size: make-rem(14);
+  }
+}
+
 .launcher {
   cursor: pointer;
 
   @include make-reset-button;
-  @include make-responsive(tablet) {
+  @include make-responsive-tablet {
     display: none;
   }
-}
-
-.navbar-dropdown {
-  padding: 0 make-rem(16);
 }
 
 .navbar-dropdown-link {
@@ -137,17 +137,12 @@
   color: make-color(dark);
 
   // Responsive: Up to tablet
-  @include make-responsive(zero, tablet) {
-    display: block;
-    height: make-rem(52);
-    display: flex;
-    justify-content: center;
-    border-radius: make-rem(8);
-    margin: make-rem(16) 0;
+  @include make-responsive-mobile {
+    padding: 0 make-rem(32);
   }
 
   // Responsive: Tablet and up
-  @include make-responsive(tablet) {
+  @include make-responsive-tablet {
     height: make-rem(38);
     min-width: make-rem(180);
     padding: 0 make-rem(16);
@@ -159,12 +154,8 @@
     font-size: make-rem(14);
   }
 
-  &:focus,
-  &:hover {
-    background: make-color(primary, 0.1);
-  }
-
   @include make-global(active) {
-    background: make-color(primary, 0.2);
+    background: make-color(primary);
+    color: make-color(paper);
   }
 }

@@ -96,7 +96,10 @@ export function Layout({ children }: { children: ReactNode }) {
             </Link>
           </PageHeaderColumn>
           <PageHeaderColumn>
-            <Navbar>
+            <Navbar
+              ddLogoSrc={response.navbar.mobile_menu_logo.url ?? ""}
+              ddLogoAlt={response.navbar.mobile_menu_logo.alt ?? ""}
+            >
               <SliceZone
                 slices={response.navbar.slices}
                 components={components}

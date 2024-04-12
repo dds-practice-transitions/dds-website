@@ -6,6 +6,8 @@ import { Down } from "@icon-park/react";
 import { Icon } from "../display/Icon";
 import { useBreakpoint, useToggle } from "../../hooks";
 import { NativeAnchor } from "../native";
+import { useDrawerContext } from "../dialogs/Drawer";
+import { useLocation } from "@remix-run/react";
 
 export type NavbarLinkProps = JSX.IntrinsicElements["a"] & {
   ddLabel: string;
@@ -24,8 +26,13 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
     },
     ref,
   ) {
+    const { pathname } = useLocation();
+    console.log(pathname, ddLabel, cn, ddActive);
+
     const isMenu = typeof children !== "undefined";
     const isMobile = useBreakpoint({ to: "tablet" });
+    const { closeDialog } = useDrawerContext();
+
     const [isOpen, toggle] = useToggle(ddActive);
 
     const className = clsx(styles["navbar-link"], cn, {
@@ -36,7 +43,7 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
 
     const Content = useMemo(
       () => (
-        <div className="content">
+        <div className={styles["navbar-link-content"]}>
           <span>{ddLabel}</span>
           {isMenu && <Icon DDIcon={Down} />}
         </div>
@@ -58,6 +65,7 @@ export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
     return (
       <LinkComponent
         {...restProps}
+        onClick={closeDialog}
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
         className={clsx(styles["navbar-link"], className, {

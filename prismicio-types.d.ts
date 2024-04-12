@@ -511,6 +511,17 @@ type NavbarDocumentDataSlicesSlice = NavbarItemSlice;
  */
 interface NavbarDocumentData {
   /**
+   * Mobile Menu Logo field in *Navbar*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.mobile_menu_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_menu_logo: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Navbar*
    *
    * - **Field Type**: Slice Zone

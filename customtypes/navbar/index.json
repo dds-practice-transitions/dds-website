@@ -13,6 +13,14 @@
           "placeholder": ""
         }
       },
+      "mobile_menu_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Mobile Menu Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

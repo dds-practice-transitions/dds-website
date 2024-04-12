@@ -1,6 +1,4 @@
 import { forwardRef } from "react";
-import { clsx } from "clsx";
-import styles from "./navbar.module.css";
 import { useBreakpoint } from "../../hooks";
 import { Menu, useMenu } from "../dialogs/Menu";
 import { MenuList } from "../dialogs/Menu/MenuList";
@@ -11,7 +9,6 @@ export const NavbarDropdown = forwardRef<HTMLUListElement, NavbarDropdown>(
   function NavbarDropdown(
     {
       children,
-      className,
       closeProps,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       openMenu,
@@ -28,11 +25,7 @@ export const NavbarDropdown = forwardRef<HTMLUListElement, NavbarDropdown>(
 
     if (isMobile) {
       return (
-        <ul
-          {...restProps}
-          className={clsx(styles["navbar-dropdown"], className)}
-          ref={ref}
-        >
+        <ul {...restProps} ref={ref}>
           {children}
         </ul>
       );
