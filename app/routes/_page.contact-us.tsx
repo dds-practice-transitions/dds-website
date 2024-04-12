@@ -1,8 +1,10 @@
-import { LoaderFunctionArgs, json } from "@remix-run/cloudflare";
+import { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/cloudflare";
 import { getPrismicClient } from "../lib/prismic";
 import { useFetcher, useLoaderData } from "@remix-run/react";
 import { components } from "../slices";
 import { FormContactUs } from "../components";
+import { makeSEOPage } from "../lib/seo";
+import invariant from "tiny-invariant";
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
   const client = getPrismicClient(context);
@@ -16,6 +18,19 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
       status: 404,
     });
   }
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data: resData }) => {
+  invariant(resData?.data, "Response is missing data.");
+
+  return makeSEOPage({
+    title: resData.data.meta_title,
+    description: resData.data.meta_description,
+    pageType: "website",
+    pageURL: resData.url,
+    imageAlt: resData.data.slices1[0]?.primary.card_image.alt,
+    imageURL: resData.data.slices1[0]?.primary.card_image.url,
+  });
 };
 
 export default function ContactUs() {

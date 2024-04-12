@@ -36,7 +36,12 @@
 
 .primary,
 .secondary {
-  color: make-color(paper) !important;
+  @include make-global(subtitle, nested) {
+    color: make-color(paper) !important;
+  }
+  @include make-global(title, nested) {
+    color: make-color(paper) !important;
+  }
 }
 .primary {
   background-color: make-color(primary);

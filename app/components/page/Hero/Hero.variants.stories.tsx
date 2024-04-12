@@ -6,6 +6,9 @@ import { HeroVariantFadedImage } from "./HeroVariantFadedImage";
 
 const meta: Meta = {
   title: "Page / Hero / Variants",
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<typeof meta>;
 
 export default meta;
@@ -86,5 +89,24 @@ export const FadedImage = () => {
         Contact us
       </Button>
     </HeroVariantFadedImage>
+  );
+};
+
+export const ImageRightSEOBanner = () => {
+  return (
+    <HeroVariantImageRight
+      ddOverline="DDS Practice Transitions"
+      ddTitle="Cameron Fee"
+      ddSubtitle=""
+      ddImageAlt="image"
+      ddImageSrc="/images/test-4.jpg"
+      ddBackgroundSrc="/images/backgrounds/layered-waves-1.svg"
+      ddBackgroundAlt="layered-waves"
+      style={{
+        width: 1200,
+        height: 630,
+        border: `1px solid #ccc`,
+      }}
+    />
   );
 };

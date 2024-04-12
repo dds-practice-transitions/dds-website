@@ -7,6 +7,8 @@ import { getPrismicClient } from "../lib/prismic";
 import { useLoaderData } from "@remix-run/react";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
+import invariant from "tiny-invariant";
+import { makeSEOPage } from "../lib/seo";
 
 export const loader = async ({ context, params }: LoaderFunctionArgs) => {
   const client = getPrismicClient(context);
@@ -22,8 +24,17 @@ export const loader = async ({ context, params }: LoaderFunctionArgs) => {
   }
 };
 
-export const meta: MetaFunction = () => {
-  return [];
+export const meta: MetaFunction<typeof loader> = ({ data: resData }) => {
+  invariant(resData?.data, "Response is missing data.");
+
+  return makeSEOPage({
+    title: resData.data.meta_title,
+    description: resData.data.meta_description,
+    pageType: "website",
+    pageURL: resData.url,
+    imageAlt: resData.data.slices1[0]?.primary.card_image.alt,
+    imageURL: resData.data.slices1[0]?.primary.card_image.url,
+  });
 };
 
 export default function ServicePage() {

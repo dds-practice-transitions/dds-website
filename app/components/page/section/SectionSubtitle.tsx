@@ -13,7 +13,7 @@ export const SectionSubtitle = forwardRef<
   return (
     <h3
       {...restProps}
-      className={clsx(styles["sub-title"], ddColor, className)}
+      className={clsx(styles["sub-title"], ddColor, className, "subtitle")}
       ref={ref}
     >
       {children}

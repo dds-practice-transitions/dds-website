@@ -7,7 +7,11 @@ export const SectionTitle = forwardRef<
   JSX.IntrinsicElements["h2"]
 >(function SectionTitle({ children, className, ...restProps }, ref) {
   return (
-    <h2 {...restProps} className={clsx(styles.title, className)} ref={ref}>
+    <h2
+      {...restProps}
+      className={clsx(styles.title, className, "title")}
+      ref={ref}
+    >
       {children}
     </h2>
   );
