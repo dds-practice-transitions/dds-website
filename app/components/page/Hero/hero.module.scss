@@ -298,11 +298,20 @@
     max-width: make-rem(1400);
     margin: 0 auto;
     display: flex;
+    min-height: 30vh;
+    align-items: center;
   }
 
   & > div {
     max-width: 60ch;
     z-index: 10;
+
+    @include make-responsive-tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: min-content;
+    }
   }
 
   @include make-global(subtitle, nested) {
