@@ -15,7 +15,7 @@
     }
   }
   @include make-responsive-tablet {
-    padding: make-rem(100) make-rem(32);
+    padding: 0 make-rem(32) !important;
   }
 }
 

@@ -53,5 +53,13 @@
     flex-wrap: wrap;
     gap: make-rem(16);
     margin-top: make-rem(24);
+
+    @include make-responsive-mobile {
+      a,
+      button {
+        width: 100% !important;
+        text-align: center;
+      }
+    }
   }
 }

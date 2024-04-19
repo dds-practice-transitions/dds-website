@@ -5,13 +5,13 @@
   position: relative;
 
   @include make-responsive-mobile {
-    margin: make-rem(20) auto;
-    padding: make-rem(52) make-rem(32);
+    margin: 0 auto;
+    padding: make-rem(80) make-rem(32);
   }
 
   @include make-responsive-tablet {
-    margin: make-rem(80) auto;
-    padding: 0 make-rem(32);
+    margin: 0 auto;
+    padding: make-rem(80) make-rem(32);
   }
 
   & > img {

@@ -28,6 +28,7 @@
     place-items: center;
     color: make-color(grey-5);
     border-radius: make-rem(8);
+    background: make-color(paper);
   }
 
   & > input {

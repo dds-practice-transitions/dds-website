@@ -1,4 +1,4 @@
-import { RefCallback, forwardRef, useCallback, useRef } from "react";
+import { forwardRef } from "react";
 import { SectionTitle } from "./SectionTitle";
 import { SectionSubtitle } from "./SectionSubtitle";
 import { SectionActions } from "./SectionActions";
@@ -8,7 +8,7 @@ import clsx from "clsx";
 import styles from "./section-card.module.css";
 import { Section } from "./Section";
 import { SectionPropsBase } from "./page-section.types";
-import { useBreakpoint } from "../../../hooks";
+import { useAdjustHeight } from "./section.useAdjustHeight";
 
 export type SectionVariantCardLeftPropsNative =
   JSX.IntrinsicElements["section"];
@@ -33,15 +33,7 @@ export const SectionVariantCardLeft = forwardRef<
   },
   ref,
 ) {
-  const isDesktop = useBreakpoint({ from: "tablet" });
-  const imgRef = useRef<HTMLImageElement | null>(null);
-  const cardRef = useCallback<RefCallback<HTMLDivElement>>(
-    (node) => {
-      if (!node || !imgRef.current || isDesktop) return;
-      imgRef.current.style.height = node.clientHeight.toString().concat("px");
-    },
-    [isDesktop],
-  );
+  const { cardRef, imgRef } = useAdjustHeight();
 
   return (
     <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>

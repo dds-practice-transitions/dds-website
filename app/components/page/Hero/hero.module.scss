@@ -201,7 +201,7 @@
       a {
         width: 100%;
         justify-content: center;
-        height: make-rem(52);
+        min-height: make-rem(52);
       }
     }
 
@@ -323,11 +323,12 @@
       flex-direction: column;
       gap: make-rem(16);
       justify-content: center;
+
       button,
       a {
         width: 100%;
         justify-content: center;
-        height: make-rem(44);
+        min-height: make-rem(44);
       }
     }
   }
