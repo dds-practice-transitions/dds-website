@@ -15,7 +15,7 @@ import {
 } from "@remix-run/react";
 
 import "./theme/theme.css";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import { PrismicProvider, SliceZone } from "@prismicio/react";
 import { getPrismicClient } from "./lib/prismic";
 import {
@@ -79,38 +79,50 @@ export function Layout({ children }: { children: ReactNode }) {
         <SEOFavicon />
       </head>
       <body>
-        <PageHeader>
-          <PageHeaderColumn>
-            <Link to="/">
-              <PageHeaderLogo
-                src={response.layout.logo.url ?? undefined}
-                alt={response.layout.logo.url ?? undefined}
-              />
-            </Link>
-          </PageHeaderColumn>
-          <PageHeaderColumn>
-            <Navbar
-              ddLogoSrc={response.navbar.mobile_menu_logo.url ?? ""}
-              ddLogoAlt={response.navbar.mobile_menu_logo.alt ?? ""}
-            >
-              <SliceZone
-                slices={response.navbar.slices}
-                components={components}
-              />
-            </Navbar>
-          </PageHeaderColumn>
-          <PageHeaderColumn>
-            <ButtonLink
-              ddSize="sm"
-              ddVariant="primary"
-              LinkComponent={withAdapterLink({
-                field: response.layout.contact_cta_link,
-              })}
-            >
-              {response.layout.contact_cta_label}
-            </ButtonLink>
-          </PageHeaderColumn>
-        </PageHeader>
+        {useMemo(
+          () => (
+            <PageHeader>
+              <PageHeaderColumn>
+                <Link to="/">
+                  <PageHeaderLogo
+                    src={response.layout.logo.url ?? undefined}
+                    alt={response.layout.logo.url ?? undefined}
+                  />
+                </Link>
+              </PageHeaderColumn>
+              <PageHeaderColumn>
+                <Navbar
+                  ddLogoSrc={response.navbar.mobile_menu_logo.url ?? ""}
+                  ddLogoAlt={response.navbar.mobile_menu_logo.alt ?? ""}
+                >
+                  <SliceZone
+                    slices={response.navbar.slices}
+                    components={components}
+                  />
+                </Navbar>
+              </PageHeaderColumn>
+              <PageHeaderColumn>
+                <ButtonLink
+                  ddSize="sm"
+                  ddVariant="primary"
+                  LinkComponent={withAdapterLink({
+                    field: response.layout.contact_cta_link,
+                  })}
+                >
+                  {response.layout.contact_cta_label}
+                </ButtonLink>
+              </PageHeaderColumn>
+            </PageHeader>
+          ),
+          [
+            response.layout.contact_cta_label,
+            response.layout.contact_cta_link,
+            response.layout.logo.url,
+            response.navbar.mobile_menu_logo.alt,
+            response.navbar.mobile_menu_logo.url,
+            response.navbar.slices,
+          ],
+        )}
         <main>
           {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
           {children}
