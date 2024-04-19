@@ -6,7 +6,6 @@ import { Down } from "@icon-park/react";
 import { Icon } from "../display/Icon";
 import { NativeAnchor, NativeButton } from "../native";
 import { useDrawerContext } from "../dialogs/Drawer";
-import { useBreakpoint } from "../../hooks";
 
 export type NavbarLinkProps = JSX.IntrinsicElements["a"] & {
   ddLabel: string;
@@ -78,8 +77,8 @@ const NavbarLinkMobile = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
   },
 );
 
-const NavbarLinkDesktop = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
-  function NavbarLinkDesktop({ children, ...restProps }, ref) {
+const NavbarLinkTablet = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
+  function NavbarLinkTablet({ children, ...restProps }, ref) {
     return (
       <Link {...restProps} ref={ref}>
         {children}
@@ -88,22 +87,7 @@ const NavbarLinkDesktop = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
   },
 );
 
-export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
-  function NavbarLink({ children, ...restProps }, ref) {
-    const isMobile = useBreakpoint({ to: "tablet" });
-
-    if (isMobile) {
-      return (
-        <NavbarLinkMobile {...restProps} ref={ref}>
-          {children}
-        </NavbarLinkMobile>
-      );
-    }
-
-    return (
-      <NavbarLinkDesktop {...restProps} ref={ref}>
-        {children}
-      </NavbarLinkDesktop>
-    );
-  },
-);
+export const NavbarLink = {
+  Mobile: NavbarLinkMobile,
+  Tablet: NavbarLinkTablet,
+};

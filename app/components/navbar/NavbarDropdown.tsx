@@ -1,40 +1,39 @@
-import { forwardRef } from "react";
-import { useBreakpoint } from "../../hooks";
+import { FC, ReactNode, forwardRef } from "react";
 import { Menu, useMenu } from "../dialogs/Menu";
 import { MenuList } from "../dialogs/Menu/MenuList";
 
-export type NavbarDropdown = JSX.IntrinsicElements["ul"] &
-  ReturnType<typeof useMenu>;
-export const NavbarDropdown = forwardRef<HTMLUListElement, NavbarDropdown>(
-  function NavbarDropdown(
-    {
-      children,
-      closeProps,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      openMenu,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      closeMenu,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      openProps,
-      menuRef,
-      ...restProps
-    },
-    ref,
-  ) {
-    const isMobile = useBreakpoint({ to: "tablet" });
+export type NavbarDropdownMobilePropsNative = JSX.IntrinsicElements["ul"];
+export type NavbarDropdownMobileProps = NavbarDropdownMobilePropsNative;
 
-    if (isMobile) {
-      return (
-        <ul {...restProps} ref={ref}>
-          {children}
-        </ul>
-      );
-    }
+export const NavbarDropdownMobile = forwardRef<
+  HTMLUListElement,
+  NavbarDropdownMobileProps
+>(function NavbarDropdownMobile({ children, ...restProps }, ref) {
+  return (
+    <ul {...restProps} ref={ref}>
+      {children}
+    </ul>
+  );
+});
 
-    return (
-      <Menu ref={menuRef}>
-        <MenuList {...closeProps}>{children}</MenuList>
-      </Menu>
-    );
-  },
-);
+export type NavbarDropdownTabletPropsCustom = ReturnType<typeof useMenu> & {
+  children: ReactNode;
+};
+export type NavbarDropdownTabletProps = NavbarDropdownTabletPropsCustom;
+
+const NavbarDropdownTablet: FC<NavbarDropdownTabletProps> = ({
+  children,
+  menuRef,
+  closeProps,
+}) => {
+  return (
+    <Menu ref={menuRef}>
+      <MenuList {...closeProps}>{children}</MenuList>
+    </Menu>
+  );
+};
+
+export const NavbarDropdown = {
+  Mobile: NavbarDropdownMobile,
+  Tablet: NavbarDropdownTablet,
+};
