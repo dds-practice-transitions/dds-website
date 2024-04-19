@@ -41,21 +41,19 @@ export default function ServicesPage() {
       />
       <KnowledgeBase>
         <KnowledgeBaseNav>
-          <ul>
-            {loaderData.articles.map((article) => {
-              return (
-                <li key={article.id}>
-                  <KnowledgeBaseNavItem
-                    LinkComponent={withAdapterNavLink({
-                      to: article.url as string,
-                    })}
-                  >
-                    {article.data.title}
-                  </KnowledgeBaseNavItem>
-                </li>
-              );
-            })}
-          </ul>
+          {loaderData.articles.map((article) => {
+            return (
+              <li key={article.id}>
+                <KnowledgeBaseNavItem
+                  LinkComponent={withAdapterNavLink({
+                    to: article.url as string,
+                  })}
+                >
+                  {article.data.title}
+                </KnowledgeBaseNavItem>
+              </li>
+            );
+          })}
         </KnowledgeBaseNav>
         <KnowledgeBaseContent>
           <Outlet />

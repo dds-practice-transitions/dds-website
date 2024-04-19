@@ -18,12 +18,11 @@ const FooterColumn = ({ slice }: FooterColumnProps): JSX.Element => {
   return (
     <FooterCol ddTitle={slice.primary.title as string}>
       {slice.items.map((item, i) => (
-        <FooterColLink
-          key={`footer-col-link-${i}`}
-          LinkComponent={withAdapterLink({ field: item.link })}
-        >
-          {item.label}
-        </FooterColLink>
+        <li key={`footer-col-link-${i}`}>
+          <FooterColLink LinkComponent={withAdapterLink({ field: item.link })}>
+            {item.label}
+          </FooterColLink>
+        </li>
       ))}
     </FooterCol>
   );

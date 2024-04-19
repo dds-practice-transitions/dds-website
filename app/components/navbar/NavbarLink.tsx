@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import { Down } from "@icon-park/react";
 import { Icon } from "../display/Icon";
-import { NativeAnchor } from "../native";
+import { NativeAnchor, NativeButton } from "../native";
 import { useDrawerContext } from "../dialogs/Drawer";
 import { useBreakpoint } from "../../hooks";
 
@@ -46,21 +46,24 @@ export const Link = forwardRef<
     [ddLabel, isMenu],
   );
 
+  const Component = isMenu ? NativeButton : LinkComponent;
+
   return (
-    <LinkComponent
+    <Component
       {...restProps}
       onClick={onClose}
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-      tabIndex={0}
+      tabIndex={isMenu ? undefined : 0}
       className={clsx(styles["navbar-link"], className, {
         menu: isMenu,
         active: ddActive || className.includes("active"),
       })}
+      // @ts-expect-error Button can change the ref here but we don't really care
       ref={ref}
     >
       {Content}
       {children}
-    </LinkComponent>
+    </Component>
   );
 });
 
