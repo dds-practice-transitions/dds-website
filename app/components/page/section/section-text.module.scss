@@ -1,0 +1,61 @@
+@import "../../../theme/utils";
+
+.root {
+}
+
+.content {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.text {
+  font-family: var(--font-family);
+  h1 {
+    font-size: make-rem(48);
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+  }
+  h2 {
+    font-size: make-rem(36);
+    line-height: 1.2;
+    padding-bottom: make-rem(16);
+    color: make-color(grey-6);
+    border-bottom: make-rem(1) solid make-color(grey-1);
+  }
+  h3 {
+    font-size: make-rem(32);
+    letter-spacing: normal;
+    line-height: 1.2;
+    margin-top: make-rem(28);
+    color: make-color(grey-5);
+  }
+  h4 {
+    font-size: make-rem(24);
+    letter-spacing: normal;
+    line-height: 1.2;
+    color: make-color(grey-4);
+  }
+  p {
+    line-height: 1.8;
+  }
+  a {
+    color: make-color(primary-dark);
+    background-color: make-color(primary, 0.2);
+    padding: 0 make-rem(4);
+    text-decoration: underline;
+    font-weight: 700;
+
+    &:hover {
+      background-color: make-color(primary, 0.3);
+    }
+  }
+  ul {
+    li {
+      line-height: 1.8;
+      & + li {
+        margin-top: make-rem(16);
+      }
+    }
+  }
+}

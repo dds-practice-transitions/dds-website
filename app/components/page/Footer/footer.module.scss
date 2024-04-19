@@ -1,0 +1,128 @@
+@import "../../../theme/utils";
+
+.footer {
+  background: make-color(secondary-dark);
+  width: 100%;
+
+  @include make-responsive(zero, desktop) {
+    display: flex;
+    flex-direction: column;
+    gap: make-rem(48);
+    padding: make-rem(52) make-rem(32);
+  }
+
+  @include make-responsive-desktop {
+    padding: 0 make-rem(16);
+  }
+}
+
+.top {
+  @include make-responsive(zero, desktop) {
+  }
+
+  @include make-responsive-desktop {
+    padding: make-rem(72) 0;
+    max-width: make-rem(1024);
+    margin: 0 auto;
+  }
+}
+
+.bottom {
+  color: make-color(paper, 0.8);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: make-rem(1) solid make-color(paper, 0.4);
+
+  @include make-responsive(zero, desktop) {
+    padding-top: make-rem(24);
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  @include make-responsive-desktop {
+    max-width: make-rem(1024);
+    height: make-rem(60);
+  }
+
+  a {
+    text-decoration: underline;
+    color: make-color(paper);
+  }
+
+  span {
+    padding: make-rem(4);
+  }
+}
+
+.main {
+  @include make-responsive(zero, desktop) {
+    text-align: center;
+  }
+
+  @include make-responsive-desktop {
+    display: grid;
+    grid-template-columns: make-rem(300) 1fr;
+  }
+
+  img {
+    max-height: make-rem(32);
+    max-width: make-rem(260);
+    width: auto;
+  }
+
+  p {
+    color: make-color(paper, 0.8);
+    font-size: make-rem(16);
+    line-height: make-rem(24);
+    font-weight: 400;
+  }
+}
+
+.cols {
+  @include make-responsive(zero, desktop) {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: min-content;
+    margin-top: make-rem(48);
+    row-gap: make-rem(48);
+    column-gap: make-rem(32);
+  }
+
+  @include make-responsive-desktop {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.column {
+  ul {
+    @include make-reset-ul();
+  }
+
+  h3 {
+    margin: 0;
+    margin-bottom: make-rem(32);
+    font-size: make-rem(16);
+    line-height: make-rem(22);
+    font-weight: 600;
+    color: make-color(paper);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: make-rem(24);
+  }
+}
+
+.column-link {
+  color: make-color(paper, 0.8);
+
+  &:hover {
+    color: make-color(paper);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

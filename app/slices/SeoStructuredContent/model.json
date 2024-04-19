@@ -1,0 +1,58 @@
+{
+  "id": "structured_content",
+  "type": "SharedSlice",
+  "name": "SeoStructuredContent",
+  "description": "StructuredContent",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "question": {
+          "type": "Text",
+          "config": {
+            "label": "Question",
+            "placeholder": ""
+          }
+        },
+        "answer": {
+          "type": "Text",
+          "config": {
+            "label": "Answer",
+            "placeholder": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "faqPage",
+      "name": "FAQPage",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "question": {
+          "type": "Text",
+          "config": {
+            "label": "Question",
+            "placeholder": ""
+          }
+        },
+        "answer": {
+          "type": "Text",
+          "config": {
+            "label": "Answer",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

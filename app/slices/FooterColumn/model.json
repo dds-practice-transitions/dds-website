@@ -1,0 +1,42 @@
+{
+  "id": "footer_column",
+  "type": "SharedSlice",
+  "name": "FooterColumn",
+  "description": "FooterColumn",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

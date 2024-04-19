@@ -1,36 +1,44 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
-import { UnderConstruction } from "../components";
+import {
+  LoaderFunctionArgs,
+  json,
+  type MetaFunction,
+} from "@remix-run/cloudflare";
+import { getPrismicClient } from "../lib/prismic";
+import { useLoaderData } from "@remix-run/react";
+import { SliceZone } from "@prismicio/react";
+import { components } from "../slices";
+import { makeSEOPage } from "../lib/seo";
+import invariant from "tiny-invariant";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Home | DDS Practice Transitions" },
-    {
-      name: "description",
-      content: "Your practice, our expertise, transparent results",
-    },
-  ];
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+  const client = getPrismicClient(context);
+
+  try {
+    const res = await client.getByUID("home", "home");
+    return json({ data: res.data, url: res.url });
+  } catch (error) {
+    console.log(error);
+    throw new Response("Not found", {
+      status: 404,
+    });
+  }
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data: resData }) => {
+  invariant(resData?.data, "Response is missing data.");
+
+  return makeSEOPage({
+    title: resData.data.meta_title,
+    description: resData.data.meta_description,
+    pageType: "website",
+    pageURL: resData.url,
+    imageAlt: resData.data.meta_image.alt,
+    imageURL: resData.data.meta_image.url,
+  });
 };
 
 export default function Index() {
-  return (
-    <div>
-      <UnderConstruction>
-        <img
-          src="/logo-stacked-color.png"
-          alt="dds-practice-transitions-logo"
-        />
-        <h1
-          style={{
-            textAlign: "center",
-          }}
-        >
-          <strong>Coming soon!</strong>
-        </h1>
-        <p>
-          We&apos;re in the process of building out our web presence. Check in
-          periodically to see our progress!
-        </p>
-      </UnderConstruction>
-    </div>
-  );
+  const data = useLoaderData<typeof loader>();
+
+  return <SliceZone slices={data.data.slices} components={components} />;
 }

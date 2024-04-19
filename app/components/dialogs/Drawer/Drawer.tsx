@@ -28,7 +28,7 @@ export const Drawer = forwardRef(function Drawer<T extends DialogDefaultState>(
   }: DrawerProps,
   ref: ForwardedRef<DialogRef<T>>,
 ) {
-  const { Portal, dialogRef, dialogState } = useDialog<T>({
+  const { Portal, dialogRef, dialogState, closeDialog } = useDialog<T>({
     ref,
     type: "modal",
     ...restProps,
@@ -36,7 +36,7 @@ export const Drawer = forwardRef(function Drawer<T extends DialogDefaultState>(
 
   return (
     <Portal>
-      <DialogProvider initialState={dialogState}>
+      <DialogProvider initialState={dialogState} closeDialog={closeDialog}>
         <dialog
           ref={dialogRef}
           className={clsx(

@@ -1,0 +1,6 @@
+{
+  "repositoryName": "dds-practice-transitions",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./app/slices"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}

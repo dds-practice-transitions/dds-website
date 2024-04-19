@@ -1,0 +1,152 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "go",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "official",
+				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "secondary",
+				"type": "Select"
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "location",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "noted",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "alone",
+				"type": "Text"
+			},
+			"email_address": {
+				"__TYPE__": "FieldContent",
+				"value": "appropriate",
+				"type": "Text"
+			},
+			"phone_number": {
+				"__TYPE__": "FieldContent",
+				"value": "trade",
+				"type": "Text"
+			},
+			"address_1": {
+				"__TYPE__": "FieldContent",
+				"value": "including",
+				"type": "Text"
+			},
+			"address_2": {
+				"__TYPE__": "FieldContent",
+				"value": "clearly",
+				"type": "Text"
+			},
+			"location_url": {
+				"__TYPE__": "FieldContent",
+				"value": "declared",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "contentLeft",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "particles",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "tin",
+				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "grey-1",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withFormRight",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "replied",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "today",
+				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "secondary",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withFormLeft",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "hurt",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "method",
+				"type": "Text"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "primary",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

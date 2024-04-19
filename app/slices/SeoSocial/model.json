@@ -1,0 +1,38 @@
+{
+  "id": "seo_social",
+  "type": "SharedSlice",
+  "name": "SeoSocial",
+  "description": "SeoSocial",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "page_type": {
+          "type": "Select",
+          "config": {
+            "label": "Page Type",
+            "placeholder": "",
+            "options": [
+              "Website",
+              "DO_NOT_SELECT"
+            ]
+          }
+        },
+        "card_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

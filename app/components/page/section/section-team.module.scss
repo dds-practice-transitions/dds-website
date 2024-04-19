@@ -1,0 +1,65 @@
+@import "../../../theme/utils";
+
+.root {
+}
+
+.content {
+  margin: 0 auto;
+
+  & > h2,
+  & > h3 {
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.team {
+  @include make-responsive(tablet, desktop) {
+    width: 100%;
+    padding: make-rem(64) make-rem(32);
+  }
+
+  @include make-responsive(desktop) {
+    padding: make-rem(64) make-rem(32);
+  }
+}
+
+.members {
+  @include make-reset-ul();
+
+  // Responsive - up to tablet
+  @include make-responsive(zero, desktop) {
+    margin-top: make-rem(32);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: make-rem(16);
+  }
+
+  // Responsive - desktop
+  @include make-responsive(desktop) {
+    max-width: make-rem(1280);
+    margin: 0 auto;
+    margin-top: make-rem(40);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: make-rem(16);
+    padding: 0 make-rem(80);
+  }
+
+  .action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: make-rem(16);
+    margin-top: make-rem(24);
+
+    @include make-responsive-mobile {
+      a,
+      button {
+        width: 100% !important;
+        text-align: center;
+      }
+    }
+  }
+}

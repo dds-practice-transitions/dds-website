@@ -33,3 +33,9 @@ $breakpoints: (
     @content;
   }
 }
+
+@mixin make-responsive-desktop() {
+  @include make-responsive(desktop) {
+    @content;
+  }
+}

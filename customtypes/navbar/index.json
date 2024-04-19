@@ -1,0 +1,37 @@
+{
+  "format": "custom",
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "mobile_menu_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Mobile Menu Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "navbar_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "team",
+  "type": "SharedSlice",
+  "name": "Team",
+  "description": "Team",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "full_name": {
+          "type": "Text",
+          "config": {
+            "label": "Full Name",
+            "placeholder": ""
+          }
+        },
+        "job_title": {
+          "type": "Text",
+          "config": {
+            "label": "Job Title",
+            "placeholder": ""
+          }
+        },
+        "job_description": {
+          "type": "Text",
+          "config": {
+            "label": "Job Description",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "view_member_label": {
+          "type": "Text",
+          "config": {
+            "label": "View Member Label",
+            "placeholder": ""
+          }
+        },
+        "view_member_link": {
+          "type": "Link",
+          "config": {
+            "label": "View Member Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "view_member_variant": {
+          "type": "Select",
+          "config": {
+            "label": "View Member Variant",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "paper"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

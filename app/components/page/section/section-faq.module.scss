@@ -1,0 +1,21 @@
+@import "../../../theme/utils";
+
+.root {
+}
+
+.content {
+  max-width: make-rem(1024);
+  margin: 0 auto;
+}
+
+.content {
+  @include make-responsive(tablet) {
+    width: make-rem(600);
+    margin: 0 auto;
+    text-align: center;
+    padding: make-rem(64) 0;
+  }
+}
+
+.faq {
+}

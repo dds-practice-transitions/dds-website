@@ -1,1 +1,0 @@
-export { PageFooterColumn } from "./PageFooterColumn";

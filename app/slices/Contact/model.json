@@ -1,0 +1,216 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "description": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Content Right",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "grey-1"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "email_address": {
+          "type": "Text",
+          "config": {
+            "label": "Email Address",
+            "placeholder": ""
+          }
+        },
+        "phone_number": {
+          "type": "Text",
+          "config": {
+            "label": "Phone Number",
+            "placeholder": ""
+          }
+        },
+        "address_1": {
+          "type": "Text",
+          "config": {
+            "label": "Address 1",
+            "placeholder": ""
+          }
+        },
+        "address_2": {
+          "type": "Text",
+          "config": {
+            "label": "Address 2",
+            "placeholder": ""
+          }
+        },
+        "location_url": {
+          "type": "Text",
+          "config": {
+            "label": "Location URL",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "contentLeft",
+      "name": "Content Left",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "grey-1"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withFormRight",
+      "name": "WithForm - Right",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "grey-1"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withFormLeft",
+      "name": "WithForm - Left",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": [
+              "primary",
+              "secondary",
+              "grey-1"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

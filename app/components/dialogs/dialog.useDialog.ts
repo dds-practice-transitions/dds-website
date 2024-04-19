@@ -161,7 +161,8 @@ export const useDialog = <T extends DialogDefaultState = DialogDefaultState>(
       dialogRef,
       dialogState,
       Portal,
+      closeDialog,
     }),
-    [Portal, dialogRef, dialogState],
+    [Portal, closeDialog, dialogRef, dialogState],
   );
 };

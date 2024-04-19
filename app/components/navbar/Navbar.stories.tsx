@@ -29,7 +29,10 @@ export const Basic = () => {
   });
 
   return (
-    <Navbar>
+    <Navbar
+      ddLogoSrc="/images/logos/logo-wordmark-stacked-2-tone-transparent.png"
+      ddLogoAlt="logo"
+    >
       <NavbarItem>
         <NavbarLink ddLabel="about" />
       </NavbarItem>

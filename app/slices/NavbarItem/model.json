@@ -1,0 +1,69 @@
+{
+  "id": "navbar_item",
+  "type": "SharedSlice",
+  "name": "NavbarItem",
+  "description": "NavbarItem",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Single Link",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withSubmenu",
+      "name": "With Submenu",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}
