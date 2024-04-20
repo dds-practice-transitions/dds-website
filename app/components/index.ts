@@ -27,5 +27,5 @@ export {
   NavbarDropdown,
   NavbarDropdownItem,
   NavbarDropdownLink,
-} from "./navbar";
+} from "./navigation";
 export { UnderConstruction } from "./page/UnderConstruction";

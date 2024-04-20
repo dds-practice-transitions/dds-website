@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
 import { PageHeader } from "./PageHeader";
 
-import { Basic as NavbarStory } from "../../navbar/Navbar.stories";
+import { Basic as NavbarStory } from "../../navigation/TopNav.stories";
 import { PageHeaderColumn } from "./PageHeaderSection";
 import { PageHeaderLogo } from "./PageHeaderLogo";
 import { Button } from "../../inputs/Button";

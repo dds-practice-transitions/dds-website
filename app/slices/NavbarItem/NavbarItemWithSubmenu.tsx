@@ -11,7 +11,6 @@ import {
 import { withPrismicAdapterNavLink } from "../../adapters";
 import { type NavbarItemSliceWithSubmenu } from "../../../prismicio-types";
 import { ResponsiveMobile } from "../../utils";
-import { ResponsiveTablet } from "../../utils/ResponsiveTablet";
 
 export const NavbarItemWithSubmenu: FC<NavbarItemSliceWithSubmenu> = (
   slice,
@@ -23,27 +22,29 @@ export const NavbarItemWithSubmenu: FC<NavbarItemSliceWithSubmenu> = (
   });
 
   return (
-    <NavItem>
+    <>
       <ResponsiveMobile>
-        <NavbarLink.Mobile ddLabel={slice.primary.label as string}>
-          <NavbarDropdown.Mobile>
-            {slice.items.map((item, i) => {
-              return (
-                <NavbarDropdownItem key={`dropdown-${i}`}>
-                  <NavbarDropdownLink.Mobile
-                    LinkComponent={withPrismicAdapterNavLink({
-                      field: item.link,
-                    })}
-                  >
-                    {item.label}
-                  </NavbarDropdownLink.Mobile>
-                </NavbarDropdownItem>
-              );
-            })}
-          </NavbarDropdown.Mobile>
-        </NavbarLink.Mobile>
+        <NavItem>
+          <NavbarLink.Mobile ddLabel={slice.primary.label as string}>
+            <NavbarDropdown.Mobile>
+              {slice.items.map((item, i) => {
+                return (
+                  <NavbarDropdownItem key={`dropdown-${i}`}>
+                    <NavbarDropdownLink.Mobile
+                      LinkComponent={withPrismicAdapterNavLink({
+                        field: item.link,
+                      })}
+                    >
+                      {item.label}
+                    </NavbarDropdownLink.Mobile>
+                  </NavbarDropdownItem>
+                );
+              })}
+            </NavbarDropdown.Mobile>
+          </NavbarLink.Mobile>
+        </NavItem>
       </ResponsiveMobile>
-      <ResponsiveTablet>
+      <NavItem>
         <NavbarLink.Tablet
           ddLabel={slice.primary.label as string}
           {...sMenu.openProps}
@@ -64,7 +65,7 @@ export const NavbarItemWithSubmenu: FC<NavbarItemSliceWithSubmenu> = (
             })}
           </NavbarDropdown.Tablet>
         </NavbarLink.Tablet>
-      </ResponsiveTablet>
-    </NavItem>
+      </NavItem>
+    </>
   );
 };

@@ -39,10 +39,8 @@ const calculateSize = (
  */
 export function useBreakpoint(params: UseBreakpointParams) {
   const initShouldRender = useMemo(() => {
-    if (typeof window !== "undefined") {
-      return calculateSize(params, window.innerWidth);
-    }
-    return false;
+    if (typeof window === "undefined") return false;
+    return calculateSize(params, window.innerWidth);
   }, [params]);
 
   const [shouldRender, setShouldRender] = useState(initShouldRender);

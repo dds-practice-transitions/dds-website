@@ -4,10 +4,10 @@ import styles from "./navbar.module.css";
 import { Icon } from "../display/Icon";
 import { HamburgerButton } from "@icon-park/react";
 
-export const NavbarLauncher = forwardRef<
+export const SideNavLauncher = forwardRef<
   HTMLButtonElement,
   JSX.IntrinsicElements["button"]
->(function NavbarLauncher({ className, ...restProps }, ref) {
+>(function SideNavLauncher({ className, ...restProps }, ref) {
   return (
     <button
       {...restProps}
