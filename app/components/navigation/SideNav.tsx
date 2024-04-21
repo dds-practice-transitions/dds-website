@@ -5,6 +5,7 @@ import { Drawer, useDrawer } from "../dialogs/Drawer";
 import { SideNavLauncher } from "./SideNavLauncher";
 import { Close } from "@icon-park/react";
 import { Icon } from "../display/Icon";
+import { NavigationProvider } from "./Nav.context";
 
 export type SideNavPropsNative = JSX.IntrinsicElements["nav"];
 export type SideNavPropsCustom = {
@@ -18,8 +19,9 @@ export const SideNav = forwardRef<HTMLElement, SideNavProps>(function SideNav(
   ref,
 ) {
   const { openDrawer, drawerRef, closeDrawer } = useDrawer();
+
   return (
-    <>
+    <NavigationProvider navType="side">
       <SideNavLauncher onClick={openDrawer} />
       <Drawer ref={drawerRef} ddSize="lg" ddOrientation="right-to-left">
         <nav {...restProps} className={clsx(styles.root, className)} ref={ref}>
@@ -38,6 +40,6 @@ export const SideNav = forwardRef<HTMLElement, SideNavProps>(function SideNav(
           </div>
         </nav>
       </Drawer>
-    </>
+    </NavigationProvider>
   );
 });

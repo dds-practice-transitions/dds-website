@@ -2,6 +2,7 @@ import { ReactElement, forwardRef } from "react";
 import { clsx } from "clsx";
 import styles from "./navbar.module.css";
 import { NavLinkProps } from "./NavLink";
+import { NavigationProvider } from "./Nav.context";
 
 export type TopNavPropsNative = Omit<
   JSX.IntrinsicElements["nav"],
@@ -17,8 +18,10 @@ export const TopNav = forwardRef<HTMLElement, TopNavProps>(function TopNav(
   ref,
 ) {
   return (
-    <nav {...restProps} className={clsx(styles.navbar, className)} ref={ref}>
-      <ul>{children}</ul>
-    </nav>
+    <NavigationProvider navType="top">
+      <nav {...restProps} className={clsx(styles.navbar, className)} ref={ref}>
+        <ul>{children}</ul>
+      </nav>
+    </NavigationProvider>
   );
 });
