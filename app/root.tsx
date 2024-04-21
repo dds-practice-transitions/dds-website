@@ -68,95 +68,6 @@ export function Layout({ children }: { children: ReactNode }) {
     footer: FooterDocumentData;
   };
 
-  const HeaderComponent = useMemo(
-    () => (
-      <PageHeader>
-        <PageHeaderColumn>
-          <Link to="/">
-            <PageHeaderLogo
-              src={response.layout.logo.url ?? undefined}
-              alt={response.layout.logo.url ?? undefined}
-            />
-          </Link>
-        </PageHeaderColumn>
-        <PageHeaderColumn>
-          <TopNav>
-            <SliceZone
-              slices={response.navbar.slices}
-              components={components}
-            />
-          </TopNav>
-          <SideNav
-            ddLogoSrc={response.navbar.mobile_menu_logo.url ?? ""}
-            ddLogoAlt={response.navbar.mobile_menu_logo.alt ?? ""}
-          >
-            <SliceZone
-              slices={response.navbar.slices}
-              components={components}
-            />
-          </SideNav>
-        </PageHeaderColumn>
-        <PageHeaderColumn>
-          <ButtonLink
-            ddSize="sm"
-            ddVariant="primary"
-            LinkComponent={withAdapterLink({
-              field: response.layout.contact_cta_link,
-            })}
-          >
-            {response.layout.contact_cta_label}
-          </ButtonLink>
-        </PageHeaderColumn>
-      </PageHeader>
-    ),
-    [
-      response.layout.contact_cta_label,
-      response.layout.contact_cta_link,
-      response.layout.logo.url,
-      response.navbar.mobile_menu_logo.alt,
-      response.navbar.mobile_menu_logo.url,
-      response.navbar.slices,
-    ],
-  );
-
-  const FooterComponent = useMemo(
-    () => (
-      <Footer>
-        <FooterTop
-          ddImgSrc={response.footer.logo.url as string}
-          ddImgAlt={response.footer.logo.alt as string}
-          ddSummary={response.footer.summary as string}
-        >
-          <SliceZone slices={response.footer.slices} components={components} />
-        </FooterTop>
-        <FooterBottom ddCopyrightYear={2024}>
-          <FooterColumnLink
-            LinkComponent={withAdapterLink({
-              field: response.footer.terms_and_conditions_link,
-            })}
-          >
-            Terms and Conditions
-          </FooterColumnLink>
-          <FooterColumnLink
-            LinkComponent={withAdapterLink({
-              field: response.footer.privacy_policy_link,
-            })}
-          >
-            Privacy Policy
-          </FooterColumnLink>
-        </FooterBottom>
-      </Footer>
-    ),
-    [
-      response.footer.logo.alt,
-      response.footer.logo.url,
-      response.footer.privacy_policy_link,
-      response.footer.slices,
-      response.footer.summary,
-      response.footer.terms_and_conditions_link,
-    ],
-  );
-
   return (
     <html lang="en">
       <head>
@@ -168,12 +79,76 @@ export function Layout({ children }: { children: ReactNode }) {
         <SEOFavicon />
       </head>
       <body>
-        {HeaderComponent}
-        {/* <main> */}
-        {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
-        {children}
-        {/* </main> */}
-        {FooterComponent}
+        <PageHeader>
+          <PageHeaderColumn>
+            <Link to="/">
+              <PageHeaderLogo
+                src={response.layout.logo.url ?? undefined}
+                alt={response.layout.logo.url ?? undefined}
+              />
+            </Link>
+          </PageHeaderColumn>
+          <PageHeaderColumn>
+            <TopNav>
+              <SliceZone
+                slices={response.navbar.slices}
+                components={components}
+              />
+            </TopNav>
+            <SideNav
+              ddLogoSrc={response.navbar.mobile_menu_logo.url ?? ""}
+              ddLogoAlt={response.navbar.mobile_menu_logo.alt ?? ""}
+            >
+              <SliceZone
+                slices={response.navbar.slices}
+                components={components}
+              />
+            </SideNav>
+          </PageHeaderColumn>
+          <PageHeaderColumn>
+            <ButtonLink
+              ddSize="sm"
+              ddVariant="primary"
+              LinkComponent={withAdapterLink({
+                field: response.layout.contact_cta_link,
+              })}
+            >
+              {response.layout.contact_cta_label}
+            </ButtonLink>
+          </PageHeaderColumn>
+        </PageHeader>
+        <main>
+          {/* children will be the root Component, ErrorBoundary, or HydrateFallback */}
+          {children}
+        </main>
+        <Footer>
+          <FooterTop
+            ddImgSrc={response.footer.logo.url as string}
+            ddImgAlt={response.footer.logo.alt as string}
+            ddSummary={response.footer.summary as string}
+          >
+            <SliceZone
+              slices={response.footer.slices}
+              components={components}
+            />
+          </FooterTop>
+          <FooterBottom ddCopyrightYear={2024}>
+            <FooterColumnLink
+              LinkComponent={withAdapterLink({
+                field: response.footer.terms_and_conditions_link,
+              })}
+            >
+              Terms and Conditions
+            </FooterColumnLink>
+            <FooterColumnLink
+              LinkComponent={withAdapterLink({
+                field: response.footer.privacy_policy_link,
+              })}
+            >
+              Privacy Policy
+            </FooterColumnLink>
+          </FooterBottom>
+        </Footer>
         <Scripts />
         <ScrollRestoration />
         <LiveReload />
