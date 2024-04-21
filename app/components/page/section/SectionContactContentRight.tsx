@@ -21,7 +21,7 @@ export const SectionContactContentRight = forwardRef<
 ) {
   return (
     <Section {...restProps} className={clsx(styles.root, className)} ref={ref}>
-      <div className={clsx(styles.content, styles["right"])}>
+      <div className={clsx(styles.contact, styles["right"])}>
         <div>
           <SectionTitle>{ddTitle}</SectionTitle>
           {ddSubtitle && (

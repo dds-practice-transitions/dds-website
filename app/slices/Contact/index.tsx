@@ -4,7 +4,7 @@ import {
   SectionContactContentLeft,
   SectionContactContentRight,
   SectionContactLocation,
-} from "../../components";
+} from "../../components/page/section";
 import { ReactNode } from "react";
 import { WithContactUsForm } from "./WithContactUsForm";
 
