@@ -25,3 +25,16 @@
     }
   }
 }
+
+.result {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.result-icon {
+  color: make-color(primary);
+  display: block;
+}
