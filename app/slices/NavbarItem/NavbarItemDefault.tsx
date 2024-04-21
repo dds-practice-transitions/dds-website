@@ -1,18 +1,20 @@
 import { FC } from "react";
 
-import { NavbarItem as NavItem, NavbarLink } from "../../components";
 import { withPrismicAdapterNavLink } from "../../adapters";
 import { NavbarItemSliceDefault } from "../../../prismicio-types";
+import { useNavigationContext } from "../../components/navigation";
 
 export const NavbarItemDefault: FC<NavbarItemSliceDefault> = (slice) => {
+  const { NavigationLink, NavigationItem } = useNavigationContext();
+
   return (
-    <NavItem>
-      <NavbarLink
+    <NavigationItem>
+      <NavigationLink
         ddLabel={slice.primary.label as string}
         LinkComponent={withPrismicAdapterNavLink({
           field: slice.primary.link,
         })}
       />
-    </NavItem>
+    </NavigationItem>
   );
 };

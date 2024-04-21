@@ -15,7 +15,7 @@ import {
 } from "@remix-run/react";
 
 import "./theme/theme.css";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import { PrismicProvider, SliceZone } from "@prismicio/react";
 import { getPrismicClient } from "./lib/prismic";
 import {
@@ -25,7 +25,6 @@ import {
 } from "../prismicio-types";
 import {
   PageHeader,
-  Navbar,
   Footer,
   FooterBottom,
   FooterColumnLink,
@@ -37,6 +36,8 @@ import { PageHeaderColumn } from "./components/page/PageHeader/PageHeaderSection
 import { components } from "./slices";
 import { withAdapterLink } from "./adapters";
 import { SEOFavicon } from "./lib/seo";
+import { TopNav } from "./components/navigation/TopNav";
+import { SideNav } from "./components/navigation/SideNav";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -54,7 +55,6 @@ export const loader: LoaderFunction = async ({ context }) => {
       await Promise.all([getLayout, getNavbar, getFooter]);
     return json({ layout, navbar, footer });
   } catch (error) {
-    console.log(error);
     throw new Response("Not found", {
       status: 404,
     });
@@ -67,13 +67,6 @@ export function Layout({ children }: { children: ReactNode }) {
     navbar: NavbarDocumentData;
     footer: FooterDocumentData;
   };
-  const error = useRouteError();
-
-  if (typeof response === "undefined") return;
-
-  if (error) {
-    return null;
-  }
 
   return (
     <html lang="en">
@@ -96,7 +89,13 @@ export function Layout({ children }: { children: ReactNode }) {
             </Link>
           </PageHeaderColumn>
           <PageHeaderColumn>
-            <Navbar
+            <TopNav>
+              <SliceZone
+                slices={response.navbar.slices}
+                components={components}
+              />
+            </TopNav>
+            <SideNav
               ddLogoSrc={response.navbar.mobile_menu_logo.url ?? ""}
               ddLogoAlt={response.navbar.mobile_menu_logo.alt ?? ""}
             >
@@ -104,7 +103,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 slices={response.navbar.slices}
                 components={components}
               />
-            </Navbar>
+            </SideNav>
           </PageHeaderColumn>
           <PageHeaderColumn>
             <ButtonLink

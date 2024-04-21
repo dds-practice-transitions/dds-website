@@ -20,12 +20,4 @@ export * from "./forms";
 
 export { PageHeader } from "./page/PageHeader";
 
-export {
-  Navbar,
-  NavbarLink,
-  NavbarItem,
-  NavbarDropdown,
-  NavbarDropdownItem,
-  NavbarDropdownLink,
-} from "./navbar";
 export { UnderConstruction } from "./page/UnderConstruction";
