@@ -1,6 +1,9 @@
+import { FC } from "react";
 import { InputCheckbox, InputGroup, InputRadio, InputText } from "../inputs";
 import { Button } from "../inputs/Button";
 import styles from "./form.contact.module.css";
+import { Icon } from "../display/Icon";
+import { CheckOne } from "@icon-park/react";
 
 const informationValues = [
   {
@@ -25,7 +28,25 @@ const informationValues = [
   },
 ];
 
-export const FormContactUs = () => {
+const FormContactUsResult = () => {
+  return (
+    <div className={styles.result}>
+      <div>
+        <Icon DDIcon={CheckOne} ddSize={48} className={styles["result-icon"]} />
+        <h3>Success!</h3>
+        <p>Thank you for reaching out! We'll be in touch shortly.</p>
+      </div>
+    </div>
+  );
+};
+
+export const FormContactUs: FC<{ isLoading: boolean; isSuccess: boolean }> = ({
+  isLoading,
+  isSuccess,
+}) => {
+  if (isSuccess) {
+    return <FormContactUsResult />;
+  }
   return (
     <div className={styles.contact}>
       <div className="section">
@@ -71,7 +92,9 @@ export const FormContactUs = () => {
           required
         />
       </div>
-      <Button ddVariant="secondary">Submit</Button>
+      <Button ddVariant="secondary" disabled={isLoading} type="submit">
+        {isLoading ? "Loading..." : "Submit"}
+      </Button>
     </div>
   );
 };
