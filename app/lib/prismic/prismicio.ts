@@ -45,3 +45,20 @@ export const getPrismicClient = (context: AppLoadContext) => {
     routes,
   });
 };
+
+/**
+ * A different helper function to use on the CLI
+ */
+export const getPrismicCLIClient = ({
+  repoName,
+  accessToken,
+}: {
+  repoName: string;
+  accessToken: string;
+}) => {
+  return createClient(repoName, {
+    accessToken: accessToken,
+    brokenRoute: "/404",
+    routes,
+  });
+};
