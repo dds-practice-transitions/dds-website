@@ -15,7 +15,7 @@
     "build-storybook": "storybook build",
     "storybook:deploy": "storybook build && wrangler deploy",
     "slicemachine": "start-slicemachine",
-    "sitemap:gen": "npx sitemap-generator-cli https://ddsbrokerage.com -f ./public/sitemap.xml --last-mod"
+    "sitemap:gen": "npx sitemap-generator-cli https://ddsbrokerage.com --filepath=./public/sitemap.xml --last-mod --change-freq=monthly --priority-map=1.0,0.8 0.6,0.4"
   },
   "dependencies": {
     "@icon-park/react": "^1.4.2",
